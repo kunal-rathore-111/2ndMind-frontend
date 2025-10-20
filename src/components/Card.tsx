@@ -21,7 +21,7 @@ function getYoutubeId(link: string) {
     return youtubeID;
 }
 
-const defaultStyles = "rounded-xl p-4 border border-slate-200 shadow-md min-w-2xs min-h-80 flex flex-col gap-4"
+const defaultStyles = "rounded-xl p-4 bg-white border border-slate-200 shadow-md min-w-2xs min-h-65 flex flex-col gap-4"
 export const CardComp = (props: CardInterface) => {
 
 
@@ -40,7 +40,7 @@ export const CardComp = (props: CardInterface) => {
                 <ShareIcon></ShareIcon>
             </div>
         </div>
-        <div>
+        <div className="flex flex-col justify-evenly">
             {props.type === "youtube" ?
                 /* getting youtube id usign regex for embeding casue the youtube share link has watch and youtube embeed works on embeed with the id */
                 <iframe className="w-full h-full rounded-lg"

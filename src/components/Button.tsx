@@ -16,7 +16,7 @@ const defaultStyles = "text p-2 rounded-md cursor-pointer flex items-center gap-
 
 export const ButtonComp = (props: ButtonTypes) => {
 
-    return <span
+    return <span onClick={props.onClick}
         className={`${defaultStyles} ${onVariantStyle[props.variant]} `}
     >
         {props.startIcon}  {props.title}

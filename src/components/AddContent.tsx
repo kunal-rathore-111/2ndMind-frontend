@@ -1,29 +1,31 @@
-import { useState } from "react"
 import { CrossIcon } from "../assets/crossIcon";
 import { ButtonComp } from "./Button";
 // controlled compoonent
-export const AddContent = () => {
-
-    const open = true;
+// taking state variable and a function as input to hide the add content card 
+export const AddContent = ({ open, onClose }: { open: boolean, onClose: () => void }) => {
 
     return <div>
         {open ?
-            <div className="h-screen w-screen top-0 left-0 fixed bg-slate-50 opacity-75 flex justify-center items-center">
-                <span className="flex flex-col bg-white border rounded-md opacity-100">
+            <div className="h-screen w-screen top-0 left-0 fixed flex justify-center items-center">
+                <div className="absolute bg-slate-50 opacity-60 h-full w-full "> </div >
+                <div className=" absolute bg-slate-50 flex">
+                    <div className="  flex flex-col bg-white border rounded-md opacity-100">
 
-                    {/* close button */}
-                    <div className="flex justify-end cursor-pointer pt-2 pr-2">
-                        <CrossIcon></CrossIcon>
-                    </div>
+                        {/* close button */}
+                        <div className=" flex justify-end cursor-pointer pt-2 pr-2" onClick={onClose}>
+                            <CrossIcon></CrossIcon>
+                        </div>
 
-                    <div className="p-5 flex flex-col">
-                        <InputComponent placeholder="Title" />
-                        <InputComponent placeholder="Link" />
+                        <div className="p-5 flex flex-col">
+                            <InputComponent placeholder="Title" />
+                            <InputComponent placeholder="Link" />
+                        </div>
+                        <div className="flex justify-center my-5">
+                            <ButtonComp variant="primary" title="Submit" />
+                        </div>
+
                     </div>
-                    <div className="flex justify-center">
-                        <ButtonComp variant="primary" title="Submit" />
-                    </div>
-                </span >
+                </div>
 
             </div>
             : ""}
@@ -31,8 +33,8 @@ export const AddContent = () => {
 
 }
 
-const InputComponent = ({ onChange, placeholder }: { onChange: () => void, placeholder: string }) => {
-    return <div >
-        < input placeholder={placeholder} type="text" className="px-4 py-2" onChange={onChange} />
+const InputComponent = ({ onChange, placeholder }: { onChange?: () => void, placeholder: string }) => {
+    return <div className="my-2">
+        < input placeholder={placeholder} type="text" className="px-4 py-2 border" onChange={onChange} />
     </div >
 }
