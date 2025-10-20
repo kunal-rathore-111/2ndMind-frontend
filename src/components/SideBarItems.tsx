@@ -6,7 +6,7 @@ interface SideBarInterface {
 }
 
 export const SideBarComponent = (props: SideBarInterface) => {
-    return <div className=" w-full flex gap-3 items-center hover:bg-lime-300 px-4 py-1 rounded transition duration-300 ">
+    return <div className="flex w-full items-center gap-3 hover:bg-lime-300 px-4 py-1 rounded transition duration-200 ">
         {props.icon} {props.title}
     </div>
 }
