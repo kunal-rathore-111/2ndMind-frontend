@@ -3,6 +3,7 @@ import { InputComponent } from "../InputComp"
 import { ButtonComp } from "../Button"
 import { useRef } from "react"
 import { BackendUrl } from "../../config/Url"
+import { useNavigate } from "react-router-dom"
 
 export const SignUp = () => {
 
@@ -10,6 +11,7 @@ export const SignUp = () => {
 
     const UsernameRef = useRef<HTMLInputElement>(null);
     const PassswordRef = useRef<HTMLInputElement>(null);
+    const navigate = useNavigate();
 
     async function signupFunc() {
         const username = UsernameRef.current?.value;
@@ -26,6 +28,9 @@ export const SignUp = () => {
         });
         const res = await respond.json();
         alert(JSON.stringify(res?.message));
+        if (respond.ok) {
+            navigate('/sign-in');
+        }
     }
 
     return <div className="h-full w-full bg-white flex justify-center items-center fixed ">

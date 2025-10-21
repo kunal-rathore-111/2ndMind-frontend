@@ -3,10 +3,12 @@ import { InputComponent } from "../InputComp"
 import { ButtonComp } from "../Button"
 import { useRef } from "react"
 import { BackendUrl } from "../../config/Url";
+import { useNavigate } from "react-router-dom";
 export const SignIn = () => {
 
     const UsernameRef = useRef<HTMLInputElement>(null);
     const PasswordRef = useRef<HTMLInputElement>(null);
+    const navigate = useNavigate();
     async function SignInFunc() {
         const username = UsernameRef.current?.value;
         const password = PasswordRef.current?.value;
@@ -18,11 +20,13 @@ export const SignIn = () => {
             },
             body: JSON.stringify({
                 username, password
-            })
+            }),
+            credentials: "include"
         })
 
         const res = await respond.json();
         alert(JSON.stringify(res?.message));
+        if (respond.ok) navigate('/dashboard')
     }
 
     return <div className="h-full w-full bg-white flex justify-center items-center fixed ">
