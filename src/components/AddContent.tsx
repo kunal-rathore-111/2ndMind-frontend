@@ -1,5 +1,6 @@
 import { CrossIcon } from "../assets/crossIcon";
 import { ButtonComp } from "./Button";
+import { InputComponent } from "./InputComp";
 // controlled compoonent
 // taking state variable and a function as input to hide the add content card 
 export const AddContent = ({ open, onClose }: { open: boolean, onClose: () => void }) => {
@@ -31,10 +32,4 @@ export const AddContent = ({ open, onClose }: { open: boolean, onClose: () => vo
             : ""}
     </div >
 
-}
-
-const InputComponent = ({ onChange, placeholder }: { onChange?: () => void, placeholder: string }) => {
-    return <div className="my-2">
-        < input placeholder={placeholder} type="text" className="px-4 py-2 border" onChange={onChange} />
-    </div >
 }
