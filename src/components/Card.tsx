@@ -6,7 +6,7 @@ import { ShareIcon } from "../assets/ButtonIcons"
 
 interface CardInterface {
     title: string,
-    type: "youtube" | "twitter"
+    type: "Youtube" | "Twitter" | "Other"
     link: string,
 }
 
@@ -41,17 +41,17 @@ export const CardComp = (props: CardInterface) => {
             </div>
         </div>
         <div className="flex flex-col justify-evenly">
-            {props.type === "youtube" ?
+            {props.type === "Youtube" ?
                 /* getting youtube id usign regex for embeding casue the youtube share link has watch and youtube embeed works on embeed with the id */
                 <iframe className="w-full h-full rounded-lg"
                     src={`https://youtube.com/embed/${getYoutubeId(props.link)}?autoplay=0`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 : ""
             }
-            {props.type === "twitter" ? <div>
+            {props.type === "Twitter" ? <div>
                 <blockquote className="twitter-tweet w-full">
                     {/* the twitter share link comes with x.com but its href works for twiiter.com so needs to replace */}
                     <a href={props.link.replace('x.com', 'twitter.com')}></a>
-                </blockquote>  <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+                </blockquote>
             </div> : ""}
         </div>
     </div>
