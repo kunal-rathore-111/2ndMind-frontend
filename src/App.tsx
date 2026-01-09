@@ -1,22 +1,22 @@
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import { SignUp } from "./components/signComp/Signup";
-import { SignIn } from "./components/signComp/Signin";
-import { Dashboard } from "./components/Dashboard";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import ErrorPage from "./pages/ErrorPage";
 
 
-const App = () => {
 
-  return <BrowserRouter>
-    <Routes>
-      <Route path="/sign-up" element={<SignUp />} />
-      <Route path="/sign-in" element={<SignIn />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-    </Routes>
-  </BrowserRouter>
-
+export default function App() {
+  return <div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<LandingPage />} />
+        <Route path='/sign-in' element={<LandingPage />} />
+        <Route path='/sign-up' element={<LandingPage />} />
+        <Route path='/privacy' element={<LandingPage />} />
+        <Route path='/terms' element={<LandingPage />} />
+        <Route path='/contact' element={<LandingPage />} />
+        <Route path='/home' element={<LandingPage />} />
+        <Route path='/*' element={<ErrorPage />} />
+      </Routes>
+    </BrowserRouter>
+  </div>
 }
-
-
-export default App;
