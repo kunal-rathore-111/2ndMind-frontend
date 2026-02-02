@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import ErrorPage from "./pages/ErrorPage";
+import { Signup } from "./pages/Signup";
 
 
 
@@ -10,7 +11,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/signin' element={<LandingPage />} />
-        <Route path='/signup' element={<LandingPage />} />
+        <Route path='/signup' element={<Signup />} />
         <Route path='/privacy' element={<LandingPage />} />
         <Route path='/terms' element={<LandingPage />} />
         <Route path='/contact' element={<LandingPage />} />
