@@ -9,8 +9,8 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/sign-in' element={<LandingPage />} />
-        <Route path='/sign-up' element={<LandingPage />} />
+        <Route path='/signin' element={<LandingPage />} />
+        <Route path='/signup' element={<LandingPage />} />
         <Route path='/privacy' element={<LandingPage />} />
         <Route path='/terms' element={<LandingPage />} />
         <Route path='/contact' element={<LandingPage />} />
