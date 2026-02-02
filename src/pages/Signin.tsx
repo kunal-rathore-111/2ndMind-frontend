@@ -4,7 +4,7 @@ import { SubmitButton } from "../components/Sign/Button";
 import { Link } from "react-router-dom";
 
 
-export function Signup() {
+export function Signin() {
     return <form className="flex h-screen items-center justify-center bg-stone-100">
         <div className="shadow-stone-600 shadow-sm rounded-2xl min-w-100 min-h-140 bg-white flex items-center px-10">
 
@@ -18,17 +18,16 @@ export function Signup() {
 
                 {/* for inputs */}
                 <div className="flex flex-col space-y-4">
-                    <SignInput title={"Username"} holder={"Choose a username"} />
-                    <SignInput title={"Password"} holder={"Create a password"} />
-                    <SignInput title={"Confirm Password"} holder={"Confirm your password"} />
+                    <SignInput title={"Username"} holder={"Enter your username"} />
+                    <SignInput title={"Password"} holder={"Enter your password"} />
                 </div>
 
                 {/* for submit and already have acc */}
                 <div className="flex flex-col items-center gap-4 mt-2">
-                    <SubmitButton buttonName={"Create Account"} />
+                    <SubmitButton buttonName={"Sign In"} />
                     <span className="flex gap-1">
-                        Already have an account?
-                        <Link to={'/signin'} className="hover:underline cursor-pointer">Sign in</Link>
+                        Don't have an account?
+                        <Link to={'/signup'} className="hover:underline cursor-pointer">Sign up</Link>
                     </span>
                 </div>
             </span>
