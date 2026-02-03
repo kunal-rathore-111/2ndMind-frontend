@@ -1,15 +1,15 @@
-import { ArrowLeft, Brain } from "lucide-react";
+import { Brain } from "lucide-react";
 import { SignInput } from "../components/Sign/SignInput";
 import { SubmitButton } from "../components/Sign/Button";
 import { Link } from "react-router-dom";
+import { BackToHome } from "../components/Button/BackToHome";
 
 
 export function Signin() {
     return <form className="flex flex-col h-screen items-center justify-center bg-stone-100 gap-6">
-        <Link to={'/'} className="flex justify-start gap-1 cursor-pointer hover:mr-4 transition-all duration-600 min-w-100">
-            <ArrowLeft className="w-5 h-6" />
-            Back to home
-        </Link>
+
+        <BackToHome />
+
         <div className="shadow-stone-600 shadow-sm rounded-2xl min-w-100 min-h-140 bg-white flex items-center px-10">
 
             <span className="flex flex-col gap-8 w-full ">

@@ -1,11 +1,11 @@
 
 
 import { motion } from 'framer-motion'
-import { ArrowLeft, Brain } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Brain } from 'lucide-react'
+import { BackToHome } from '../Button/BackToHome'
 
 
-export function PrivacyPageNav() {
+export function ExtraPagesNav() {
     return <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -22,12 +22,8 @@ export function PrivacyPageNav() {
                 </button>
 
 
-                <div className="flex  gap-4 dark:text-white">
-
-
-                    <Link to={'/'} className="flex gap-1 cursor-pointer hover:mr-4 transition-all duration-600 min-w-100 items-center justify-end">
-                        <ArrowLeft className="w-4 h-4" /> Back to home
-                    </Link>
+                <div className="flex gap-4 dark:text-white">
+                    <BackToHome />
                 </div>
             </div>
         </div>

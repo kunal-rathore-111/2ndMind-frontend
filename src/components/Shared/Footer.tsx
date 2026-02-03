@@ -1,8 +1,8 @@
 import { Brain } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
-export function LandingFooter() {
+export function FooterComp() {
     return <footer className="py-12 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -26,13 +26,18 @@ export function LandingFooter() {
                         { to: '/terms', label: 'Terms' },
                         { to: '/contact', label: 'Contact' }
                     ].map((link) => (
-                        <Link
+                        <NavLink
                             key={link.to}
                             to={link.to}
-                            className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition text-sm"
+                            className={({ isActive }) =>
+                                `text-sm transition ${isActive
+                                    ? "text-gray-900 dark:text-white font-semibold"
+                                    : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                                }`
+                            }
                         >
                             {link.label}
-                        </Link>
+                        </NavLink>
                     ))}
                 </div>
             </div>
