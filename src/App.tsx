@@ -8,6 +8,7 @@ import Lenis from "lenis";
 import { useEffect } from "react";
 import { TermsPage } from "./pages/TermsPage";
 import { ContactPage } from "./pages/ContactPage";
+import { DashboardPage } from "./pages/HomePage";
 
 
 
@@ -37,7 +38,7 @@ export default function App() {
         <Route path='/privacy' element={<PrivacyPage />} />
         <Route path='/terms' element={<TermsPage />} />
         <Route path='/contact' element={<ContactPage />} />
-        <Route path='/home' element={<LandingPage />} />
+        <Route path='/dashboard' element={<DashboardPage />} />
         <Route path='/*' element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

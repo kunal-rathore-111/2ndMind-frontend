@@ -28,7 +28,7 @@ export function PrivacyPage() {
     }, [])
 
     return <div className="bg-black flex flex-col ">
-        <ExtraPagesNav />
+        <ExtraPagesNav useFor="others" />
 
         {/* full main content */}
         <div className="pt-36 pb-16 px-8 lg:px-28 text-white flex flex-col gap-9 ">
