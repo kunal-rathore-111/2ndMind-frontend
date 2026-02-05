@@ -6,7 +6,7 @@ import { BackToHome } from "../components/Button/BackToHome";
 
 export function TermsPage() {
     return <div className="flex flex-col bg-black/98 text-white">
-        <ExtraPagesNav useFor="others" />
+        <ExtraPagesNav navHeading="2ndMind" navSubHeading="Terms" useFor="others" />
         <section className="pt-34 flex flex-col px-10 lg:px-80 ">
             <h1 className="text-5xl font-semibold mb-4 transition-colors duration-500">Terms of Service</h1>
             <p className="text-white/60">Last updated: Feburary 3, 2026</p>

@@ -2,15 +2,20 @@ import { motion } from 'framer-motion'
 import { Brain, LogOut, Plus, Share2 } from 'lucide-react'
 import { BackToHome } from '../Button/BackToHome'
 
-interface NavDTO {
-    useFor: "dashboard" | "others"
+interface useForDTO {
+    useFor: "dashboard" | "share" | "others"
+}
+interface NavDTO extends useForDTO {
+    navHeading: string,
+    navSubHeading: string,
+
 }
 
-export function ExtraPagesNav({ useFor }: NavDTO) {
+export function ExtraPagesNav({ navHeading, navSubHeading, useFor }: NavDTO) {
     return <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black/85 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black/80 opacity-95 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
 
         <div className="max- mx-auto px-6 pt-2 lg:px-22">
             <div className="flex items-center justify-between h-20">
@@ -20,18 +25,15 @@ export function ExtraPagesNav({ useFor }: NavDTO) {
                         <Brain className="w-6 h-6 text-white dark:text-black" />
                     </div>
                     <span className='flex flex-col items-start'>
-                        <span className="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-300">2ndMind</span>
-                        {useFor === "dashboard" ? <span className='text-white text-sm'>Dashboard</span>
-                            : ""}
+                        <span className="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-300">
+                            {navHeading}
+                        </span>
+                        <span className='text-white text-sm'>{navSubHeading}</span>
                     </span>
                 </button>
 
+                <FunctionsofNavComps useFor={useFor} />
 
-                {useFor === "others" ? <div className="flex gap-4 dark:text-white">
-                    <BackToHome />
-                </div>
-                    : <DashboardNavComps />
-                }
 
             </div>
         </div>
@@ -54,4 +56,15 @@ function DashboardNavComps() {
             <LogOut className='w-5 h-5' />
         </motion.span>
     </div>
+}
+
+
+function FunctionsofNavComps({ useFor }: useForDTO) {
+    if (useFor === 'dashboard') return <DashboardNavComps />
+    else {
+
+        return <div className="flex gap-4 dark:text-white">
+            <BackToHome />
+        </div>
+    }
 }

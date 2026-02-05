@@ -39,16 +39,16 @@ export function LandingPageNav() {
                     </button>
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 group">
                     <div className='text-amber-50'>
-                        ThemeToggleIcon
+                        ThemeToggle
                     </div>
 
                     <Link to="/signin">
                         <motion.button
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="px-5 py-2.5 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition text-sm font-medium"
+                            className="px-5 py-2.5 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition text-sm font-medium hidden sm:inline"
                         >
                             Sign In
                         </motion.button>
@@ -58,7 +58,7 @@ export function LandingPageNav() {
                         <motion.button
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="px-6 py-2.5 bg-black dark:bg-white text-white dark:text-black rounded-xl text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-300"
+                            className="px-3 py-2 sm:px-6 sm:py-2.5 bg-black dark:bg-white text-white dark:text-black rounded-xl text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-300"
                         >
                             Get Started
                         </motion.button>

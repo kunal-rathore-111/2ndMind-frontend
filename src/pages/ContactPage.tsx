@@ -51,9 +51,9 @@ export function ContactPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
+        <div className=" bg-white dark:bg-black transition-colors duration-300">
 
-            <ExtraPagesNav useFor="others" />
+            <ExtraPagesNav navHeading="2ndMind" navSubHeading="Contact" useFor="others" />
 
             <div className="pt-32 pb-20 px-6 lg:px-8">
                 <div className="max-w-5xl mx-auto">
@@ -72,7 +72,7 @@ export function ContactPage() {
                     </motion.div>
 
                     <div className="grid md:grid-cols-2 gap-6 mb-12">
-                        {socialLinks.map((link, index) => {
+                        {socialLinks.map((link) => {
                             const Icon = link.icon;
 
                             return (
@@ -85,7 +85,7 @@ export function ContactPage() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.4 }}
                                     whileHover={{ y: -2 }}
-                                    className="group relative bg-white dark:bg-blue-900/20 rounded-2xl p-8 border border-black/80 dark:border-white/80 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-500 shadow-sm hover:shadow-md"
+                                    className="group relative bg-white dark:bg-blue-900/20 rounded-2xl px-3 py-6 sm:p-8 border border-black/80 dark:border-white/80 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-500 shadow-sm hover:shadow-md"
                                 >
                                     <div className={`absolute inset-0 bg-gradient-to-br ${link.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`} />
 
