@@ -1,1 +1,14 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: light;
+    }
+}
+
+:root.dark {
+    color-scheme: dark;
+}
+
+@variant dark (&:where(.dark, .dark *));

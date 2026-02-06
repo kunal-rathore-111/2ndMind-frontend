@@ -15,23 +15,23 @@ export function Card({ Icon, title, description, points, classname }: { Icon?: L
 
     const color = colorMap[classname] || "#ffffff"
 
-    return <div className="group flex flex-col m-3 px-7 py-6 rounded-2xl bg-black/80 gap-5 border border-white/10 hover:border-white/20 hover:bg-black/70 transition-all duration-700">
+    return <div className="group flex flex-col m-3 px-7 py-6 rounded-2xl bg-gray-50 dark:bg-black/80 gap-5 border border-gray-300 dark:border-white/10 hover:border-gray-400 dark:hover:border-white/20 hover:bg-gray-100 dark:hover:bg-black/70 transition-all duration-700">
         <div className="flex items-center gap-3">
             {Icon ? <div>
                 <span className="flex p-3 rounded-lg transition-colors duration-700" style={{ backgroundColor: `${color}15` }}>
                     <Icon className={`h-7 w-7 `} style={{ color }} />
                 </span>
             </div> : null}
-            <h1 className="font-bold text-3xl text-white/90 group-hover:text-white transition-colors duration-700">{title}</h1>
+            <h1 className="font-bold text-3xl text-gray-900 dark:text-white/90 group-hover:text-black dark:group-hover:text-white transition-colors duration-700">{title}</h1>
 
         </div>
-        <p className="text-white/70 text-base leading-relaxed group-hover:text-white/80 transition-colors duration-700">{description}</p>
+        <p className="text-gray-700 dark:text-white/70 text-base leading-relaxed group-hover:text-gray-900 dark:group-hover:text-white/80 transition-colors duration-700">{description}</p>
         {
             points ?
                 points.map(x =>
                     <span className="flex items-center gap-3">
                         <div className="w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-700" style={{ background: color, boxShadow: `0 0 8px ${color}` }} />
-                        <p className="text-white/70 text-base group-hover:text-white/80 transition-colors duration-700">{x}</p>
+                        <p className="text-gray-700 dark:text-white/70 text-base group-hover:text-gray-900 dark:group-hover:text-white/80 transition-colors duration-700">{x}</p>
                     </span>)
                 :
                 ""

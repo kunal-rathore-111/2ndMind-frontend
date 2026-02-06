@@ -1,15 +1,20 @@
 import { ExtraPagesNav } from "../components/Shared/ExtraPagesNav";
 import { Card } from "../components/Shared/CardofComps";
 import { FooterComp } from "../components/Shared/Footer";
-import { BackToHome } from "../components/Button/BackToHome";
+import { useEffect } from "react";
 
 
 export function TermsPage() {
-    return <div className="flex flex-col bg-black/98 text-white">
+
+    useEffect(() => {
+        scrollTo(0, 0)
+    })
+
+    return <div className="flex flex-col bg-white dark:bg-black/98 text-gray-900 dark:text-white transition-colors duration-300">
         <ExtraPagesNav navHeading="2ndMind" navSubHeading="Terms" useFor="others" />
-        <section className="pt-34 flex flex-col px-10 lg:px-80 ">
+        <section className="pt-34 flex flex-col px-10 lg:px-80 pb-20 ">
             <h1 className="text-5xl font-semibold mb-4 transition-colors duration-500">Terms of Service</h1>
-            <p className="text-white/60">Last updated: Feburary 3, 2026</p>
+            <p className="text-gray-600 dark:text-white/60 transition-colors duration-300">Last updated: Feburary 3, 2026</p>
 
             <section className="flex flex-col">
                 <Card title="Agreement to Terms" description={`By accessing or using 2ndMind ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access the Service.`} classname={""} />
@@ -54,22 +59,20 @@ export function TermsPage() {
 
                 <Card title="Changes to Terms" description={`We reserve the right to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. By continuing to access or use our Service after revisions become effective, you agree to be bound by the revised terms.`} classname={""} />
 
-                <div className="mt-6 text-white/80">
+                <div className="mt-6 text-gray-700 dark:text-white/80 transition-colors duration-300">
                     <h2 className="text-xl font-semibold mb-2">Contact Us</h2>
                     <p className="mb-2">If you have any questions about these Terms, please contact us:</p>
                     <ul className="list-disc pl-5 space-y-1">
                         <li>
-                            Email: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kunalworkspace111@gmail.com" className="text-amber-300 hover:text-amber-200 hover:underline transition-colors duration-500" target="_blank" rel="noreferrer">kunalworkspace111@gmail.com</a>
+                            Email: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kunalworkspace111@gmail.com" className="text-amber-600 dark:text-amber-300 hover:text-amber-700 dark:hover:text-amber-200 hover:underline transition-colors duration-500" target="_blank" rel="noreferrer">kunalworkspace111@gmail.com</a>
                         </li>
                         <li>
-                            Visit our <a href="/contact" className="text-amber-300 hover:text-amber-200 hover:underline transition-colors duration-500">contact page</a>
+                            Visit our <a href="/contact" className="text-amber-600 dark:text-amber-300 hover:text-amber-700 dark:hover:text-amber-200 hover:underline transition-colors duration-500">contact page</a>
                         </li>
                     </ul>
                 </div>
             </section>
-
         </section>
-        <BackToHome />
         <FooterComp />
     </div>
 }

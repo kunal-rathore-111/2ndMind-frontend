@@ -3,7 +3,6 @@ import { ExtraPagesNav } from "../components/Shared/ExtraPagesNav";
 import { useEffect } from "react";
 import { FooterComp } from "../components/Shared/Footer";
 import { Card } from "../components/Shared/CardofComps";
-import { BackToHome } from "../components/Button/BackToHome";
 
 
 interface ListDTO {
@@ -27,29 +26,29 @@ export function PrivacyPage() {
         scrollTo(0, 0)
     }, [])
 
-    return <div className="bg-black flex flex-col ">
+    return <div className="bg-white dark:bg-black flex flex-col transition-colors duration-300">
         <ExtraPagesNav navHeading="2ndMind" navSubHeading="Privacy" useFor="others" />
 
         {/* full main content */}
-        <div className="pt-36 pb-16 px-8 lg:px-28 text-white flex flex-col gap-9 ">
+        <div className="pt-36 pb-16 px-8 lg:px-28 text-gray-900 dark:text-white transition-colors duration-300 flex flex-col gap-9 ">
 
             {/* hero of privacy */}
             <section className="flex flex-col gap-5 w-full items-center text-center">
-                <div className="w-18 h-18 flex items-center justify-center bg-white rounded-xl ">
-                    <Shield className="h-12 w-12 text-black" />
+                <div className="w-18 h-18 flex items-center justify-center bg-black dark:bg-white rounded-xl transition-colors duration-300">
+                    <Shield className="h-12 w-12 text-white dark:text-black" />
                 </div>
-                <h1 className="text-6xl font-bold"> Privacy Policy
+                <h1 className="text-6xl font-bold">Privacy Policy
                 </h1>
                 <span>
                     Your privacy is our priority. Here's how we protect your data.
                 </span>
-                <span className="text-sm text-gray-400">
+                <span className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">
                     Last updated: Feb 3, 2026
                 </span>
             </section>
 
             {/* main content of privacy */}
-            <div className="grid lg:grid-cols-4 gap-8 dark:text-white">
+            <div className="grid lg:grid-cols-4 gap-8">
 
                 <div className="min-w-80 col-span-1 p-5 flex flex-col gap-6 lg:sticky top-24 self-start">
                     <h4 className="font-bold">
@@ -57,7 +56,7 @@ export function PrivacyPage() {
                     <div className="flex flex-col gap-2">
                         {ListofContent.map(x => {
                             const Icon = x.icon
-                            return <span className="flex items-center px-4 py-1 gap-2 hover:dark:bg-gray-700 rounded-sm text-gray-400 hover:dark:text-white hover:scale-105 transition-all duration-400 cursor-pointer">
+                            return <span className="flex items-center px-4 py-1 gap-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:scale-105 transition-all duration-400 cursor-pointer">
                                 <Icon className="w-4 h-4" /> {x.title}
                             </span>
                         })}
@@ -100,7 +99,6 @@ export function PrivacyPage() {
                     ]} classname={'cyan-400'} />
                 </div>
 
-                <BackToHome />
             </div>
         </div >
 

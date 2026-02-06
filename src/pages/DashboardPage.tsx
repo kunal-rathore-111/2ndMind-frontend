@@ -7,7 +7,7 @@ import { DashBoardAndShareFooter } from "../components/Shared/DashboardAndShareF
 
 export function DashboardPage() {
     /* need to wrap in protected form */
-    return <div className="bg-black/95 flex flex-col min-h-screen ">
+    return <div className="bg-white dark:bg-black/95 flex flex-col min-h-screen transition-colors duration-300">
         <ExtraPagesNav navHeading="2ndMind" navSubHeading="Your dashboard" useFor="dashboard" />
 
         {/* main page */}

@@ -8,9 +8,9 @@ const DataDetails = [
 
 export function ContentComp() {
     return <section className="flex flex-col gap-10">
-        <section className="border grid grid-cols-3 gap-5 sm:gap-15 ">
+        <section className=" grid grid-cols-3 gap-5 sm:gap-15 ">
 
-            {DataDetails.map(x => <div className="rounded-xl lg:rounded-2xl bg-gray-900/40 text-gray-300 flex justify-between flex-col gap-1 p-3 md:px-6 lg:px-10 sm:py-3 border border-gray-700 ">{x.name}
+            {DataDetails.map(x => <div className="rounded-xl lg:rounded-2xl bg-gray-100 dark:bg-gray-900/40 text-gray-700 dark:text-gray-300 flex justify-between flex-col gap-1 p-3 md:px-6 lg:px-10 sm:py-3 border border-gray-300 dark:border-gray-700 transition-colors duration-300">{x.name}
                 <span className="font-bold text-4xl">{x.quantity}</span>
             </div>)
             }
@@ -29,8 +29,8 @@ export function ContentComp() {
 }
 
 /* content card to show the user data for grid form used in ContentComp */
-function ContentGridCard({ color }) {
-    return <div className="flex flex-col px-8 py-6 text-gray-200/90 border border-gray-600 rounded-2xl gap-4  group">
+function ContentGridCard({ color }: { color: "YouTube" | "Twitter" | "Others" }) {
+    return <div className="flex flex-col px-8 py-6 text-gray-800 dark:text-gray-200/90 border border-gray-300 dark:border-gray-600 rounded-2xl gap-4 group transition-colors duration-300">
 
         {/* type and its icon */}
         <ContentTypeComp type={color} />
@@ -40,13 +40,13 @@ function ContentGridCard({ color }) {
         <h4 className="font-bold text-lg">{"props.title here  we write the title and the title is TITLE"}</h4>
 
         {/* description */}
-        <p className="text-gray-400">{"props.description we write the description and here im checking my typing speed"}</p>
+        <p className="text-gray-600 dark:text-gray-400 transition-colors duration-300">{"props.description we write the description and here im checking my typing speed"}</p>
 
-        <a href="contentlink" className="flex gap-3"> <ExternalLink className="w-5 h-5" /> view content</a>
+        <a href="contentlink" className="flex gap-3 text-gray-800 dark:text-gray-200 transition-colors duration-300"> <ExternalLink className="w-5 h-5" /> view content</a>
 
         {/* tags which has to be mapped to first two */}
         <div>{/* {"props.tag.map"} */}
-            <span className="bg-gray-500 py-1 px-2 rounded-lg">#{"x max"}</span>
+            <span className="bg-gray-300 dark:bg-gray-500 py-1 px-2 rounded-lg transition-colors duration-300">#{"x max"}</span>
         </div>
     </div >
 }

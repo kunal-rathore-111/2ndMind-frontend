@@ -3,8 +3,17 @@
 import { motion } from 'framer-motion'
 import { Brain } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { ThemeButton } from '../Button/ThemeButton'
+
+
+
 
 export function LandingPageNav() {
+
+    function scrollToViewFunc(id: string) {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    }
+
     return <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -22,27 +31,25 @@ export function LandingPageNav() {
 
                 <div className="hidden md:flex items-center gap-10">
                     <button
-                        onClick={() => { }}
+                        onClick={() => { scrollToViewFunc('features') }}
                         className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition text-sm"
                     >
                         Features
                     </button>
                     <button
-                        onClick={() => { }}
+                        onClick={() => { scrollToViewFunc('how-it-works') }}
                         className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition text-sm">
                         How it Works
                     </button>
                     <button
-                        onClick={() => { }}
+                        onClick={() => { scrollToViewFunc('about') }}
                         className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition text-sm">
                         About
                     </button>
                 </div>
 
                 <div className="flex items-center gap-4 group">
-                    <div className='text-amber-50'>
-                        ThemeToggle
-                    </div>
+                    <ThemeButton darkToggle='false' />
 
                     <Link to="/signin">
                         <motion.button

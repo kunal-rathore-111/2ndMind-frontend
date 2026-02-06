@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Brain, LogOut, Plus, Share2 } from 'lucide-react'
 import { BackToHome } from '../Button/BackToHome'
+import { ThemeButton } from '../Button/ThemeButton'
 
 interface useForDTO {
     useFor: "dashboard" | "share" | "others"
@@ -28,7 +29,7 @@ export function ExtraPagesNav({ navHeading, navSubHeading, useFor }: NavDTO) {
                         <span className="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-300">
                             {navHeading}
                         </span>
-                        <span className='text-white text-sm'>{navSubHeading}</span>
+                        <span className='text-gray-900  dark:text-white text-sm'>{navSubHeading}</span>
                     </span>
                 </button>
 
@@ -42,7 +43,9 @@ export function ExtraPagesNav({ navHeading, navSubHeading, useFor }: NavDTO) {
 
 function DashboardNavComps() {
     return <div className='flex dark:text-white gap-4 items-center'>
-        <span className='flex gap-2 items-center cursor-pointer py-1.5 px-3 rounded-xl border-1 border-white hover:bg-white hover:text-black text-[14px] transition-all duration-900'><Share2 className='w-4 h-4' /> <span className='hidden md:inline'>Share</span></span>
+        <ThemeButton />
+
+        <span className='flex gap-2 items-center cursor-pointer py-1.5 px-3 rounded-xl border  border-white hover:dark:bg-white hover:dark:text-black hover:bg-black hover:text-white text-[14px] transition-all duration-900'><Share2 className='w-4 h-4' /> <span className='hidden md:inline'>Share</span></span>
 
         <span className='flex md:gap-2 items-center cursor-pointer py-1.5 px-3 rounded-xl border  dark:bg-white text-[14px] dark:text-black 
         hover:bg-black hover:text-white  transition-all duration-900
@@ -63,7 +66,8 @@ function FunctionsofNavComps({ useFor }: useForDTO) {
     if (useFor === 'dashboard') return <DashboardNavComps />
     else {
 
-        return <div className="flex gap-4 dark:text-white">
+        return <div className="flex gap-4 dark:text-white items-center">
+            <ThemeButton />
             <BackToHome />
         </div>
     }

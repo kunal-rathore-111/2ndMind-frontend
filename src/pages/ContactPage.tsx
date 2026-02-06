@@ -1,10 +1,9 @@
 
-import { Link } from "react-router-dom";
-import { Brain, ArrowLeft, Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Github, Linkedin, Twitter } from "lucide-react";
 import { motion } from "framer-motion";
-import { BackToHome } from "../components/Button/BackToHome";
 import { FooterComp } from "../components/Shared/Footer";
 import { ExtraPagesNav } from "../components/Shared/ExtraPagesNav";
+import { useEffect } from "react";
 
 export function ContactPage() {
     const socialLinks = [
@@ -50,6 +49,9 @@ export function ContactPage() {
         },
     ];
 
+    useEffect(() => {
+        scrollTo(0, 0)
+    })
     return (
         <div className=" bg-white dark:bg-black transition-colors duration-300">
 
@@ -150,7 +152,6 @@ export function ContactPage() {
 
 
                 </div>
-                <BackToHome></BackToHome>
             </div>
 
             <FooterComp />

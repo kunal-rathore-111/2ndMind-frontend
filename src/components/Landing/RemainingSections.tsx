@@ -42,6 +42,20 @@ const COLOR_CLASSES = {
 
 
 
+
+export function RemainingSections() {
+    return (
+        <div>
+            <FeaturesSection />
+            <HowItWorksSection />
+            <AboutSection />
+            <HowItWorksSection />
+            <CTASection />
+        </div>
+    )
+}
+
+
 function FeaturesSection() {
     return (
         <section id="features" className="py-32 bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
@@ -244,18 +258,5 @@ function CTASection() {
                 </motion.div>
             </div>
         </section>
-    )
-}
-
-// ==================== MAIN EXPORT ====================
-export function RemainingSections() {
-    return (
-        <div>
-            <FeaturesSection />
-            <HowItWorksSection />
-            <AboutSection />
-            <HowItWorksSection />
-            <CTASection />
-        </div>
     )
 }
