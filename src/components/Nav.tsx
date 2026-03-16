@@ -6,9 +6,8 @@ import { MoonIcon } from "@/assets/icons/Moon"
 import { SunIcon } from "@/assets/icons/Sun"
 import { useTheme } from "./theme-provider"
 
-export const NavComp = () => {
+export const Nav = () => {
     const navigate = useNavigate()
-    const scrolled = false
     const { theme, setTheme } = useTheme()
 
     const isDark = theme === "dark";
@@ -28,12 +27,9 @@ export const NavComp = () => {
 
     return (
         <header
-            className={`fixed inset-x-0 top-0 z-200 border-b transition-all duration-300 ${scrolled
-                ? "border-zinc-200 bg-white/95 backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/95"
-                : "border-transparent bg-transparent"
-                }`}
+            className='fixed inset-x-0 top-0 z-200 border-b transition-all duration-300 border-transparent '
         >
-            <nav className="mx-auto flex h-14.5 w-full max-w-264 items-center px-9">
+            <nav className="mx-auto flex h-14.5 w-full max-w-251 items-center px-4  backdrop-blur-sm  bg-white/30 dark:bg-black/0">
 
                 <div className="flex gap-10">
                     <div
@@ -75,26 +71,17 @@ export const NavComp = () => {
                         }}
                         className="
                         flex size-7 items-center justify-center rounded-sm
-
                         border border-zinc-200 dark:border-zinc-700
                         bg-zinc-100 dark:bg-zinc-900
-
                         text-zinc-600 dark:text-zinc-400
-
                         shadow-[0_1px_0_rgba(0,0,0,0.12)]
-
-                        transition-all duration-150
-
-                        hover:-translate-y-px
+                        transition-all duration-300
+                        hover:scale-102
                         hover:shadow-[0_3px_0_rgba(0,0,0,0.18)]
                         hover:border-zinc-300
                         hover:text-zinc-900
-
                         dark:hover:bg-zinc-800
-                        dark:hover:text-zinc-100
-                        active:translate-y-px
-                        active:shadow-[0_1px_0_rgba(0,0,0,0.2)]
-                        "
+                        dark:hover:text-zinc-100"
                     >
                         {isDark ? <SunIcon size={17} /> : <MoonIcon size={17} />}
                     </button>
@@ -105,25 +92,17 @@ export const NavComp = () => {
                         target="_blank"
                         rel="noreferrer"
                         className="
-                        flex size-7 items-center justify-center rounded-sm
-                        border border-zinc-200 dark:border-zinc-700
-                        bg-zinc-100 dark:bg-zinc-900
-                        text-zinc-600 dark:text-zinc-400
+                        flex size-7 items-center justify-center rounded-sm                       
+                        text-zinc-200
+                        hover:bg-zinc-200
+                        hover:text-zinc-700
+                        dark:text-zinc-700
+                        hover:dark:text-zinc-200
+                        hover:dark:bg-zinc-800
+                        transition-all duration-400"
 
-                        shadow-[0_1px_0_rgba(0,0,0,0.12)]
-
-                        transition-all duration-150
-
-                        hover:-translate-y-px
-                        hover:shadow-[0_3px_0_rgba(0,0,0,0.18)]
-                        hover:border-zinc-300
-                        hover:text-zinc-900
-
-                        dark:hover:bg-zinc-800
-                        dark:hover:text-zinc-100
-                        "
                     >
-                        <GithubIcon size={17} />
+                        <GithubIcon size={18} />
                     </a>
 
                     <div className="h-4 w-px bg-zinc-300 dark:bg-zinc-700" />
@@ -133,16 +112,17 @@ export const NavComp = () => {
                         variant={"secondary"}
                         onClick={() => navigate("/signin")} size="sm"
                         className="rounded-sm text-xs
-                        hover:bg-stone-300
-                        dark:hover:bg-stone-700
-                         transition-colors duration-400
-                        
-                         "
+                        hover:bg-zinc-300
+                        hover:text-zinc-900
+                        dark:hover:bg-zinc-700
+                        dark:hover:text-zinc-300
+                         transition-colors duration-400"
                     >
                         Sign In
                     </Button>
+
                     <Button onClick={() => navigate("/signup")} size="sm"
-                        className="rounded-sm text-xs transition-all duration-400 hover:scale-92"
+                        className="rounded-sm text-xs transition-colors duration-400"
                     >
                         Sign Up
                     </Button>

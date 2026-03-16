@@ -1,11 +1,8 @@
-import { BrowserRouter } from "react-router";
-import { NavComp } from "./components/Nav";
+import Layout from "./Layout";
 
 
 export default function App() {
-  return <div className="min-h-screen max-w-screen flex justify-center items-center flex-col ">
-    <BrowserRouter>
-      <NavComp></NavComp>
-    </BrowserRouter>
-  </div>
+  return <>
+    <Layout></Layout>
+  </>
 }

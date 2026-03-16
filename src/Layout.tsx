@@ -1,0 +1,26 @@
+import { BrowserRouter, Route, Routes } from "react-router";
+import Landing from "./Pages/Landing";
+import Signin from "./Pages/Signin";
+import Signup from "./Pages/Signup";
+import Dashboard from "./Pages/Dashboard";
+import SharedProfile from "./Pages/SharedProfile";
+import SharedContent from "./Pages/SharedContent";
+import Docs from "./Pages/Docs";
+
+
+export default function Layout() {
+    return <div className="min-h-screen max-w-screen flex justify-center items-center flex-col ">
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Landing />} />
+                <Route path="/signin" element={<Signin />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/user/dashboard" element={<Dashboard />} />
+                <Route path="/user/public/shared/profile" element={<SharedProfile />} />
+                <Route path="/user/public/shared/content" element={<SharedContent />} />
+                <Route path="/docs" element={<Docs />} />
+            </Routes>
+        </BrowserRouter>
+
+    </div >
+}
