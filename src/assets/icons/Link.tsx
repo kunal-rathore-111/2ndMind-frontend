@@ -5,24 +5,33 @@ import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
-export interface SunIconHandle {
+export interface LinkIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
 }
 
-interface SunIconProps extends HTMLAttributes<HTMLDivElement> {
+interface LinkIconProps extends HTMLAttributes<HTMLDivElement> {
   size?: number;
 }
 
 const PATH_VARIANTS: Variants = {
-  normal: { opacity: 1 },
-  animate: (i: number) => ({
-    opacity: [0, 1],
-    transition: { delay: i * 0.1, duration: 0.3 },
-  }),
+  initial: { pathLength: 1, pathOffset: 0, rotate: 0 },
+  animate: {
+    pathLength: [1, 0.97, 1, 0.97, 1],
+    pathOffset: [0, 0.05, 0, 0.05, 0],
+    rotate: [0, -5, 0],
+    transition: {
+      rotate: {
+        duration: 0.5,
+      },
+      duration: 1,
+      times: [0, 0.2, 0.4, 0.6, 1],
+      ease: "easeInOut",
+    },
+  },
 };
 
-const SunIcon = forwardRef<SunIconHandle, SunIconProps>(
+const LinkIcon = forwardRef<LinkIconHandle, LinkIconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -75,31 +84,22 @@ const SunIcon = forwardRef<SunIconHandle, SunIconProps>(
           width={size}
           xmlns="http://www.w3.org/2000/svg"
         >
-          <circle cx="12" cy="12" r="4" />
-          {[
-            "M12 2v2",
-            "m19.07 4.93-1.41 1.41",
-            "M20 12h2",
-            "m17.66 17.66 1.41 1.41",
-            "M12 20v2",
-            "m6.34 17.66-1.41 1.41",
-            "M2 12h2",
-            "m4.93 4.93 1.41 1.41",
-          ].map((d, index) => (
-            <motion.path
-              animate={controls}
-              custom={index + 1}
-              d={d}
-              key={d}
-              variants={PATH_VARIANTS}
-            />
-          ))}
+          <motion.path
+            animate={controls}
+            d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+            variants={PATH_VARIANTS}
+          />
+          <motion.path
+            animate={controls}
+            d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+            variants={PATH_VARIANTS}
+          />
         </svg>
       </div>
     );
   },
 );
 
-SunIcon.displayName = "SunIcon";
+LinkIcon.displayName = "LinkIcon";
 
-export { SunIcon };
+export { LinkIcon };
