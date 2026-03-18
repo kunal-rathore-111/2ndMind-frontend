@@ -82,8 +82,16 @@ export function ThreeDCardDemo() {
             translateZ="60"
             className="mt-2 max-w-sm text-start text-sm text-zinc-400 dark:text-zinc-700"
           >
-            React lets you build user interfaces out of individual pieces called
-            components. Create your own React components like
+            Array will be here
+          </CardItem>
+
+          <CardItem
+            as="p"
+            translateZ="60"
+            className="mt-2 flex w-full max-w-sm justify-between text-start text-sm text-zinc-400 dark:text-zinc-700"
+          >
+            <div>Date</div>
+            <div>4-5 buttons</div>
           </CardItem>
         </CardItem>
       </CardBody>
