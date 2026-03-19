@@ -7,54 +7,56 @@ import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
-export interface CodeIconHandle {
+export interface EditIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
 }
 
-interface CodeIconProps extends HTMLAttributes<HTMLDivElement> {
+interface EditIconProps extends HTMLAttributes<HTMLDivElement> {
   size?: number;
 }
 
 /* ================= VARIANTS ================= */
 
-// <
-const LEFT_VARIANT: Variants = {
+// main pencil body → draw effect
+const BODY_VARIANTS: Variants = {
   normal: {
-    x: 0,
+    pathLength: 1,
     opacity: 1,
   },
   animate: {
-    x: [-10, 0],
+    pathLength: [0, 1],
     opacity: [0, 1],
     transition: {
-      duration: 0.4,
+      duration: 0.3,
+      ease: "easeOut",
     },
   },
 };
 
-// >
-const RIGHT_VARIANT: Variants = {
+// tip line → slight delay (feels like writing finishing)
+const TIP_VARIANTS: Variants = {
   normal: {
-    x: 0,
+    pathLength: 1,
     opacity: 1,
   },
   animate: {
-    x: [10, 0],
+    pathLength: [0, 1],
     opacity: [0, 1],
     transition: {
-      duration: 0.4,
+      duration: 0.35,
+      delay: 0.15,
+      ease: "easeOut",
     },
   },
 };
 
 /* ================= COMPONENT ================= */
 
-const CodeIcon = forwardRef<CodeIconHandle, CodeIconProps>(
+const EditIcon = forwardRef<EditIconHandle, EditIconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
-    const leftControls = useAnimation();
-    const rightControls = useAnimation();
-
+    const bodyControls = useAnimation();
+    const tipControls = useAnimation();
     const isControlledRef = useRef(false);
 
     useImperativeHandle(ref, () => {
@@ -62,12 +64,12 @@ const CodeIcon = forwardRef<CodeIconHandle, CodeIconProps>(
 
       return {
         startAnimation: async () => {
-          await leftControls.start("animate");
-          await rightControls.start("animate");
+          await bodyControls.start("animate");
+          tipControls.start("animate");
         },
         stopAnimation: () => {
-          leftControls.start("normal");
-          rightControls.start("normal");
+          bodyControls.start("normal");
+          tipControls.start("normal");
         },
       };
     });
@@ -77,11 +79,11 @@ const CodeIcon = forwardRef<CodeIconHandle, CodeIconProps>(
         if (isControlledRef.current) {
           onMouseEnter?.(e);
         } else {
-          await leftControls.start("animate");
-          await rightControls.start("animate");
+          await bodyControls.start("animate");
+          tipControls.start("animate");
         }
       },
-      [leftControls, rightControls, onMouseEnter],
+      [bodyControls, tipControls, onMouseEnter],
     );
 
     const handleMouseLeave = useCallback(
@@ -89,53 +91,52 @@ const CodeIcon = forwardRef<CodeIconHandle, CodeIconProps>(
         if (isControlledRef.current) {
           onMouseLeave?.(e);
         } else {
-          leftControls.start("normal");
-          rightControls.start("normal");
+          bodyControls.start("normal");
+          tipControls.start("normal");
         }
       },
-      [leftControls, rightControls, onMouseLeave],
+      [bodyControls, tipControls, onMouseLeave],
     );
 
     return (
       <div
-        className={cn(className)}
+        className={cn("inline-flex items-center justify-center", className)}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         {...props}
       >
         <svg
-          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          width={size}
           height={size}
+          viewBox="0 0 24 24"
+          fill="none"
           stroke="currentColor"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          width={size}
-          xmlns="http://www.w3.org/2000/svg"
         >
-          {/* < */}
+          {/* body */}
           <motion.path
-            animate={leftControls}
-            d="M7 8l-4 4l4 4"
-            variants={LEFT_VARIANT}
+            d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"
+            animate={bodyControls}
+            initial="normal"
+            variants={BODY_VARIANTS}
           />
 
-          {/* > */}
+          {/* tip */}
           <motion.path
-            animate={rightControls}
-            d="M17 8l4 4l-4 4"
-            variants={RIGHT_VARIANT}
+            d="M13.5 6.5l4 4"
+            animate={tipControls}
+            initial="normal"
+            variants={TIP_VARIANTS}
           />
-
-          {/* / (static) */}
-          <path d="M14 4l-4 16" />
         </svg>
       </div>
     );
   },
 );
 
-CodeIcon.displayName = "CodeIcon";
+EditIcon.displayName = "EditIcon";
 
-export { CodeIcon };
+export { EditIcon };

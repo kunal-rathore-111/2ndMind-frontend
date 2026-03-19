@@ -1,3 +1,5 @@
+"use client";
+
 import type { Variants } from "motion/react";
 import { motion, useAnimation } from "motion/react";
 import type { HTMLAttributes } from "react";
@@ -5,33 +7,37 @@ import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
-export interface LinkIconHandle {
+export interface ShareIconHandle {
   startAnimation: () => void;
   stopAnimation: () => void;
 }
 
-interface LinkIconProps extends HTMLAttributes<HTMLDivElement> {
+interface ShareIconProps extends HTMLAttributes<HTMLDivElement> {
   size?: number;
 }
 
+/* ================= VARIANTS ================= */
+
 const PATH_VARIANTS: Variants = {
-  initial: { pathLength: 1, pathOffset: 0, rotate: 0 },
+  normal: {
+    pathLength: 1,
+    pathOffset: 0,
+    opacity: 1,
+  },
   animate: {
-    pathLength: [1, 0.97, 1, 0.97, 1],
-    pathOffset: [0, 0.05, 0, 0.05, 0],
-    rotate: [0, -5, 0],
+    pathLength: [0, 1],
+    pathOffset: [0.2, 0], // gives forward/outward feel
+    opacity: [0.4, 1],
     transition: {
-      rotate: {
-        duration: 0.5,
-      },
-      duration: 1,
-      times: [0, 0.2, 0.4, 0.6, 1],
-      ease: "easeInOut",
+      duration: 0.5,
+      ease: "easeOut",
     },
   },
 };
 
-const LinkIcon = forwardRef<LinkIconHandle, LinkIconProps>(
+/* ================= COMPONENT ================= */
+
+const ShareIcon = forwardRef<ShareIconHandle, ShareIconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -41,7 +47,7 @@ const LinkIcon = forwardRef<LinkIconHandle, LinkIconProps>(
 
       return {
         startAnimation: () => controls.start("animate"),
-        stopAnimation: () => controls.start("normal"),
+        stopAnimation: () => controls.set("normal"),
       };
     });
 
@@ -61,37 +67,36 @@ const LinkIcon = forwardRef<LinkIconHandle, LinkIconProps>(
         if (isControlledRef.current) {
           onMouseLeave?.(e);
         } else {
-          controls.start("normal");
+          controls.set("normal");
         }
       },
       [controls, onMouseLeave],
     );
+
     return (
       <div
-        className={cn(className)}
+        className={cn("inline-flex items-center justify-center", className)}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         {...props}
       >
         <svg
-          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          width={size}
           height={size}
+          viewBox="0 0 24 24"
+          fill="none"
           stroke="currentColor"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          width={size}
-          xmlns="http://www.w3.org/2000/svg"
         >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
           <motion.path
+            d="M13 4v4c-6.575 1.028 -9.02 6.788 -10 12c-.037 .206 5.384 -5.962 10 -6v4l8 -7l-8 -7"
+            initial="normal"
             animate={controls}
-            d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
-            variants={PATH_VARIANTS}
-          />
-          <motion.path
-            animate={controls}
-            d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
             variants={PATH_VARIANTS}
           />
         </svg>
@@ -100,6 +105,6 @@ const LinkIcon = forwardRef<LinkIconHandle, LinkIconProps>(
   },
 );
 
-LinkIcon.displayName = "LinkIcon";
+ShareIcon.displayName = "ShareIcon";
 
-export { LinkIcon };
+export { ShareIcon };
