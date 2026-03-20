@@ -10,7 +10,7 @@ import { EditIcon } from "@/assets/icons/Card/Edit";
 import { DeleteIcon } from "@/assets/icons/Card/Delete";
 import { BrowserIcon } from "@/assets/icons/Card/Brower";
 import type { CardDTO, IconHandle } from "@/utils/HeroCardData";
-import { delay, easeInOut, motion, stagger } from "framer-motion";
+import { easeInOut, motion } from "framer-motion";
 
 export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
   const parent = {
