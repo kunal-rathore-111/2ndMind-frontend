@@ -12,6 +12,25 @@ dist
 dist-ssr
 *.local
 
+# Vercel
+.vercel/
+
+# Bun
+.bun-*
+
+# Env
+.env
+.env.*
+
+# Build outputs
+build/
+
+# TypeScript
+*.tsbuildinfo
+
+# Coverage
+coverage/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
