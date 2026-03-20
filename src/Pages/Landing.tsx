@@ -3,8 +3,9 @@ import { SendIcon } from "@/assets/icons/Send";
 import { Nav } from "@/components/Nav";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router";
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 import { ThreeDCardDemo } from "@/components/Card";
+import { card1, card2 } from "@/utils/HeroCardData";
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -24,20 +25,22 @@ export default function Landing() {
           </div>
 
           {/*right div*/}
-          <div className="relative flex flex-1 rotate-z-20">
+          <motion.div
+            className="relative flex flex-1"
+            initial={{ opacity: 0, y: -10, rotate: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: easeOut }}
+          >
             <motion.div
               initial={{ rotateZ: -40 }}
               className="absolute top-10 right-65"
             >
-              <ThreeDCardDemo></ThreeDCardDemo>
+              <ThreeDCardDemo cardData={card1}></ThreeDCardDemo>
             </motion.div>
-            <motion.div
-              initial={{ rotateZ: 0 }}
-              className="absolute top-0 right-10"
-            >
-              <ThreeDCardDemo></ThreeDCardDemo>
+            <motion.div className="absolute top-0 right-10">
+              <ThreeDCardDemo cardData={card2}></ThreeDCardDemo>
             </motion.div>
-          </div>
+          </motion.div>
         </section>
 
         <section className="flex flex-col gap-6 text-start">

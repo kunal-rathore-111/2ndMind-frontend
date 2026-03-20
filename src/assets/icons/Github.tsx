@@ -28,7 +28,7 @@ const BODY_VARIANTS: Variants = {
     pathLength: [0, 1],
     scale: [0.9, 1],
     transition: {
-      duration: 0.5,
+      duration: 1,
     },
   },
 };
@@ -38,14 +38,14 @@ const TAIL_VARIANTS: Variants = {
     pathLength: 1,
     rotate: 0,
     transition: {
-      duration: 0.3,
+      duration: 1,
     },
   },
   draw: {
     pathLength: [0, 1],
     rotate: 0,
     transition: {
-      duration: 0.5,
+      duration: 1.5,
     },
   },
   wag: {

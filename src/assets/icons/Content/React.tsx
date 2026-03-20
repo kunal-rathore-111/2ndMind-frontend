@@ -20,7 +20,7 @@ export interface ReactIconHandle {
 
 interface ReactIconProps extends HTMLAttributes<HTMLDivElement> {
   size?: number;
-  autoRotate?: boolean;
+  autoAnimate?: boolean; // ✅ renamed
 }
 
 /* ================= VARIANTS ================= */
@@ -30,7 +30,7 @@ const ROTATE_VARIANTS: Variants = {
     rotate: 0,
   },
   animate: {
-    rotate: [0, 360], // ✅ smooth loop
+    rotate: [0, 360],
     transition: {
       duration: 2,
       ease: "linear",
@@ -49,7 +49,7 @@ const ReactIcon = forwardRef<ReactIconHandle, ReactIconProps>(
       onMouseLeave,
       className,
       size = 28,
-      autoRotate = false,
+      autoAnimate = false, // ✅ renamed
       ...props
     },
     ref,
@@ -57,14 +57,13 @@ const ReactIcon = forwardRef<ReactIconHandle, ReactIconProps>(
     const controls = useAnimation();
     const isControlledRef = useRef(false);
 
-    /* ✅ ONLY run on mount / autoRotate change */
     useEffect(() => {
-      if (autoRotate) {
+      if (autoAnimate) {
         controls.start("animate");
       } else {
-        controls.set("normal"); // 🔥 force stop cleanly
+        controls.set("normal");
       }
-    }, [autoRotate, controls]);
+    }, [autoAnimate, controls]); // ✅ updated
 
     useImperativeHandle(ref, () => {
       isControlledRef.current = true;
@@ -79,22 +78,22 @@ const ReactIcon = forwardRef<ReactIconHandle, ReactIconProps>(
       (e: React.MouseEvent<HTMLDivElement>) => {
         onMouseEnter?.(e);
 
-        if (!isControlledRef.current && !autoRotate) {
+        if (!isControlledRef.current && !autoAnimate) {
           controls.start("animate");
         }
       },
-      [controls, autoRotate, onMouseEnter],
+      [controls, autoAnimate, onMouseEnter],
     );
 
     const handleMouseLeave = useCallback(
       (e: React.MouseEvent<HTMLDivElement>) => {
         onMouseLeave?.(e);
 
-        if (!isControlledRef.current && !autoRotate) {
-          controls.set("normal"); // 🔥 IMPORTANT
+        if (!isControlledRef.current && !autoAnimate) {
+          controls.set("normal");
         }
       },
-      [controls, autoRotate, onMouseLeave],
+      [controls, autoAnimate, onMouseLeave],
     );
 
     return (
