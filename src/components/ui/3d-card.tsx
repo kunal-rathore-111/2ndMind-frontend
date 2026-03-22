@@ -30,17 +30,17 @@ export const CardContainer = ({
     if (!containerRef.current) return;
     const { left, top, width, height } =
       containerRef.current.getBoundingClientRect();
-    const x = (e.clientX - left - width / 2) / 25;
-    const y = (e.clientY - top - height / 2) / 25;
+    const x = (e.clientX - left - width / 2) / 10;
+    const y = (e.clientY - top - height / 2) / 10;
     containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
   };
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseEnter = () => {
     setIsMouseEntered(true);
     if (!containerRef.current) return;
   };
 
-  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseLeave = () => {
     if (!containerRef.current) return;
     setIsMouseEntered(false);
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
