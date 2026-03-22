@@ -6,6 +6,8 @@ import { useNavigate } from "react-router";
 import { easeOut, motion } from "framer-motion";
 import { ThreeDCardDemo } from "@/components/Card";
 import { card1, card2 } from "@/utils/HeroCardData";
+import { AvatarGroupComp } from "@/components/AvatarGroup";
+import { GlobeIcon } from "@/assets/icons/Globe";
 
 function HeroSection({
   navigate,
@@ -43,7 +45,7 @@ function HeroSection({
           </motion.div>
         </motion.div>
       </section>
-
+      {/* bottom of both left and right */}
       <section className="flex flex-col gap-6 text-start">
         <div>
           <p className="text-zinc-400 dark:text-zinc-600">
@@ -70,6 +72,18 @@ function HeroSection({
             </motion.button>
           </Button>
         </div>
+        <div className="flex items-center gap-2">
+          <AvatarGroupComp />
+          <span className="flex items-center gap-1 text-sm text-zinc-600 dark:text-zinc-400">
+            <span>Trusted by users worldwide</span>
+            {
+              <GlobeIcon
+                className="transition-all duration-200 hover:scale-130"
+                size={22}
+              />
+            }
+          </span>
+        </div>
       </section>
     </section>
   );
@@ -78,7 +92,7 @@ function HeroSection({
 export default function Landing() {
   const navigate = useNavigate();
   return (
-    <main className="flex min-h-screen w-full flex-col px-4 py-30">
+    <main className="flex min-h-screen w-full flex-col px-4 py-28">
       <Nav />
       <HeroSection navigate={navigate} />
     </main>
