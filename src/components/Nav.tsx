@@ -93,9 +93,7 @@ export const Nav = () => {
           >
             <GithubIcon size={18} />
           </a>
-
           <div className="h-4 w-px bg-zinc-300 dark:bg-zinc-700" />
-
           <Button
             variant={"secondary"}
             onClick={() => navigate("/signin")}
