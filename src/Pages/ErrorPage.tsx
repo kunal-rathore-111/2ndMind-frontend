@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BookTextIcon, Brain, Home } from "lucide-react";
+import { BookTextIcon, Home } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function ErrorPage() {
