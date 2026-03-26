@@ -2,18 +2,13 @@ import { Link, useNavigate } from "react-router";
 import { Button } from "./ui/button";
 import { GithubIcon } from "@/assets/icons/Github";
 import { BookTextIcon } from "@/assets/icons/Book";
-import { MoonIcon } from "@/assets/icons/Moon";
-import { SunIcon } from "@/assets/icons/Sun";
-import { useTheme } from "./theme-provider";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { AnimatedThemeToggler } from "./ui/animated-theme-toggler";
 
 export const Nav = () => {
   const navigate = useNavigate();
-  const { theme, setTheme } = useTheme();
   const [hovered, setHovered] = useState<number | null>(null);
-
-  const isDark = theme === "dark";
 
   const NavFunctionalComps = [
     { label: "Features", action: () => handleScrollTo("features") },
@@ -73,18 +68,8 @@ export const Nav = () => {
         </div>
 
         <div className="flex flex-1 items-center justify-end gap-2">
-          <button
-            type="button"
-            onClick={() => {
-              setTheme(isDark ? "light" : "dark");
-            }}
-            className="flex size-7 items-center justify-center rounded-sm border border-zinc-200 bg-zinc-100 text-zinc-600 shadow-[0_1px_0_rgba(0,0,0,0.12)] transition-all duration-300 hover:scale-102 hover:border-zinc-300 hover:text-zinc-900 hover:shadow-[0_3px_0_rgba(0,0,0,0.18)] dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
-          >
-            {isDark ? <SunIcon size={17} /> : <MoonIcon size={17} />}
-          </button>
-
+          <AnimatedThemeToggler className="flex size-7 items-center justify-center rounded-sm border border-zinc-200 bg-zinc-100 text-zinc-600 shadow-[0_1px_0_rgba(0,0,0,0.12)] transition-all duration-300 hover:scale-102 hover:border-zinc-300 hover:text-zinc-900 hover:shadow-[0_3px_0_rgba(0,0,0,0.18)] dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100" />
           <div className="h-4 w-px bg-zinc-300 dark:bg-zinc-700" />
-
           <a
             href="https://github.com/2nd-mind/app"
             target="_blank"

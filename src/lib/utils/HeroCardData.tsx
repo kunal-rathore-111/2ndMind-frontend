@@ -20,7 +20,7 @@ export const card1 = {
   category: "react.dev",
   contentTitle: " React - The library for web and native user interfaces",
   contentDescription:
-    " React lets you build user interfaces out of individual pieces called components. Create your own React components like",
+    " React lets you build user interfaces out of individual pieces called components.",
   tags: ["react", "frontend", "ui"],
   date: "2026-01-15",
 };
@@ -29,7 +29,7 @@ export const card2 = {
   category: "github",
   contentTitle: "Github - Open Source roadmap",
   contentDescription:
-    "GitHub provides a structured path to explore open source, understand workflows, and contribute effectively by collaborating on real-world projects and improving your development skills.",
+    "GitHub provides a structured path to explore open source and contribute effectively.",
   tags: ["github", "open-source", "roadmap", "collaboration", "git"],
   date: "2026-02-10",
 };

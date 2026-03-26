@@ -1,15 +1,19 @@
 "use client";
 
 import { LinkIcon } from "@/assets/icons/Card/Link";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import {
+  CardBody,
+  CardContainer,
+  CardItem,
+} from "@/components/ui/Herosection/comps/3d-card";
 import { useRef } from "react";
 
-import Tags from "@/utils/Tags";
+import Tags from "@/lib/utils/Tags";
 import { ShareIcon } from "@/assets/icons/Card/Share";
 import { EditIcon } from "@/assets/icons/Card/Edit";
 import { DeleteIcon } from "@/assets/icons/Card/Delete";
 import { BrowserIcon } from "@/assets/icons/Card/Brower";
-import type { CardDTO, IconHandle } from "@/utils/HeroCardData";
+import type { CardDTO, IconHandle } from "@/lib/utils/HeroCardData";
 import { easeInOut, motion } from "framer-motion";
 
 export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
@@ -54,7 +58,7 @@ export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
   return (
     <CardContainer className="inter-var">
       <motion.div variants={parent} initial={"hidden"} animate="show">
-        <CardBody className="group/card dark:shadow-/90 relative h-auto w-auto rounded-xl bg-zinc-100 p-6 text-start shadow-sm shadow-zinc-800 sm:w-70 dark:bg-zinc-950 dark:shadow-zinc-50/80">
+        <CardBody className="group/card dark:shadow-/90 relative h-auto w-auto rounded-xl bg-zinc-100 p-6 text-start shadow-sm shadow-zinc-800 sm:w-65 dark:bg-zinc-950 dark:shadow-zinc-50/80">
           <CardItem
             className="w-full text-xs"
             onMouseEnter={() =>
@@ -102,7 +106,7 @@ export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
                 <CardItem
                   as="p"
                   translateZ="60"
-                  className="max-w-sm text-sm font-thin text-gray-600/60 dark:text-zinc-400/60"
+                  className="max-w-sm text-sm font-thin text-gray-600/90 dark:text-zinc-400/70"
                 >
                   {cardData.contentDescription}
                 </CardItem>

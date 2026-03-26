@@ -3,7 +3,7 @@ import {
   AvatarFallback,
   AvatarGroup,
   AvatarImage,
-} from "@/components/ui/avatar";
+} from "@/components/ui/Herosection/comps/avatar";
 
 import Person1 from "@/assets/images/avatar/landing/person1.png";
 import Person2 from "@/assets/images/avatar/landing/person2.png";

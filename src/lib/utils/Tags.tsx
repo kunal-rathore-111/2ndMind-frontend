@@ -65,7 +65,7 @@ export default function Tags({ tags }: { tags: string[] }) {
           <span
             key={idx}
             className={cn(
-              "rounded-full border px-3 py-1 text-xs font-medium",
+              "rounded-full border px-3 py-1 text-[12px]",
               color.light,
               color.dark,
             )}
