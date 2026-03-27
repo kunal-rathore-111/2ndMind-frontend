@@ -5,7 +5,7 @@ import {
   CardBody,
   CardContainer,
   CardItem,
-} from "@/components/ui/Herosection/comps/3d-card";
+} from "@/components/ui/Landing/Herosection/comps/3d-card";
 import { useRef } from "react";
 
 import Tags from "@/lib/utils/Tags";
@@ -58,7 +58,7 @@ export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
   return (
     <CardContainer className="inter-var">
       <motion.div variants={parent} initial={"hidden"} animate="show">
-        <CardBody className="group/card dark:shadow-/90 relative h-auto w-auto rounded-xl bg-zinc-100 p-6 text-start shadow-sm shadow-zinc-800 sm:w-65 dark:bg-zinc-950 dark:shadow-zinc-50/80">
+        <CardBody className="relative h-auto w-auto rounded-xl bg-zinc-100 p-6 text-start shadow-sm shadow-zinc-900 sm:w-65 dark:bg-zinc-950/80 dark:shadow-zinc-300/90">
           <CardItem
             className="w-full text-xs"
             onMouseEnter={() =>

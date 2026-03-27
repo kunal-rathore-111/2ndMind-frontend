@@ -30,6 +30,6 @@ export const card2 = {
   contentTitle: "Github - Open Source roadmap",
   contentDescription:
     "GitHub provides a structured path to explore open source and contribute effectively.",
-  tags: ["github", "open-source", "roadmap", "collaboration", "git"],
+  tags: ["github", "open-source"],
   date: "2026-02-10",
 };

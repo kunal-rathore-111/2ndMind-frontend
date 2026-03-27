@@ -1,3 +1,4 @@
+import DotComp from "../dot";
 import Marquee from "./Marquee";
 
 export default function Categories() {
@@ -14,10 +15,10 @@ export default function Categories() {
     "Design",
   ];
   return (
-    <div className="my-5 mt-8 flex items-center border-y">
+    <div className="mt-20 flex items-center border-y text-black/70 dark:text-white/60">
       <span className="flex h-full items-center gap-2 p-1">
-        <div className="h-1 w-1 rounded-full bg-orange-500 dark:bg-blue-500" />
-        <div className="font-semibold"> Categories </div>
+        <DotComp />
+        <div className="text-4xl font-semibold uppercase"> Categories </div>
       </span>
       <Marquee className="flex-1 [mask-image:linear-gradient(to_right,transparent,black_80px,black_calc(100%-80px),transparent)]">
         {words.map((word, idx) => (
@@ -26,7 +27,7 @@ export default function Categories() {
             style={{ marginRight: 8 }}
             className="flex items-center gap-1"
           >
-            <div className="h-1 w-1 rounded-full bg-orange-500 dark:bg-blue-500" />
+            <DotComp />
             {word}
           </span>
         ))}

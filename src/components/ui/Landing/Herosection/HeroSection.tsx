@@ -2,11 +2,11 @@ import { ClapIcon } from "@/assets/icons/Demo";
 import { SendIcon } from "@/assets/icons/Send";
 import { Button } from "@/components/ui/button";
 import { easeInOut, easeOut, motion } from "framer-motion";
-import { ThreeDCardDemo } from "@/components/ui/Herosection/comps/Card";
 import { card1, card2 } from "@/lib/utils/HeroCardData";
-import { AvatarGroupComp } from "@/components/ui/Herosection/comps/AvatarGroup";
 import { GlobeIcon } from "@/assets/icons/Globe";
 import { useNavigate } from "react-router";
+import { ThreeDCardDemo } from "./comps/Card";
+import { AvatarGroupComp } from "./comps/AvatarGroup";
 
 export default function HeroSection() {
   const parent = {
@@ -31,21 +31,21 @@ export default function HeroSection() {
 
   const navigate = useNavigate();
   return (
-    <section className="flex flex-col gap-3">
+    <section className="flex flex-col gap-6">
       <section className="flex">
         {/*left div*/}
         <div className="flex flex-col text-start">
           {/* app intro text */}
-          <div className="flex flex-col gap-6">
-            <h1 className="text-[87px] leading-20 font-semibold">
+          <div className="flex flex-col gap-1">
+            <h1 className="text-[97px] leading-22 font-semibold">
               Luci, <br /> Your's <br /> Second <br /> Mind with AI
             </h1>
-          </div>
-          <div>
-            <p className="text-zinc-400 dark:text-zinc-600">
-              Save, organize, and resurface any content in seconds.
-              <br /> Built for people who live in the browser.
-            </p>
+            <div>
+              <p className="text-zinc-400 dark:text-zinc-600">
+                Save, organize, and resurface any content in seconds.
+                <br /> Built for people who live in the browser.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -59,13 +59,13 @@ export default function HeroSection() {
         >
           <motion.div
             variants={child}
-            className="absolute top-0 right-70"
+            className="absolute top-0 right-60"
             animate={{ rotateZ: -20 }}
           >
             <ThreeDCardDemo cardData={card1}></ThreeDCardDemo>
           </motion.div>
           <motion.div
-            className="absolute top-40 right-10"
+            className="absolute top-50 right-10"
             variants={child}
             animate={{ rotateZ: 10 }}
           >
@@ -74,7 +74,7 @@ export default function HeroSection() {
         </motion.div>
       </section>
       {/* bottom of both left and right */}
-      <section className="flex flex-col gap-8 text-start">
+      <section className="flex flex-col gap-6 text-start">
         <div className="flex gap-3">
           <Button onClick={() => navigate("/signup")} asChild>
             <motion.button whileHover={"animate"}>

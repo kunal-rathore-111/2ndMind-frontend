@@ -1,47 +1,48 @@
 import { cn } from "@/lib/utils";
+import { motion, type Variants } from "framer-motion";
 
 const colors = [
   {
-    light: "bg-red-50 text-red-600 border-red-200",
-    dark: "dark:bg-red-500/10 dark:text-red-300 dark:border-red-400/30",
+    light: "bg-cyan-50/90 text-cyan-700 border-cyan-200",
+    dark: "dark:bg-cyan-500/15 dark:text-cyan-200 dark:border-cyan-400/35",
   },
 
   {
-    light: "bg-blue-50 text-blue-600 border-blue-200",
-    dark: "dark:bg-blue-500/10 dark:text-blue-300 dark:border-blue-400/30",
+    light: "bg-blue-50/90 text-blue-700 border-blue-200",
+    dark: "dark:bg-blue-500/15 dark:text-blue-200 dark:border-blue-400/35",
   },
   {
-    light: "bg-yellow-50 text-yellow-700 border-yellow-200",
-    dark: "dark:bg-yellow-500/10 dark:text-yellow-300 dark:border-yellow-400/30",
+    light: "bg-indigo-50/90 text-indigo-700 border-indigo-200",
+    dark: "dark:bg-indigo-500/15 dark:text-indigo-200 dark:border-indigo-400/35",
   },
   {
-    light: "bg-green-50 text-green-600 border-green-200",
-    dark: "dark:bg-green-500/10 dark:text-green-300 dark:border-green-400/30",
+    light: "bg-violet-50/90 text-violet-700 border-violet-200",
+    dark: "dark:bg-violet-500/15 dark:text-violet-200 dark:border-violet-400/35",
   },
   {
-    light: "bg-amber-50 text-amber-600 border-amber-200",
-    dark: "dark:bg-amber-500/10 dark:text-amber-300 dark:border-amber-400/30",
+    light: "bg-fuchsia-50/90 text-fuchsia-700 border-fuchsia-200",
+    dark: "dark:bg-fuchsia-500/15 dark:text-fuchsia-200 dark:border-fuchsia-400/35",
   },
   {
-    light: "bg-teal-50 text-teal-600 border-teal-200",
-    dark: "dark:bg-teal-500/10 dark:text-teal-300 dark:border-teal-400/30",
+    light: "bg-rose-50/90 text-rose-700 border-rose-200",
+    dark: "dark:bg-rose-500/15 dark:text-rose-200 dark:border-rose-400/35",
   },
 
   {
-    light: "bg-pink-50 text-pink-600 border-pink-200",
-    dark: "dark:bg-pink-500/10 dark:text-pink-300 dark:border-pink-400/30",
+    light: "bg-orange-50/90 text-orange-700 border-orange-200",
+    dark: "dark:bg-orange-500/15 dark:text-orange-200 dark:border-orange-400/35",
   },
   {
-    light: "bg-purple-50 text-purple-600 border-purple-200",
-    dark: "dark:bg-purple-500/10 dark:text-purple-300 dark:border-purple-400/30",
+    light: "bg-amber-50/90 text-amber-700 border-amber-200",
+    dark: "dark:bg-amber-500/15 dark:text-amber-200 dark:border-amber-400/35",
   },
   {
-    light: "bg-indigo-50 text-indigo-600 border-indigo-200",
-    dark: "dark:bg-indigo-500/10 dark:text-indigo-300 dark:border-indigo-400/30",
+    light: "bg-emerald-50/90 text-emerald-700 border-emerald-200",
+    dark: "dark:bg-emerald-500/15 dark:text-emerald-200 dark:border-emerald-400/35",
   },
   {
-    light: "bg-cyan-50 text-cyan-600 border-cyan-200",
-    dark: "dark:bg-cyan-500/10 dark:text-cyan-300 dark:border-cyan-400/30",
+    light: "bg-lime-50/90 text-lime-700 border-lime-200",
+    dark: "dark:bg-lime-500/15 dark:text-lime-200 dark:border-lime-400/35",
   },
 ];
 
@@ -55,15 +56,21 @@ function getColor(tag: string) {
   return colors[Math.abs(hash) % colors.length];
 }
 
-export default function Tags({ tags }: { tags: string[] }) {
+interface TagsDTO {
+  tags: string[];
+  childVariant?: Variants;
+}
+
+export default function Tags({ tags, childVariant }: TagsDTO) {
   return (
     <div className="flex flex-wrap gap-2">
-      {tags.slice(0, 4).map((tag, idx) => {
+      {tags.map((tag, idx) => {
         const color = getColor(tag);
 
         return (
-          <span
+          <motion.span
             key={idx}
+            variants={childVariant ?? undefined}
             className={cn(
               "rounded-full border px-3 py-1 text-[12px]",
               color.light,
@@ -71,7 +78,7 @@ export default function Tags({ tags }: { tags: string[] }) {
             )}
           >
             #{tag}
-          </span>
+          </motion.span>
         );
       })}
     </div>

@@ -1,10 +1,10 @@
 import { Link, useNavigate } from "react-router";
-import { Button } from "./ui/button";
+import { Button } from "../button";
 import { GithubIcon } from "@/assets/icons/Github";
 import { BookTextIcon } from "@/assets/icons/Book";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { AnimatedThemeToggler } from "./ui/animated-theme-toggler";
+import { AnimatedThemeToggler } from "../animated-theme-toggler";
 
 export const Nav = () => {
   const navigate = useNavigate();
