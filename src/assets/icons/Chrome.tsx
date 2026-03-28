@@ -39,7 +39,7 @@ const VARIANTS: Variants = {
 };
 
 const ChromeIcon = forwardRef<ChromeIconHandle, ChromeIconProps>(
-  ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
+  ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }) => {
     return (
       <div className={cn(className)} {...props}>
         <svg
