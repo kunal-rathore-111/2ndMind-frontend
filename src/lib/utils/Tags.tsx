@@ -71,6 +71,7 @@ export default function Tags({ tags, childVariant }: TagsDTO) {
           <motion.span
             key={idx}
             variants={childVariant ?? undefined}
+            custom={childVariant ? idx : 0}
             className={cn(
               "rounded-full border px-3 py-1 text-[12px]",
               color.light,

@@ -296,7 +296,7 @@ const TreeIndicator = forwardRef<
         "absolute left-1.5 h-full w-px rounded-md bg-black py-3 duration-300 ease-in-out rtl:right-1.5 dark:bg-slate-300",
         className,
       )}
-      animate={{ opacity: [0.2, 1, 0.5] }}
+      animate={{ opacity: [0.1, 1, 0.1] }}
       transition={{ duration: 2, repeat: Infinity, ease: easeInOut }}
       {...props}
     />

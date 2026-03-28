@@ -37,8 +37,8 @@ export default function HeroSection() {
         <div className="flex flex-col text-start">
           {/* app intro text */}
           <div className="flex flex-col gap-1">
-            <h1 className="text-[97px] leading-22 font-semibold">
-              Luci, <br /> Your's <br /> Second <br /> Mind with AI
+            <h1 className="text-[93px] leading-25 font-semibold">
+              Luci, <br /> Your's <br /> Second Mind <br /> with AI
             </h1>
             <div>
               <p className="text-zinc-400 dark:text-zinc-600">
