@@ -24,7 +24,7 @@ export const Nav = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-200 border-b border-transparent transition-all duration-300">
-      <nav className="mx-auto flex h-14.5 w-full max-w-251 items-center bg-white/30 px-4 backdrop-blur-sm dark:bg-black/0">
+      <nav className="mx-auto flex h-14.5 w-full max-w-251 items-center bg-white/20 px-4 backdrop-blur-sm dark:bg-black/0">
         <div className="flex gap-10">
           <div
             className="flex items-center"
@@ -74,7 +74,7 @@ export const Nav = () => {
             href="https://github.com/2nd-mind/app"
             target="_blank"
             rel="noreferrer"
-            className="flex size-7 items-center justify-center rounded-sm text-zinc-200 transition-all duration-400 hover:bg-zinc-200 hover:text-zinc-700 dark:text-zinc-700 hover:dark:bg-zinc-800 hover:dark:text-zinc-200"
+            className="flex size-7 items-center justify-center rounded-sm text-zinc-400 transition-all duration-400 hover:bg-zinc-200 hover:text-zinc-700 dark:text-zinc-500 hover:dark:bg-zinc-800 hover:dark:text-zinc-200"
           >
             <GithubIcon size={18} />
           </a>

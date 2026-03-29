@@ -27,7 +27,6 @@ export const AnimatedThemeToggler = ({
       document.documentElement.classList.remove("dark");
       setIsDark(false);
     } else {
-      // optional: system preference fallback
       const prefersDark = window.matchMedia(
         "(prefers-color-scheme: dark)",
       ).matches;
