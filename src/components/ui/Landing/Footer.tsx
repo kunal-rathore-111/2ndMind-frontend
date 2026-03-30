@@ -1,0 +1,130 @@
+import { BookTextIcon } from "@/assets/icons/Book";
+import { GithubIcon } from "@/assets/icons/Github";
+import { TwitterIcon } from "@/assets/icons/Twitter";
+import { MailCheckIcon } from "@/assets/icons/Mail";
+import { Link } from "react-router";
+
+const Footer = () => {
+  const footerLinks = {
+    Products: [
+      { name: "Try for free", href: "#" },
+      { name: "Feature", href: "#" },
+      { name: "Docs", href: "#" },
+      { name: "Changelog", href: "#" },
+    ],
+    Company: [
+      { name: "Privacy Policy", href: "#" },
+      { name: "Terms of Service", href: "#" },
+      { name: "Contact Us", href: "#" },
+    ],
+    Developer: [
+      { name: "Github repo", href: "#" },
+      { name: "Documentation", href: "#" },
+      { name: "kunalsamplemail@gmail.com", href: "#" },
+    ],
+  };
+
+  const socialLinks = [
+    {
+      label: "Github",
+      icon: GithubIcon,
+      href: "#",
+    },
+    {
+      label: "Twitter",
+      icon: TwitterIcon,
+      href: "#",
+    },
+    {
+      label: "Email",
+      icon: MailCheckIcon,
+      href: "#",
+    },
+  ];
+
+  return (
+    <footer className="mt-30 w-full border-t bg-white dark:bg-black">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 gap-3 gap-y-8 py-8 max-sm:mx-auto max-sm:max-w-sm sm:grid-cols-4 md:gap-8 lg:grid-cols-5">
+          <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0">
+            <div className="flex items-center gap-1">
+              <BookTextIcon size={22} />
+              <span className="font-semibold">2nd Mind</span>
+            </div>
+            <p className="mx-auto max-w-55 py-4 text-center text-sm wrap-break-word text-black/40 lg:mx-0 lg:text-left dark:text-zinc-300/40">
+              A premium bookmark manager for people who think in links.
+            </p>
+            <div className="flex gap-4 pt-2">
+              {socialLinks.map((x, idx) => {
+                return (
+                  <Link key={idx} aria-label={x.label} to={x.href}>
+                    <x.icon size={18} />
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Link Columns */}
+          {Object.entries(footerLinks).map(([title, links]) => (
+            <div key={title} className="text-left lg:mx-auto">
+              <h4 className="mb-3 text-sm font-medium text-gray-900 uppercase dark:text-white">
+                {title}
+              </h4>
+              <ul className="text-sm transition-all duration-500">
+                {links.map((link, index) => (
+                  <li
+                    key={index}
+                    className={index === links.length - 1 ? "" : "mb-5"}
+                  >
+                    <Link
+                      to={link.href}
+                      className="text-black/70 hover:text-gray-900 dark:text-white/70 dark:hover:text-white"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t py-4 text-sm">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center justify-center lg:flex-row lg:justify-between">
+            <span className="text-center text-gray-500 dark:text-gray-400">
+              ©{" "}
+              <Link
+                to="#"
+                className="hover:text-red-500 dark:hover:text-indigo-400"
+              >
+                2026 2nd Mind.
+              </Link>{" "}
+              All rights reserved.
+            </span>
+            <div className="flex gap-5">
+              <Link
+                to={"#"}
+                className="text-black/70 hover:text-gray-900 dark:text-white/70 dark:hover:text-white"
+              >
+                Privacy
+              </Link>
+              <Link
+                to={""}
+                className="text-black/70 hover:text-gray-900 dark:text-white/70 dark:hover:text-white"
+              >
+                {" "}
+                Terms
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

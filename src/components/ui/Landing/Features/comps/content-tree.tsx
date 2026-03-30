@@ -13,7 +13,7 @@ import { easeInOut, motion, type HTMLMotionProps } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import DotComp from "../../dot";
+import DotComp from "../../Dot";
 
 type TreeViewElement = {
   id: string;

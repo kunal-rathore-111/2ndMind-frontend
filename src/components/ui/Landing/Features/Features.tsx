@@ -1,4 +1,4 @@
-import DotComp from "../dot";
+import DotComp from "../Dot";
 import { BentoGrid } from "./comps/BentoGrid";
 
 export default function Features() {

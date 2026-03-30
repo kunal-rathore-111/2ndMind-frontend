@@ -1,4 +1,4 @@
-import DotComp from "../dot";
+import DotComp from "../Dot";
 import Marquee from "./Marquee";
 
 export default function Categories() {

@@ -6,7 +6,7 @@ import { LockIcon } from "lucide-react";
 import { ChromeIcon } from "@/assets/icons/Chrome";
 import { Switch } from "@/components/ui/switch";
 import { useEffect, useState } from "react";
-import DotComp from "../../dot";
+import DotComp from "../../Dot";
 
 export function Col1() {
   const elements: TreeViewElement[] = [
