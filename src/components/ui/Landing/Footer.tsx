@@ -57,7 +57,12 @@ const Footer = () => {
             <div className="flex gap-4 pt-2">
               {socialLinks.map((x, idx) => {
                 return (
-                  <Link key={idx} aria-label={x.label} to={x.href}>
+                  <Link
+                    key={idx}
+                    aria-label={x.label}
+                    to={x.href}
+                    className="flex items-center justify-center rounded-sm border border-zinc-200 bg-zinc-100 p-1 text-zinc-600 shadow-[0_1px_0_rgba(0,0,0,0.12)] transition-all duration-300 hover:scale-102 hover:border-zinc-300 hover:text-zinc-900 hover:shadow-[0_3px_0_rgba(0,0,0,0.18)] dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+                  >
                     <x.icon size={18} />
                   </Link>
                 );

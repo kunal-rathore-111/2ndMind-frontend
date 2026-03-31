@@ -1,3 +1,5 @@
+import SignComp from "@/components/ui/Sign/Sign";
+
 export default function Signin() {
-  return <div>Hi from signIn</div>;
+  return <SignComp mode="signin" />;
 }

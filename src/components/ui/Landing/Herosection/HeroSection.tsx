@@ -1,6 +1,6 @@
 import { ClapIcon } from "@/assets/icons/Demo";
 import { SendIcon } from "@/assets/icons/Send";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Buttons/shadcnButton";
 import { easeInOut, easeOut, motion } from "framer-motion";
 import { card1, card2 } from "@/lib/utils/HeroCardData";
 import { GlobeIcon } from "@/assets/icons/Globe";

@@ -16,7 +16,7 @@ interface LockIconProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const LockIcon = forwardRef<LockIconHandle, LockIconProps>(
-  ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }) => {
+  ({ className, size = 28, ...props }) => {
     return (
       <div className={cn(className)} {...props}>
         <motion.svg
