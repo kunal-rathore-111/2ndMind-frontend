@@ -7,6 +7,7 @@ import SharedProfile from "./Pages/SharedProfile";
 import SharedContent from "./Pages/SharedContent";
 import Docs from "./Pages/Docs";
 import ErrorPage from "./Pages/ErrorPage";
+import PrivacyPolicyPage from "./Pages/PrivacyPolicy";
 
 export default function Layout() {
   return (
@@ -26,6 +27,7 @@ export default function Layout() {
             element={<SharedContent />}
           />
           <Route path="/docs" element={<Docs />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>

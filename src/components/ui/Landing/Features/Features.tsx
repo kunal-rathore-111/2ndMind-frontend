@@ -4,7 +4,7 @@ import { BentoGrid } from "./comps/BentoGrid";
 export default function Features() {
   return (
     <>
-      <div className="mt-20 flex flex-col text-start">
+      <div className="mt-20 flex flex-col text-start" id="features">
         <h3 className="flex items-center gap-1 font-semibold text-black/70 uppercase dark:text-white/60">
           {<DotComp />} Features
         </h3>

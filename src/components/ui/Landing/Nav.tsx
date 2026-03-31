@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { Button } from "../Buttons/shadcnButton";
 import { GithubIcon } from "@/assets/icons/Github";
 import { BookTextIcon } from "@/assets/icons/Book";
@@ -27,11 +27,13 @@ export const Nav = () => {
       <nav className="mx-auto flex h-14.5 w-full max-w-251 items-center bg-white/20 px-4 backdrop-blur-sm dark:bg-black/0">
         <div className="flex gap-10">
           <div
-            className="flex items-center"
+            className="flex cursor-pointer items-center"
             id="top"
-            onClick={() => handleScrollTo("top")}
+            onClick={() =>
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+            }
           >
-            <Link to="/" className="flex items-center gap-1">
+            <div className="flex items-center gap-1">
               <div className="flex size-6 items-center justify-center rounded-[7px]">
                 <BookTextIcon
                   size={23}
@@ -41,7 +43,7 @@ export const Nav = () => {
               <span className="text-sm font-bold tracking-[-0.03em] text-zinc-900 dark:text-zinc-100">
                 Luci
               </span>
-            </Link>
+            </div>
           </div>
 
           <motion.div

@@ -7,20 +7,14 @@ import { Link } from "react-router";
 const Footer = () => {
   const footerLinks = {
     Products: [
-      { name: "Try for free", href: "#" },
-      { name: "Feature", href: "#" },
-      { name: "Docs", href: "#" },
-      { name: "Changelog", href: "#" },
+      { name: "Try for free", to: "/signup" },
+      { name: "Docs", to: "/docs" },
+      { name: "Changelog", to: "/change-log" },
     ],
     Company: [
-      { name: "Privacy Policy", href: "#" },
-      { name: "Terms of Service", href: "#" },
-      { name: "Contact Us", href: "#" },
-    ],
-    Developer: [
-      { name: "Github repo", href: "#" },
-      { name: "Documentation", href: "#" },
-      { name: "kunalsamplemail@gmail.com", href: "#" },
+      { name: "Privacy Policy", to: "/privacy-policy" },
+      { name: "Terms of Service", to: "/terms" },
+      { name: "Contact Us", to: "/contact" },
     ],
   };
 
@@ -45,8 +39,8 @@ const Footer = () => {
   return (
     <footer className="mt-30 w-full border-t bg-white dark:bg-black">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-3 gap-y-8 py-8 max-sm:mx-auto max-sm:max-w-sm sm:grid-cols-4 md:gap-8 lg:grid-cols-5">
-          <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0">
+        <div className="grid grid-cols-2 py-8 max-sm:mx-auto max-sm:max-w-sm lg:grid-cols-5">
+          <div className="col-span-full mb-10 flex w-full flex-col items-center lg:col-span-3 lg:mb-0 lg:items-start">
             <div className="flex items-center gap-1">
               <BookTextIcon size={22} />
               <span className="font-semibold">2nd Mind</span>
@@ -72,25 +66,27 @@ const Footer = () => {
 
           {/* Link Columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title} className="text-left lg:mx-auto">
-              <h4 className="mb-3 text-sm font-medium text-gray-900 uppercase dark:text-white">
-                {title}
-              </h4>
-              <ul className="text-sm transition-all duration-500">
-                {links.map((link, index) => (
-                  <li
-                    key={index}
-                    className={index === links.length - 1 ? "" : "mb-5"}
-                  >
-                    <Link
-                      to={link.href}
-                      className="text-black/70 hover:text-gray-900 dark:text-white/70 dark:hover:text-white"
+            <div className="flex w-full flex-col items-center">
+              <div key={title} className="items-center text-left lg:mx-auto">
+                <h4 className="mb-3 text-sm font-medium text-gray-900 uppercase dark:text-white">
+                  {title}
+                </h4>
+                <ul className="text-sm transition-all duration-500">
+                  {links.map((link, index) => (
+                    <li
+                      key={index}
+                      className={index === links.length - 1 ? "" : "mb-5"}
                     >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+                      <Link
+                        to={link.to}
+                        className="text-black/70 hover:text-gray-900 dark:text-white/70 dark:hover:text-white"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>

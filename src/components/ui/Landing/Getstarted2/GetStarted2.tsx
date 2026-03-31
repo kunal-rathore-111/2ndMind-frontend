@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import { Button } from "../../Buttons/shadcnButton";
 import GlareHover from "../../GlareHover";
 import {
@@ -8,6 +9,7 @@ import {
 import { motion } from "framer-motion";
 
 export default function GetStarted2() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="mt-20 flex flex-col">
@@ -36,8 +38,16 @@ export default function GetStarted2() {
                     Free forever. No credit card required.
                   </p>
 
-                  <div className="flex items-center gap-1">
-                    <Button>Get started</Button>
+                  <div className="z-100 flex items-center gap-1">
+                    <Button
+                      className="cursor-pointer"
+                      onClick={() => {
+                        //console.log("Get started clicked");
+                        navigate("/signup");
+                      }}
+                    >
+                      Get started
+                    </Button>
                     <Button
                       variant={"secondary"}
                       className="bg-black/30 font-light transition-colors duration-400 hover:bg-zinc-300 dark:bg-white/30 dark:hover:bg-zinc-800"
