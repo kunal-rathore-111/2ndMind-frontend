@@ -1,0 +1,25 @@
+import { ButtonsClass } from "./SharedClass";
+import { cn } from "@/lib/utils";
+import { ArrowBigLeftDashIcon } from "@/assets/icons/LeftArrow";
+import { useRef } from "react";
+import {
+  animateIconUsingRef,
+  type IconHandle,
+} from "@/lib/utils/IconAnimateRef";
+import { useNavigate } from "react-router";
+
+export default function BackToHomeButton() {
+  const navigate = useNavigate();
+  const AnimateRef = useRef<IconHandle>(null);
+  return (
+    <div
+      className={cn(ButtonsClass, "flex gap-2 px-2 py-1 text-sm")}
+      {...animateIconUsingRef(AnimateRef)}
+      onClick={() => {
+        navigate("/");
+      }}
+    >
+      <ArrowBigLeftDashIcon size={18} ref={AnimateRef} /> Back to Home
+    </div>
+  );
+}

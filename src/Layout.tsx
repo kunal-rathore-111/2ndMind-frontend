@@ -8,11 +8,15 @@ import SharedContent from "./Pages/SharedContent";
 import Docs from "./Pages/Docs";
 import ErrorPage from "./Pages/ErrorPage";
 import PrivacyPolicyPage from "./Pages/PrivacyPolicy";
+import ScrollToTop from "./components/ScrollToTop";
+import TermsofServicePage from "./Pages/Terms";
 
 export default function Layout() {
   return (
     <div className="flex min-h-screen max-w-screen flex-col items-center justify-center">
       <BrowserRouter>
+        {/* whenever route change the ScrollToTop comp listen and perform scroll */}
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/signin" element={<Signin />} />
@@ -28,6 +32,7 @@ export default function Layout() {
           />
           <Route path="/docs" element={<Docs />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms" element={<TermsofServicePage />} />
           <Route path="/*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>

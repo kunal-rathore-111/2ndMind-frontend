@@ -38,7 +38,7 @@ export default function GetStarted2() {
                     Free forever. No credit card required.
                   </p>
 
-                  <div className="z-100 flex items-center gap-1">
+                  <div className="z-40 flex items-center gap-1">
                     <Button
                       className="cursor-pointer"
                       onClick={() => {

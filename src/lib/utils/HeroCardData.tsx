@@ -1,11 +1,6 @@
 import { CodeIcon } from "@/assets/icons/Category/Code";
 import { GithubIcon } from "@/assets/icons/Github";
 
-export type IconHandle = {
-  startAnimation: () => void;
-  stopAnimation: () => void;
-};
-
 export interface CardDTO {
   categoryIcon: typeof CodeIcon;
   category: string;

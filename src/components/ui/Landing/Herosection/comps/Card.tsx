@@ -13,8 +13,9 @@ import { ShareIcon } from "@/assets/icons/Card/Share";
 import { EditIcon } from "@/assets/icons/Card/Edit";
 import { DeleteIcon } from "@/assets/icons/Card/Delete";
 import { BrowserIcon } from "@/assets/icons/Card/Brower";
-import type { CardDTO, IconHandle } from "@/lib/utils/HeroCardData";
+import type { CardDTO } from "@/lib/utils/HeroCardData";
 import { easeInOut, motion } from "framer-motion";
+import type { IconHandle } from "@/lib/utils/IconAnimateRef";
 
 export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
   const parent = {
