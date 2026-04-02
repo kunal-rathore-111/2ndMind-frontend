@@ -10,6 +10,7 @@ import ErrorPage from "./Pages/ErrorPage";
 import PrivacyPolicyPage from "./Pages/PrivacyPolicy";
 import ScrollToTop from "./components/ScrollToTop";
 import TermsofServicePage from "./Pages/Terms";
+import ContactPage from "./Pages/Contact";
 
 export default function Layout() {
   return (
@@ -33,6 +34,7 @@ export default function Layout() {
           <Route path="/docs" element={<Docs />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms" element={<TermsofServicePage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>

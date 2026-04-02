@@ -8,8 +8,8 @@ const Footer = () => {
   const footerLinks = {
     Products: [
       { name: "Try for free", to: "/signup" },
+      { name: "Blog", to: "#" },
       { name: "Docs", to: "/docs" },
-      { name: "Changelog", to: "/change-log" },
     ],
     Company: [
       { name: "Privacy Policy", to: "/privacy-policy" },
@@ -108,16 +108,15 @@ const Footer = () => {
             </span>
             <div className="flex gap-5">
               <Link
-                to={"#"}
+                to={"/privacy-policy"}
                 className="text-black/70 hover:text-gray-900 dark:text-white/70 dark:hover:text-white"
               >
                 Privacy
               </Link>
               <Link
-                to={""}
+                to={"/terms"}
                 className="text-black/70 hover:text-gray-900 dark:text-white/70 dark:hover:text-white"
               >
-                {" "}
                 Terms
               </Link>
             </div>

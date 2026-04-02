@@ -1,20 +1,12 @@
 import { cn } from "@/lib/utils";
 import { motion, type Variants } from "framer-motion";
 
-const colors = [
+export const colors = [
   {
     light: "bg-cyan-50/90 text-cyan-700 border-cyan-200",
     dark: "dark:bg-cyan-500/15 dark:text-cyan-200 dark:border-cyan-400/35",
   },
 
-  {
-    light: "bg-blue-50/90 text-blue-700 border-blue-200",
-    dark: "dark:bg-blue-500/15 dark:text-blue-200 dark:border-blue-400/35",
-  },
-  {
-    light: "bg-indigo-50/90 text-indigo-700 border-indigo-200",
-    dark: "dark:bg-indigo-500/15 dark:text-indigo-200 dark:border-indigo-400/35",
-  },
   {
     light: "bg-violet-50/90 text-violet-700 border-violet-200",
     dark: "dark:bg-violet-500/15 dark:text-violet-200 dark:border-violet-400/35",
@@ -22,6 +14,10 @@ const colors = [
   {
     light: "bg-fuchsia-50/90 text-fuchsia-700 border-fuchsia-200",
     dark: "dark:bg-fuchsia-500/15 dark:text-fuchsia-200 dark:border-fuchsia-400/35",
+  },
+  {
+    light: "bg-indigo-50/90 text-indigo-700 border-indigo-200",
+    dark: "dark:bg-indigo-500/15 dark:text-indigo-200 dark:border-indigo-400/35",
   },
   {
     light: "bg-rose-50/90 text-rose-700 border-rose-200",
@@ -43,6 +39,10 @@ const colors = [
   {
     light: "bg-lime-50/90 text-lime-700 border-lime-200",
     dark: "dark:bg-lime-500/15 dark:text-lime-200 dark:border-lime-400/35",
+  },
+  {
+    light: "bg-yellow-50/90 text-yellow-700 border-yellow-200",
+    dark: "dark:bg-yellow-500/15 dark:text-yellow-200 dark:border-yellow-400/35",
   },
 ];
 
