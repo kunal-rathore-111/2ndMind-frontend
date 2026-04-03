@@ -1,4 +1,4 @@
-import { HomeIcon } from "lucide-react";
+import { HomeIcon } from "@/assets/icons/Home";
 import { ButtonsClass } from "./SharedClass";
 import { useNavigate } from "react-router";
 
@@ -7,7 +7,7 @@ export default function HomeButton() {
   return (
     <HomeIcon
       className={ButtonsClass}
-      size={29}
+      size={18}
       onClick={() => navigate("/")}
     ></HomeIcon>
   );

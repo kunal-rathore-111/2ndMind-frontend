@@ -177,7 +177,7 @@ const SignComp = ({ mode }: { mode: AuthMode }) => {
           {/* Main Card with shadcn/ui styling */}
           <div
             ref={cardRef}
-            className="border-border relative rounded-lg border bg-white p-6 shadow-sm transition-all duration-200 hover:shadow-md dark:bg-black"
+            className="relative rounded-lg bg-white p-6 shadow-lg shadow-zinc-500/40 transition-all duration-200 hover:shadow-md dark:border-2 dark:border-zinc-700 dark:bg-black"
           >
             <span className="flex w-full justify-between">
               <HomeButton />
