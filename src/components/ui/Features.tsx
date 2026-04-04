@@ -1,5 +1,5 @@
-import DotComp from "../Dot";
-import { BentoGrid } from "./comps/BentoGrid";
+import DotComp from "./Dot";
+import { BentoGrid } from "./BentoGrid";
 
 export default function Features() {
   return (
@@ -13,7 +13,6 @@ export default function Features() {
 
           {/* bento grid */}
           <BentoGrid />
-          <hr />
         </div>
       </section>
     </>

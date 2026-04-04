@@ -1,4 +1,3 @@
-import { ButtonsClass } from "./SharedClass";
 import { cn } from "@/lib/utils";
 import { ArrowBigLeftDashIcon } from "@/assets/icons/LeftArrow";
 import { useRef } from "react";
@@ -7,6 +6,7 @@ import {
   type IconHandle,
 } from "@/lib/utils/IconAnimateRef";
 import { useNavigate } from "react-router";
+import { ButtonsClass } from "@/lib/constants/styles";
 
 export default function BackToHomeButton() {
   const navigate = useNavigate();

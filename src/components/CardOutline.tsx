@@ -1,9 +1,5 @@
 import type { ReactNode } from "react";
-import {
-  CardBody,
-  CardContainer,
-  CardItem,
-} from "./ui/Landing/Features/comps/3d-card";
+import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 
 type CardOutlineProps = {
   children: ReactNode;

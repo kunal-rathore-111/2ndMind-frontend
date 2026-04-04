@@ -1,8 +1,6 @@
 "use client";
 import React, { useState, useRef } from "react";
-import ThemeToggleButton from "../Buttons/ThemeButton";
 import { Link } from "react-router";
-import HomeButton from "../Buttons/HomeButton";
 import { Button } from "../Buttons/shadcnButton";
 import { FloatingLabelInput } from "../FloatingLabelInput";
 import ThemeHomeComp from "../ThemeHomeComp";
@@ -174,7 +172,7 @@ const SignComp = ({ mode }: { mode: AuthMode }) => {
   return (
     <>
       <div className="flex items-center justify-center p-6 lg:w-full">
-        <div className="relative w-full max-w-sm">
+        <div className="relative w-full min-w-96">
           {/* Main Card with shadcn/ui styling */}
           <div
             ref={cardRef}

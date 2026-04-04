@@ -1,5 +1,5 @@
 import { HomeIcon } from "@/assets/icons/Home";
-import { ButtonsClass } from "./SharedClass";
+import { ButtonsClass } from "@/lib/constants/styles";
 import { useNavigate } from "react-router";
 
 export default function HomeButton() {

@@ -14,7 +14,7 @@ import ContactPage from "./Pages/Contact";
 
 export default function Layout() {
   return (
-    <div className="flex min-h-screen max-w-screen flex-col items-center justify-center">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       <BrowserRouter>
         {/* whenever route change the ScrollToTop comp listen and perform scroll */}
         <ScrollToTop />

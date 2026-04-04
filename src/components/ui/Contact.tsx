@@ -1,8 +1,9 @@
 import { MailIcon, UserIcon } from "lucide-react";
-import { FloatingLabelInput } from "../FloatingLabelInput";
+import { FloatingLabelInput } from "./FloatingLabelInput";
 import { useState } from "react";
-import { Textarea } from "../textarea";
-import ThemeHomeComp from "../ThemeHomeComp";
+import { Textarea } from "./textarea";
+import ThemeHomeComp from "./ThemeHomeComp";
+import { Link } from "react-router";
 
 export default function ContactForm() {
   const [name, setName] = useState<string>("");
@@ -24,9 +25,12 @@ export default function ContactForm() {
               </p>
               <p>
                 By submitting a ticket, you agree to adhere to our{" "}
-                <span className="font-medium text-zinc-900 underline decoration-zinc-400 dark:text-zinc-200 dark:decoration-zinc-500">
+                <Link
+                  to={"/terms-of-engaement"}
+                  className="font-medium text-zinc-900 underline decoration-zinc-400 dark:text-zinc-200 dark:decoration-zinc-500"
+                >
                   Terms of Engagement.
-                </span>
+                </Link>
               </p>
             </div>
           </div>

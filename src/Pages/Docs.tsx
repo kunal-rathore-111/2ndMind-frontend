@@ -3,11 +3,11 @@ import CardOutline from "@/components/CardOutline";
 
 import BackToHome_MoveUpComp from "@/components/ui/BackToHome_MoveUpComp";
 import { Button } from "@/components/ui/Buttons/shadcnButton";
-import DotComp from "@/components/ui/Landing/Dot";
+import DotComp from "@/components/ui/Dot";
 import ThemeHomeComp from "@/components/ui/ThemeHomeComp";
+import { colors } from "@/lib/constants/colors";
 import { cn } from "@/lib/utils";
-import { EmailLink, GithubRepo } from "@/lib/utils/SocialLinks";
-import { colors } from "@/lib/utils/Tags";
+import { EmailLink, GithubRepo } from "@/lib/utils/SocialLinks_PolicyDate";
 import {
   FolderKanban,
   HelpCircle,
@@ -19,6 +19,7 @@ import {
   Tags,
   Zap,
 } from "lucide-react";
+import { Link } from "react-router";
 
 export default function Docs() {
   const StepsArray = [
@@ -89,42 +90,84 @@ export default function Docs() {
   ];
 
   const TipsArray = [
-    { text: "Create a free account on the Sign Up page." },
     {
-      text: "You'll land on the Dashboard. Click + Add or press N to save your first bookmark.",
+      text: (
+        <>
+          Create a free account on the{" "}
+          <Link
+            className="font-bold text-zinc-600 underline dark:text-zinc-400"
+            to={"/signup"}
+          >
+            Sign Up page
+          </Link>
+          .
+        </>
+      ),
+    },
+
+    {
+      text: (
+        <>
+          You'll land on the Dashboard. Click{" "}
+          <span className="font-bold text-zinc-600 dark:text-zinc-400">
+            + Add
+          </span>{" "}
+          to save your first bookmark.
+        </>
+      ),
     },
     {
       text: "Assign a category and tags. Categories live in the sidebar; tags let you cross-reference across categories.",
     },
     {
-      text: "Use the search bar to find bookmarks instantly. You can search by title, URL, or tag.",
+      text: (
+        <>
+          Use the{" "}
+          <span className="font-bold text-zinc-600 dark:text-zinc-400">
+            search bar
+          </span>{" "}
+          to find bookmarks instantly. You can search by title, URL, or tag.
+        </>
+      ),
     },
     {
-      text: "Click the share toggle on any bookmark to generate a public link. Share it anywhere — it's permanent until you turn sharing off.",
+      text: (
+        <>
+          Click the
+          <span className="font-bold text-zinc-600 dark:text-zinc-400">
+            {" "}
+            share toggle{" "}
+          </span>{" "}
+          on any bookmark to generate a public link. Share it anywhere — it's
+          permanent until you turn sharing off.
+        </>
+      ),
     },
   ];
 
   return (
-    <div className="my-24 flex flex-col items-start gap-5 text-start">
-      <div className="border-b-2 py-6">
-        <div className="flex w-180 flex-col gap-10">
+    <div className="my-14 flex w-full flex-col items-start gap-5 rounded-2xl border px-14 py-6 text-start shadow-sm shadow-black dark:border-zinc-400 dark:shadow-zinc-200/70">
+      <div className="w-230 border-b-2 py-6">
+        <div className="flex flex-col gap-10">
           {/*What is 2nd Mind?  */}
-          <div className="flex flex-col gap-3">
+          <div className="space-y-5">
             <div className="flex w-full justify-between">
               <div className="flex w-fit items-center gap-1 rounded-sm border border-zinc-500 bg-zinc-200 px-2 text-xs text-zinc-600">
                 <DotComp /> Documentation
               </div>
-              <div className="flex w-1/11 items-end">
+              <div className="flex w-1/14 items-end">
                 <ThemeHomeComp />
               </div>
             </div>
-            <h1 className="text-4xl">What is 2nd Mind?</h1>
-            <p>
-              2nd Mind is a premium bookmark manager designed for knowledge
-              workers who save hundreds of links. Powered by instant search,
-              smart tags, and category-based organisation — so you never lose
-              track of what matters.
-            </p>
+            <div className="space-y-3">
+              <h1 className="text-4xl">What is 2nd Mind?</h1>
+              <p>
+                2nd Mind is a premium bookmark manager designed for knowledge
+                workers who save hundreds of links. Powered by instant search,
+                smart tags, and category-based organisation — so you never lose
+                track of what matters.
+              </p>
+            </div>
           </div>
 
           {/* Getting Started           */}
@@ -161,7 +204,7 @@ export default function Docs() {
                 return (
                   <div
                     key={idx}
-                    className="flex h-auto w-full flex-col rounded-xl bg-zinc-100 p-6 px-5 py-3 text-start text-sm shadow-sm shadow-zinc-900 dark:bg-zinc-950/80 dark:shadow-zinc-300/90"
+                    className="flex h-auto w-full flex-col rounded-xl bg-zinc-100 p-6 px-5 py-3 text-start text-sm shadow-lg shadow-zinc-900/20 dark:bg-zinc-950/80 dark:shadow-zinc-800/50"
                   >
                     <div className="flex flex-col gap-2">
                       <div className="flex items-center gap-2">

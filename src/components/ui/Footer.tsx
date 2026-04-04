@@ -1,44 +1,10 @@
 import { BookTextIcon } from "@/assets/icons/Book";
-import { GithubIcon } from "@/assets/icons/Github";
-import { TwitterIcon } from "@/assets/icons/Twitter";
-import { MailCheckIcon } from "@/assets/icons/Mail";
+import { footerLinks, socialLinks } from "@/lib/constants/content/Footer";
 import { Link } from "react-router";
-
-const Footer = () => {
-  const footerLinks = {
-    Products: [
-      { name: "Try for free", to: "/signup" },
-      { name: "Blog", to: "#" },
-      { name: "Docs", to: "/docs" },
-    ],
-    Company: [
-      { name: "Privacy Policy", to: "/privacy-policy" },
-      { name: "Terms of Service", to: "/terms" },
-      { name: "Contact Us", to: "/contact" },
-    ],
-  };
-
-  const socialLinks = [
-    {
-      label: "Github",
-      icon: GithubIcon,
-      href: "#",
-    },
-    {
-      label: "Twitter",
-      icon: TwitterIcon,
-      href: "#",
-    },
-    {
-      label: "Email",
-      icon: MailCheckIcon,
-      href: "#",
-    },
-  ];
-
+export const Footer = () => {
   return (
-    <footer className="mt-20 w-full border-t bg-white dark:bg-black">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <footer className="mt-20 border-t">
+      <div className="">
         <div className="grid grid-cols-2 py-8 max-sm:mx-auto max-sm:max-w-sm lg:grid-cols-5">
           <div className="col-span-full mb-10 flex w-full flex-col items-center lg:col-span-3 lg:mb-0 lg:items-start">
             <div className="flex items-center gap-1">
@@ -65,8 +31,8 @@ const Footer = () => {
           </div>
 
           {/* Link Columns */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div className="flex w-full flex-col items-center">
+          {Object.entries(footerLinks).map(([title, links], idx) => (
+            <div className="flex w-full flex-col items-center" key={idx}>
               <div key={title} className="items-center text-left lg:mx-auto">
                 <h4 className="mb-3 text-sm font-medium text-gray-900 uppercase dark:text-white">
                   {title}

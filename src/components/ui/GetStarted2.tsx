@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
-import { Button } from "../../Buttons/shadcnButton";
-import GlareHover from "../../GlareHover";
-import { CardBody, CardContainer, CardItem } from "../Features/comps/3d-card";
+import { Button } from "./Buttons/shadcnButton";
+import GlareHover from "./GlareHover";
+import { CardBody, CardContainer, CardItem } from "./3d-card";
 import { motion } from "framer-motion";
 
 export default function GetStarted2() {

@@ -1,22 +1,19 @@
 "use client";
 
-import { LinkIcon } from "@/assets/icons/Card/Link";
-import {
-  CardBody,
-  CardContainer,
-  CardItem,
-} from "@/components/ui/Landing/Features/comps/3d-card";
+import { LinkIcon } from "@/assets/icons/Link";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { useRef } from "react";
 
-import Tags, { colors } from "@/lib/utils/Tags";
-import { ShareIcon } from "@/assets/icons/Card/Share";
-import { EditIcon } from "@/assets/icons/Card/Edit";
-import { DeleteIcon } from "@/assets/icons/Card/Delete";
-import { BrowserIcon } from "@/assets/icons/Card/Brower";
-import type { CardDTO } from "@/lib/utils/HeroCardData";
+import Tags from "@/lib/utils/Tags";
+import { ShareIcon } from "@/assets/icons/Share";
+import { EditIcon } from "@/assets/icons/Edit";
+import { DeleteIcon } from "@/assets/icons/Delete";
+import { BrowserIcon } from "@/assets/icons/Brower";
+import type { CardDTO } from "@/lib/constants/content/SampleCardData";
 import { easeInOut, motion } from "framer-motion";
 import type { IconHandle } from "@/lib/utils/IconAnimateRef";
-import { cn } from "@/lib/utils";
+import { ShareOffIcon } from "@/assets/icons/Shareoff";
+import { LinkOffIcon } from "@/assets/icons/LinkOff";
 
 export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
   const parent = {
@@ -84,20 +81,33 @@ export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
                 <h5>{cardData.category}</h5>
               </div>
               <div className="flex items-center gap-1">
-                <LinkIcon
-                  ref={(el) => {
-                    IconRef.current[1] = el;
-                  }}
-                  size={18}
-                />
-                <span>Shared</span>
+                {cardData.isShared ? (
+                  <>
+                    <LinkIcon
+                      ref={(el) => {
+                        IconRef.current[1] = el;
+                      }}
+                      size={18}
+                    />
+                    <span>Shared</span>
+                  </>
+                ) : (
+                  <>
+                    <LinkOffIcon
+                      ref={(el) => {
+                        IconRef.current[1] = el;
+                      }}
+                      size={18}
+                    />
+                    <span>Not Shared</span>
+                  </>
+                )}
               </div>
             </motion.div>
 
             <div className="flex flex-col gap-2">
               <motion.div variants={child}>
                 <CardItem
-                  as="p"
                   translateZ="60"
                   className="mt-2 max-w-sm text-sm font-semibold"
                 >
@@ -106,7 +116,6 @@ export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
               </motion.div>
               <motion.div variants={child}>
                 <CardItem
-                  as="p"
                   translateZ="60"
                   className="max-w-sm text-sm font-thin text-gray-600/90 dark:text-zinc-400/70"
                 >
@@ -114,30 +123,28 @@ export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
                 </CardItem>
               </motion.div>
               <motion.div variants={child}>
-                <CardItem
-                  as="p"
-                  translateZ="60"
-                  className="mt-2 max-w-sm text-sm"
-                >
+                <CardItem translateZ="60" className="mt-2 max-w-sm text-sm">
                   <Tags tags={cardData.tags} />
                 </CardItem>
               </motion.div>
             </div>
             <CardItem
-              as="p"
               translateZ={-20}
               translateY="24"
               className="mt-4 flex w-full items-center justify-between text-xs"
             >
               <motion.div variants={subchild}>{cardData.date}</motion.div>
               <motion.div className="flex gap-2" variants={iconParent}>
-                {[EditIcon, ShareIcon, DeleteIcon, BrowserIcon].map(
-                  (Icon, idx) => (
-                    <motion.div key={idx} variants={subchild}>
-                      <Icon size={18} />
-                    </motion.div>
-                  ),
-                )}
+                {[
+                  EditIcon,
+                  cardData.isShared ? ShareIcon : ShareOffIcon,
+                  DeleteIcon,
+                  BrowserIcon,
+                ].map((Icon, idx) => (
+                  <motion.div key={idx} variants={subchild}>
+                    <Icon size={18} />
+                  </motion.div>
+                ))}
               </motion.div>
             </CardItem>
           </CardItem>

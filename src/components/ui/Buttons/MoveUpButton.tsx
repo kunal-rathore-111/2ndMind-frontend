@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils";
-import { ButtonsClass } from "./SharedClass";
 import { ArrowBigUpDashIcon } from "@/assets/icons/UpArrow";
 import { useRef } from "react";
 import {
   animateIconUsingRef,
   type IconHandle,
 } from "@/lib/utils/IconAnimateRef";
+import { ButtonsClass } from "@/lib/constants/styles";
 
 export default function MoveUpButton() {
   const AnimateRef = useRef<IconHandle>(null);

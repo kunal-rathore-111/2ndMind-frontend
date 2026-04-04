@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/Buttons/shadcnButton";
 import { motion } from "framer-motion";
 import { GlobeIcon } from "@/assets/icons/Globe";
 import { useNavigate } from "react-router";
-import { AvatarGroupComp } from "./comps/AvatarGroup";
-import { DotPattern } from "../../dot-pattern";
+import { DotPattern } from "./dot-pattern";
+import { AvatarGroupComp } from "./AvatarGroup";
 
 export default function HeroWrapper() {
   return (
-    <div className="relative flex min-h-screen items-center justify-center pt-30">
+    <div className="relative flex min-h-screen items-center justify-center pt-12">
       <DotPattern
         cr={1.5}
         className="z-0 opacity-75 [-webkit-mask-image:radial-gradient(circle_at_center,transparent_45%,black_90%)]"
@@ -38,8 +38,11 @@ function HeroSection() {
       </div>
       <div className="flex flex-col items-center gap-6 text-center">
         <div className="flex items-center justify-center gap-3">
-          <Button onClick={() => navigate("/signup")} asChild>
-            <motion.button whileHover={"animate"}>
+          <Button asChild>
+            <motion.button
+              whileHover={"animate"}
+              onClick={() => navigate("/signup")}
+            >
               Get Started Free
               {<SendIcon />}
             </motion.button>
@@ -62,7 +65,7 @@ function HeroSection() {
             <span>Trusted by users worldwide</span>
             {
               <GlobeIcon
-                className="transition-all duration-200 hover:scale-130"
+                className="transition-all duration-300 ease-in-out hover:scale-125"
                 size={22}
               />
             }

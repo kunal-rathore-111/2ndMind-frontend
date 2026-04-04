@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router";
-import { Button } from "../Buttons/shadcnButton";
+import { Button } from "./Buttons/shadcnButton";
 import { GithubIcon } from "@/assets/icons/Github";
 import { BookTextIcon } from "@/assets/icons/Book";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import ThemeToggleButton from "../Buttons/ThemeButton";
+import ThemeToggleButton from "./Buttons/ThemeButton";
+import { GithubRepo } from "@/lib/utils/SocialLinks_PolicyDate";
 
 export const Nav = () => {
   const navigate = useNavigate();
@@ -23,8 +24,8 @@ export const Nav = () => {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-200 border-b border-transparent transition-all duration-300">
-      <nav className="mx-auto flex h-14.5 w-full max-w-251 items-center bg-white/20 px-4 backdrop-blur-sm dark:bg-black/0">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-all duration-300">
+      <nav className="mx-auto flex h-14.5 w-full items-center bg-white/20 px-8 backdrop-blur-sm dark:bg-black/0">
         <div className="flex gap-10">
           <div
             className="flex cursor-pointer items-center"
@@ -40,7 +41,7 @@ export const Nav = () => {
                   className="text-zinc-900 dark:text-zinc-100"
                 />
               </div>
-              <span className="text-sm font-bold tracking-[-0.03em] text-zinc-900 dark:text-zinc-100">
+              <span className="font-bold tracking-[-0.03em] text-zinc-900 dark:text-zinc-100">
                 Luci
               </span>
             </div>
@@ -73,7 +74,7 @@ export const Nav = () => {
           <ThemeToggleButton />
           <div className="h-4 w-px bg-zinc-300 dark:bg-zinc-700" />
           <a
-            href="https://github.com/2nd-mind/app"
+            href={GithubRepo}
             target="_blank"
             rel="noreferrer"
             className="flex size-7 items-center justify-center rounded-sm text-zinc-400 transition-all duration-400 hover:bg-zinc-200 hover:text-zinc-700 dark:text-zinc-500 hover:dark:bg-zinc-800 hover:dark:text-zinc-200"

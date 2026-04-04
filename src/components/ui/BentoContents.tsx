@@ -1,12 +1,12 @@
 import { motion, easeInOut, AnimatePresence } from "framer-motion";
-import { Tree, type TreeViewElement } from "./content-tree";
 import Tags from "@/lib/utils/Tags";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 import { LockIcon } from "lucide-react";
 import { ChromeIcon } from "@/assets/icons/Chrome";
 import { Switch } from "@/components/ui/switch";
 import { useEffect, useState } from "react";
-import DotComp from "../../Dot";
+import { Tree, type TreeViewElement } from "./content-tree";
+import DotComp from "./Dot";
 
 export function Col1() {
   const elements: TreeViewElement[] = [
