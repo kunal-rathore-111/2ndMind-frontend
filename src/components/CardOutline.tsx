@@ -3,7 +3,7 @@ import {
   CardBody,
   CardContainer,
   CardItem,
-} from "./ui/Landing/Herosection/comps/3d-card";
+} from "./ui/Landing/Features/comps/3d-card";
 
 type CardOutlineProps = {
   children: ReactNode;

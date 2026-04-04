@@ -1,7 +1,5 @@
-import BackToHomeButton from "@/components/ui/Buttons/BackToHomeButton";
-import HomeButton from "@/components/ui/Buttons/HomeButton";
-import MoveUpButton from "@/components/ui/Buttons/MoveUpButton";
-import ThemeToggleButton from "@/components/ui/Buttons/ThemeButton";
+import ThemeHomeComp from "../ThemeHomeComp";
+import BackToHome_MoveUpComp from "../BackToHome_MoveUpComp";
 
 interface DataDTO {
   title: string;
@@ -17,16 +15,15 @@ export default function PrivacyTerms(props: PrivacyTermsDTO) {
   const lastUpdate = import.meta.env.VITE_PRIVACY_POLICY_DATE ?? "N/A";
 
   return (
-    <div className="my-10 w-full rounded-2xl border px-20 text-start dark:border-2">
+    <div className="my-10 w-full rounded-2xl px-20 text-start">
       <div className="w-full px-10 py-4 text-start">
         <div className="flex items-center justify-between border-b py-4">
           <div>
             <h2 className="text-2xl font-semibold">{props.heading}</h2>
             <h3 className="font-medium">Last updated: {lastUpdate}</h3>
           </div>
-          <div className="flex gap-4">
-            <ThemeToggleButton />
-            <HomeButton />
+          <div className="flex w-1/11 items-end">
+            <ThemeHomeComp />
           </div>
         </div>
         <ol className="my-3 list-decimal border-b py-3 pl-5" type="1">
@@ -48,10 +45,7 @@ export default function PrivacyTerms(props: PrivacyTermsDTO) {
             );
           })}
         </ol>
-        <div className="flex w-full items-center justify-between">
-          <BackToHomeButton />
-          <MoveUpButton />
-        </div>
+        <BackToHome_MoveUpComp />
       </div>
     </div>
   );

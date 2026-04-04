@@ -2,8 +2,7 @@ import { MailIcon, UserIcon } from "lucide-react";
 import { FloatingLabelInput } from "../FloatingLabelInput";
 import { useState } from "react";
 import { Textarea } from "../textarea";
-import HomeButton from "../Buttons/HomeButton";
-import ThemeToggleButton from "../Buttons/ThemeButton";
+import ThemeHomeComp from "../ThemeHomeComp";
 
 export default function ContactForm() {
   const [name, setName] = useState<string>("");
@@ -13,10 +12,7 @@ export default function ContactForm() {
     <div className="flex max-w-100 flex-col rounded-2xl py-6 text-start shadow-lg shadow-zinc-500/40 dark:border-2">
       <div className="flex flex-col gap-7 px-8 py-3">
         <div className="flex flex-col gap-2">
-          <div className="flex w-full items-center justify-between">
-            <HomeButton />
-            <ThemeToggleButton />
-          </div>
+          <ThemeHomeComp />
           <div className="flex flex-col gap-6">
             <h1 className="text-center text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
               Contact support

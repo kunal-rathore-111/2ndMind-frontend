@@ -5,10 +5,10 @@ import {
   CardBody,
   CardContainer,
   CardItem,
-} from "@/components/ui/Landing/Herosection/comps/3d-card";
+} from "@/components/ui/Landing/Features/comps/3d-card";
 import { useRef } from "react";
 
-import Tags from "@/lib/utils/Tags";
+import Tags, { colors } from "@/lib/utils/Tags";
 import { ShareIcon } from "@/assets/icons/Card/Share";
 import { EditIcon } from "@/assets/icons/Card/Edit";
 import { DeleteIcon } from "@/assets/icons/Card/Delete";
@@ -16,6 +16,7 @@ import { BrowserIcon } from "@/assets/icons/Card/Brower";
 import type { CardDTO } from "@/lib/utils/HeroCardData";
 import { easeInOut, motion } from "framer-motion";
 import type { IconHandle } from "@/lib/utils/IconAnimateRef";
+import { cn } from "@/lib/utils";
 
 export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
   const parent = {

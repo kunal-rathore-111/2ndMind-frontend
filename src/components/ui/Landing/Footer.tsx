@@ -37,7 +37,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="mt-30 w-full border-t bg-white dark:bg-black">
+    <footer className="mt-20 w-full border-t bg-white dark:bg-black">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 py-8 max-sm:mx-auto max-sm:max-w-sm lg:grid-cols-5">
           <div className="col-span-full mb-10 flex w-full flex-col items-center lg:col-span-3 lg:mb-0 lg:items-start">

@@ -1,81 +1,43 @@
 import { ClapIcon } from "@/assets/icons/Demo";
 import { SendIcon } from "@/assets/icons/Send";
 import { Button } from "@/components/ui/Buttons/shadcnButton";
-import { easeInOut, easeOut, motion } from "framer-motion";
-import { card1, card2 } from "@/lib/utils/HeroCardData";
+import { motion } from "framer-motion";
 import { GlobeIcon } from "@/assets/icons/Globe";
 import { useNavigate } from "react-router";
-import { ThreeDCardDemo } from "./comps/Card";
 import { AvatarGroupComp } from "./comps/AvatarGroup";
+import { DotPattern } from "../../dot-pattern";
 
-export default function HeroSection() {
-  const parent = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.4 },
-    },
-  };
-  const child = {
-    hidden: { opacity: 0, y: -50, x: -60 },
-    show: {
-      y: 0,
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: easeInOut,
-      },
-    },
-  };
+export default function HeroWrapper() {
+  return (
+    <div className="relative flex min-h-screen items-center justify-center pt-30">
+      <DotPattern
+        cr={1.5}
+        className="z-0 opacity-75 [-webkit-mask-image:radial-gradient(circle_at_center,transparent_45%,black_90%)]"
+      />
+      <HeroSection />
+    </div>
+  );
+}
 
+function HeroSection() {
   const navigate = useNavigate();
   return (
-    <section className="flex flex-col gap-6">
-      <section className="flex">
-        {/*left div*/}
-        <div className="flex flex-col text-start">
-          {/* app intro text */}
-          <div className="flex flex-col gap-1">
-            <h1 className="text-[93px] leading-25 font-semibold">
-              Luci, <br /> Your's <br /> Second Mind <br /> with AI
-            </h1>
-            <div>
-              <p className="text-zinc-400 dark:text-zinc-600">
-                Save, organize, and resurface any content in seconds.
-                <br /> Built for people who live in the browser.
-              </p>
-            </div>
-          </div>
+    <section className="relative z-10 flex flex-col items-center justify-center gap-6 text-center">
+      {/* app intro text */}
+      <div className="flex flex-col gap-1">
+        <h1 className="text-8xl leading-25 font-semibold">
+          Luci, Your Second <br />
+          Mind with AI
+        </h1>
+        <div>
+          <p className="text-zinc-400 dark:text-zinc-600">
+            Save, organize, and resurface any content in seconds.
+            <br /> Built for people who live in the browser.
+          </p>
         </div>
-
-        {/*right div*/}
-        <motion.div
-          className="relative flex flex-1"
-          variants={parent}
-          initial="hidden"
-          animate="show"
-          transition={{ duration: 0.3, ease: easeOut }}
-        >
-          <motion.div
-            variants={child}
-            className="absolute top-0 right-60"
-            animate={{ rotateZ: -20 }}
-          >
-            <ThreeDCardDemo cardData={card1}></ThreeDCardDemo>
-          </motion.div>
-          <motion.div
-            className="absolute top-50 right-10"
-            variants={child}
-            animate={{ rotateZ: 10 }}
-          >
-            <ThreeDCardDemo cardData={card2}></ThreeDCardDemo>
-          </motion.div>
-        </motion.div>
-      </section>
-      {/* bottom of both left and right */}
-      <section className="flex flex-col gap-6 text-start">
-        <div className="flex gap-3">
+      </div>
+      <div className="flex flex-col items-center gap-6 text-center">
+        <div className="flex items-center justify-center gap-3">
           <Button onClick={() => navigate("/signup")} asChild>
             <motion.button whileHover={"animate"}>
               Get Started Free
@@ -94,7 +56,7 @@ export default function HeroSection() {
             </motion.button>
           </Button>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-center gap-2">
           <AvatarGroupComp />
           <span className="flex items-center gap-1 text-sm text-zinc-600 dark:text-zinc-400">
             <span>Trusted by users worldwide</span>
@@ -106,7 +68,7 @@ export default function HeroSection() {
             }
           </span>
         </div>
-      </section>
+      </div>
     </section>
   );
 }

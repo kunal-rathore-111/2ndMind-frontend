@@ -1,9 +1,5 @@
 import DotComp from "../Dot";
-import {
-  CardBody,
-  CardContainer,
-  CardItem,
-} from "../Herosection/comps/3d-card";
+import { CardBody, CardContainer, CardItem } from "../Features/comps/3d-card";
 import { motion } from "framer-motion";
 
 import Person1 from "@/assets/images/avatar/landing/person1.png";
@@ -42,11 +38,11 @@ export default function Audience() {
   ];
   return (
     <>
-      <div className="mt-20 flex flex-col">
+      <div className="mt-0 flex flex-col">
         <h3 className="flex items-center gap-1 text-4xl font-semibold text-black/70 uppercase dark:text-white/60">
           {<DotComp />} Audience
         </h3>
-        <motion.div className="mt-8 flex flex-col items-center justify-center">
+        <div className="mt-8 flex flex-col items-center justify-center">
           <h2 className="text-2xl">What our audience says</h2>
           <motion.div className="mt-8 flex items-center justify-center gap-7">
             {AudienceCommentArray.map((x, idx) => {
@@ -74,8 +70,9 @@ export default function Audience() {
               );
             })}
           </motion.div>
-        </motion.div>
+        </div>
       </div>
+      <hr />
     </>
   );
 }

@@ -15,7 +15,7 @@ export default function Categories() {
     "Design",
   ];
   return (
-    <div className="mt-20 flex items-center border-y text-black/70 dark:text-white/60">
+    <div className="flex items-center border-y text-black/70 dark:text-white/60">
       <span className="flex h-full items-center gap-2 p-1">
         <DotComp />
         <div className="text-4xl font-semibold uppercase"> Categories </div>

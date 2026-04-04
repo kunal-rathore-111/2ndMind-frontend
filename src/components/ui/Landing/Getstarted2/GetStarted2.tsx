@@ -1,19 +1,15 @@
 import { useNavigate } from "react-router";
 import { Button } from "../../Buttons/shadcnButton";
 import GlareHover from "../../GlareHover";
-import {
-  CardBody,
-  CardContainer,
-  CardItem,
-} from "../Herosection/comps/3d-card";
+import { CardBody, CardContainer, CardItem } from "../Features/comps/3d-card";
 import { motion } from "framer-motion";
 
 export default function GetStarted2() {
   const navigate = useNavigate();
   return (
     <>
-      <div className="mt-20 flex flex-col">
-        <motion.div className="mt-10 flex items-center justify-center gap-7">
+      <div className="mt-0 flex flex-col">
+        <motion.div className="flex items-center justify-center">
           <CardContainer className="inter-var">
             <GlareHover
               className="flex items-center justify-center"

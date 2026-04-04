@@ -12,7 +12,7 @@ export interface CardDTO {
 
 export const card1 = {
   categoryIcon: CodeIcon,
-  category: "react.dev",
+  category: "Development",
   contentTitle: " React - The library for web and native user interfaces",
   contentDescription:
     " React lets you build user interfaces out of individual pieces called components.",
@@ -21,7 +21,7 @@ export const card1 = {
 };
 export const card2 = {
   categoryIcon: GithubIcon,
-  category: "github",
+  category: "Github",
   contentTitle: "Github - Open Source roadmap",
   contentDescription:
     "GitHub provides a structured path to explore open source and contribute effectively.",

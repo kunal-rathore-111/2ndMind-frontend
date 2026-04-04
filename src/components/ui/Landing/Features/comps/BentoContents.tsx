@@ -101,7 +101,7 @@ export function Col1() {
   const folderIds = ["Categories", "All", "Research", "Development"];
 
   return (
-    <div className="col-span-1 flex flex-col gap-5 rounded-l-4xl border-y-2 border-l-2 border-black p-5 dark:border-white">
+    <div className="col-span-1 flex flex-col gap-5 rounded-l-4xl border-y border-l border-black p-5 dark:border-white">
       <h4 className="text-2xl">A sample of organized content</h4>
       <Tree elements={elements} initialExpandedItems={folderIds} />
     </div>
@@ -144,7 +144,7 @@ export function Col2Row1() {
   return (
     <>
       <motion.div
-        className="z-100 flex flex-col rounded-4xl rounded-br-none border-2 border-black bg-white p-5 dark:z-0 dark:border-white dark:bg-transparent"
+        className="z-100 flex flex-col rounded-4xl rounded-br-none border border-black bg-white p-5 dark:z-0 dark:border-white dark:bg-transparent"
         variants={tagsParentVariant}
         initial={"hidden"}
         animate={"show"}
@@ -186,7 +186,7 @@ export function Col2Row1() {
 export function Col2Row2() {
   return (
     <>
-      <div className="-mt-6 flex flex-col rounded-4xl rounded-tl-none border-2 border-black p-5 pt-8 dark:z-100 dark:border-white dark:bg-black dark:pt-5">
+      <div className="-mt-6 flex flex-col rounded-4xl rounded-tl-none border border-black p-5 pt-8 dark:z-100 dark:border-white dark:bg-black dark:pt-5">
         <div className="flex flex-col gap-1">
           <p className="text-lg font-extralight">Privacy</p>
           <div className="flex flex-col gap-3">
@@ -229,7 +229,7 @@ export function Col3Row1() {
 
   return (
     <>
-      <div className="flex flex-col gap-3 rounded-r-4xl rounded-bl-4xl border-t-2 border-r-2 border-black p-5 dark:border-white">
+      <div className="flex flex-col gap-3 rounded-r-4xl rounded-bl-4xl border-t border-r border-black p-5 dark:border-white">
         <motion.p
           variants={introducingSoonParent}
           initial={"hidden"}
@@ -315,7 +315,7 @@ export function Col3Row2() {
   const sharesArray = ["2ndmind.app/s/design-inspo", "2ndmind.app/s/ai-papers"];
 
   return (
-    <motion.div className="relative flex flex-col rounded-4xl rounded-l-none border-y-2 border-r-2 border-b-2 border-black p-5 dark:border-white">
+    <motion.div className="relative flex flex-col rounded-4xl rounded-l-none border-y border-r border-b border-black p-5 dark:border-white">
       <div className="flex flex-col gap-1">
         <div className="flex flex-col gap-3">
           <h4 className="flex items-center gap-2 text-3xl">
@@ -331,7 +331,7 @@ export function Col3Row2() {
                 {isOn && (
                   <motion.div
                     layout
-                    className="mt-1 flex flex-col gap-1 rounded-lg border-2 bg-zinc-300/60 px-3 py-2 dark:border-emerald-500/40 dark:bg-zinc-600/20"
+                    className="mt-1 flex flex-col gap-1 rounded-lg border bg-zinc-300/60 px-3 py-2 dark:border-emerald-500/40 dark:bg-zinc-600/20"
                     variants={shareParent}
                     initial={"hidden"}
                     animate={"show"}
@@ -354,7 +354,7 @@ export function Col3Row2() {
               </AnimatePresence>
 
               <motion.div
-                className="mt-1 flex min-h-19 flex-col gap-1 rounded-lg border-2 bg-zinc-300/60 px-3 py-4 dark:border-zinc-200/40 dark:bg-zinc-600/20"
+                className="mt-1 flex min-h-19 flex-col gap-1 rounded-lg border bg-zinc-300/60 px-3 py-4 dark:border-zinc-200/40 dark:bg-zinc-600/20"
                 layout
                 transition={{
                   layout: {

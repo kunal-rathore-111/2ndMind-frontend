@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import HomeButton from "../Buttons/HomeButton";
 import { Button } from "../Buttons/shadcnButton";
 import { FloatingLabelInput } from "../FloatingLabelInput";
+import ThemeHomeComp from "../ThemeHomeComp";
 
 const UserIcon: React.FC = () => (
   <svg
@@ -179,10 +180,7 @@ const SignComp = ({ mode }: { mode: AuthMode }) => {
             ref={cardRef}
             className="relative rounded-lg bg-white p-6 shadow-lg shadow-zinc-500/40 transition-all duration-200 hover:shadow-md dark:border-2 dark:border-zinc-700 dark:bg-black"
           >
-            <span className="flex w-full justify-between">
-              <HomeButton />
-              <ThemeToggleButton />
-            </span>
+            <ThemeHomeComp />
             {/* Header */}
             <div className="mb-6 flex flex-col space-y-2 text-center">
               <h1 className="text-foreground text-2xl font-semibold tracking-tight">
