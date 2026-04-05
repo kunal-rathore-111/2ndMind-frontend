@@ -16,10 +16,15 @@ export default function Audience() {
     <>
       <div className="mt-0 flex flex-col overflow-hidden">
         <h3
-          className="flex items-center justify-center gap-1 text-6xl font-semibold text-black/70 uppercase dark:text-white/60"
+          className="text-6xl leading-none font-semibold text-black/70 uppercase dark:text-white/60"
           {...animateIconUsingRef(AnimateRef)}
         >
-          Love from Audience <HandHeartIcon ref={AnimateRef} size={42} />
+          Love from our Audience
+          <HandHeartIcon
+            ref={AnimateRef}
+            size={44}
+            className="ml-2 inline-block"
+          />
         </h3>
         <div className="mt-8 flex flex-col items-center justify-center">
           <motion.div className="mt-8 flex items-center justify-center gap-7">

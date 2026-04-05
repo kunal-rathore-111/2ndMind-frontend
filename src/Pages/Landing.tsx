@@ -11,7 +11,7 @@ export default function Landing() {
   return (
     <>
       <Nav />
-      <main className="flex min-h-screen w-full flex-col space-y-32 px-4">
+      <main className="flex w-full flex-col space-y-32 px-4">
         <div>
           {" "}
           <HeroWrapper />

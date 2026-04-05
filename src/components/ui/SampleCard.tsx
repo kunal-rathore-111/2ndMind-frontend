@@ -1,6 +1,7 @@
 import { motion, easeOut, easeInOut } from "framer-motion";
 import { ThreeDCardDemo } from "./Card";
 import { card1, card2, card3 } from "@/lib/constants/content/SampleCardData";
+import { cn } from "@/lib/utils";
 
 export default function SampleCards() {
   const parent = {
@@ -24,29 +25,36 @@ export default function SampleCards() {
   };
   return (
     <>
-      <div className="mt-0 flex flex-col">
-        <h3 className="flex w-full items-center justify-center gap-1 text-6xl font-semibold text-black/70 uppercase dark:text-white/60">
+      <div className="mt-0 flex flex-col overflow-hidden">
+        <h3 className="mb-10 flex w-full items-center justify-center gap-1 text-6xl font-semibold text-black/70 uppercase dark:text-white/60">
           # See how your data is organized
         </h3>
-        <div className="mt-8 flex flex-col items-center justify-center">
+        <hr />
+        <div className="flex flex-col items-center justify-center p-10">
           <motion.section
             variants={parent}
             initial="hidden"
             animate="show"
-            className="mt-8 flex w-full justify-evenly gap-14"
+            className="flex w-full flex-col justify-evenly lg:flex-row"
             transition={{ duration: 0.3, ease: easeOut }}
           >
-            <motion.div variants={child}>
-              <ThreeDCardDemo cardData={card1}></ThreeDCardDemo>
-            </motion.div>
-            <motion.div variants={child}>
-              <ThreeDCardDemo cardData={card2}></ThreeDCardDemo>
-            </motion.div>
-            <motion.div variants={child}>
-              <ThreeDCardDemo cardData={card3}></ThreeDCardDemo>
-            </motion.div>
+            {[card1, card2, card3].map((x, idx) => (
+              /* hidding card 2 and 3 using tailwind condition */
+              <motion.div
+                variants={child}
+                key={idx}
+                className={cn(
+                  "p-4",
+                  idx === 1 ? "hidden md:block" : "",
+                  idx === 2 ? "hidden lg:block" : "",
+                )}
+              >
+                <ThreeDCardDemo cardData={x} />
+              </motion.div>
+            ))}
           </motion.section>
         </div>
+        <hr />
       </div>
     </>
   );

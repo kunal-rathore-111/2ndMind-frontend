@@ -3,7 +3,7 @@ import { footerLinks, socialLinks } from "@/lib/constants/content/Footer";
 import { Link } from "react-router";
 export const Footer = () => {
   return (
-    <footer className="mt-20 border-t">
+    <footer className="mt-0 border-t">
       <div className="">
         <div className="grid grid-cols-2 py-8 max-sm:mx-auto max-sm:max-w-sm lg:grid-cols-5">
           <div className="col-span-full mb-10 flex w-full flex-col items-center lg:col-span-3 lg:mb-0 lg:items-start">

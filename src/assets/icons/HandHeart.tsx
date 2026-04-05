@@ -28,11 +28,11 @@ const HEART_VARIANTS: Variants = {
     },
   },
   animate: {
-    translateY: [0, -2],
-    scale: [1, 1.1],
+    translateY: [0, -6],
+    scale: [1, 1.2, 1.4],
     transition: {
       delay: 0.1,
-      scale: { duration: 0.2 },
+      scale: { duration: 0.3 },
       type: "spring",
       stiffness: 200,
       damping: 25,

@@ -1,12 +1,12 @@
 import { motion, easeInOut, AnimatePresence } from "framer-motion";
 import Tags from "@/lib/utils/Tags";
 import { TypingAnimation } from "@/components/ui/typing-animation";
-import { LockIcon } from "lucide-react";
 import { ChromeIcon } from "@/assets/icons/Chrome";
 import { Switch } from "@/components/ui/switch";
 import { useEffect, useState } from "react";
 import { Tree, type TreeViewElement } from "./content-tree";
 import DotComp from "./Dot";
+import { LockIcon } from "@/assets/icons/Lock";
 
 export function Col1() {
   const elements: TreeViewElement[] = [
@@ -144,7 +144,7 @@ export function Col2Row1() {
   return (
     <>
       <motion.div
-        className="z-100 flex flex-col rounded-4xl rounded-br-none border border-black bg-white p-5 dark:z-0 dark:border-white dark:bg-transparent"
+        className="z-10 flex flex-col rounded-4xl border border-black bg-white p-5 dark:border-white dark:bg-black"
         variants={tagsParentVariant}
         initial={"hidden"}
         animate={"show"}
@@ -186,12 +186,15 @@ export function Col2Row1() {
 export function Col2Row2() {
   return (
     <>
-      <div className="-mt-6 flex flex-col rounded-4xl rounded-tl-none border border-black p-5 pt-8 dark:z-100 dark:border-white dark:bg-black dark:pt-5">
+      <div className="mt-5 flex flex-col items-start justify-center rounded-4xl rounded-b-none border border-black p-5 md:rounded-br-4xl dark:border-white dark:bg-black">
         <div className="flex flex-col gap-1">
           <p className="text-lg font-extralight">Privacy</p>
           <div className="flex flex-col gap-3">
-            <h4 className="flex items-center gap-2 text-3xl font-semibold">
-              <LockIcon size={24} className="text-red-500 dark:text-lime-500" />
+            <h4 className="text-3xl font-semibold">
+              <LockIcon
+                size={24}
+                className="mr-2 inline-block text-red-500 dark:text-lime-500"
+              />
               Private by default
             </h4>
             <motion.span>
@@ -208,10 +211,12 @@ export function Col2Row2() {
 
 export function Col3Row1() {
   const introducingSoonParent = {
-    hidden: {},
+    hidden: { opacity: 0 },
     show: {
+      opacity: 1,
       transition: {
-        staggerChildren: 0.6,
+        duration: 3,
+        staggerChildren: 0.3,
       },
     },
   };
@@ -220,21 +225,21 @@ export function Col3Row1() {
     show: {
       opacity: [0, 1],
       transition: {
-        duration: 0.7,
+        duration: 0.4,
         repeat: Infinity,
-        repeatDelay: 7,
+        repeatDelay: 5,
       },
     },
   };
 
   return (
     <>
-      <div className="flex flex-col gap-3 rounded-r-4xl rounded-bl-4xl border-t border-r border-black p-5 dark:border-white">
+      <div className="flex flex-col gap-3 border-black p-5 md:rounded-4xl md:border md:border-t-0 lg:rounded-l-none lg:border-t lg:border-b-0 lg:border-l-0 dark:border-white">
         <motion.p
           variants={introducingSoonParent}
           initial={"hidden"}
           animate={"show"}
-          className="text-xs text-black/60 dark:text-zinc-300/50"
+          className="text-xs text-black/80 dark:text-zinc-300/70"
         >
           <span>Introdu</span>
           <span className="opacity-90">cing S</span>
@@ -243,7 +248,8 @@ export function Col3Row1() {
           <motion.span variants={introducingSoonChild}>o</motion.span>
           <motion.span variants={introducingSoonChild}>o</motion.span>
           <motion.span variants={introducingSoonChild}>n</motion.span>
-          <motion.span variants={introducingSoonChild}>..</motion.span>
+          <motion.span variants={introducingSoonChild}>.</motion.span>
+          <motion.span variants={introducingSoonChild}>.</motion.span>
           <motion.span variants={introducingSoonChild}>.</motion.span>
           <motion.span variants={introducingSoonChild}>.</motion.span>
           <motion.span variants={introducingSoonChild}>.</motion.span>
@@ -315,11 +321,11 @@ export function Col3Row2() {
   const sharesArray = ["2ndmind.app/s/design-inspo", "2ndmind.app/s/ai-papers"];
 
   return (
-    <motion.div className="relative flex flex-col rounded-4xl rounded-l-none border-y border-r border-b border-black p-5 dark:border-white">
+    <motion.div className="relative flex flex-col rounded-l-none border border-black p-5 md:rounded-4xl md:border-t-0 lg:border-t lg:border-l-0 dark:border-white">
       <div className="flex flex-col gap-1">
         <div className="flex flex-col gap-3">
-          <h4 className="flex items-center gap-2 text-3xl">
-            Share collections instantly
+          <h4 className="flex items-center gap-2 text-2xl">
+            <DotComp /> Share collections instantly
           </h4>
           <motion.div className="m-1 flex flex-col gap-2">
             <div className="flex w-full items-center justify-between gap-2 rounded-lg border bg-zinc-200 px-10 py-1 dark:bg-zinc-800">
@@ -354,7 +360,7 @@ export function Col3Row2() {
               </AnimatePresence>
 
               <motion.div
-                className="mt-1 flex min-h-19 flex-col gap-1 rounded-lg border bg-zinc-300/60 px-3 py-4 dark:border-zinc-200/40 dark:bg-zinc-600/20"
+                className="mt-1 flex flex-col gap-1 rounded-lg border bg-zinc-300/60 px-3 py-4 dark:border-zinc-200/40 dark:bg-zinc-600/20"
                 layout
                 transition={{
                   layout: {
@@ -368,10 +374,9 @@ export function Col3Row2() {
                   return (
                     <motion.span
                       key={idx}
-                      className="flex items-center gap-1 text-[16px] text-red-400 dark:text-fuchsia-400"
+                      className="text-[16px] text-zinc-700 transition-colors hover:text-emerald-500 dark:text-zinc-300 dark:hover:text-emerald-400"
                     >
-                      <DotComp />
-                      {text}
+                      - {text}
                     </motion.span>
                   );
                 })}
