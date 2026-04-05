@@ -2,9 +2,29 @@ import { useNavigate } from "react-router";
 import { Button } from "./Buttons/shadcnButton";
 import GlareHover from "./GlareHover";
 import { CardBody, CardContainer, CardItem } from "./3d-card";
+import { useEffect, useState } from "react";
 
 export default function GetStarted2() {
   const navigate = useNavigate();
+
+  const [dimensions, setDimensions] = useState({
+    width: "300px",
+    height: "200px",
+  });
+
+  /* to give card height and width on the basis of real time width */
+  useEffect(() => {
+    const w = window.innerWidth;
+    if (w < 768) //mobile
+    {
+      setDimensions({ width: "300px", height: "150px" });
+    } else if (w < 1024) {
+      setDimensions({ width: "480px", height: "260px" });
+    } else {
+      setDimensions({ width: "600px", height: "290px" });
+    }
+  }, []);
+
   return (
     <>
       <div className="mt-0 flex flex-col">
@@ -17,8 +37,8 @@ export default function GetStarted2() {
               className="flex items-center justify-center"
               background="transparent"
               borderColor="transparent"
-              width="630px"
-              height="290px"
+              height={dimensions.height}
+              width={dimensions.width}
             >
               <CardBody className="flex h-auto w-auto bg-zinc-500/20 px-20 py-12">
                 <CardItem

@@ -20,7 +20,7 @@ export function AvatarGroupComp() {
       {AvatarDataArray.map((x, idx) => {
         return (
           <Avatar
-            className="transition-all duration-300 hover:z-10 hover:scale-110"
+            className="transition-all duration-600 hover:z-10 hover:scale-110"
             key={idx}
           >
             <AvatarImage src={x.src} alt={x.alt} />

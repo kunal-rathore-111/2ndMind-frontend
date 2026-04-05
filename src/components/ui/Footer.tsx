@@ -3,15 +3,15 @@ import { footerLinks, socialLinks } from "@/lib/constants/content/Footer";
 import { Link } from "react-router";
 export const Footer = () => {
   return (
-    <footer className="mt-0 border-t">
+    <footer className="mt-0 border-t px-4">
       <div className="">
-        <div className="grid grid-cols-2 py-8 max-sm:mx-auto max-sm:max-w-sm lg:grid-cols-5">
-          <div className="col-span-full mb-10 flex w-full flex-col items-center lg:col-span-3 lg:mb-0 lg:items-start">
+        <div className="grid grid-cols-2 py-8 max-sm:mx-auto max-sm:max-w-sm md:grid-cols-5">
+          <div className="col-span-full mb-10 flex w-full flex-col items-center md:col-span-3 md:mb-0 md:items-start">
             <div className="flex items-center gap-1">
-              <BookTextIcon size={22} />
+              <BookTextIcon size={22} className="mr-1 inline-block" />
               <span className="font-semibold">2nd Mind</span>
             </div>
-            <p className="mx-auto max-w-55 py-4 text-center text-sm wrap-break-word text-black/40 lg:mx-0 lg:text-left dark:text-zinc-300/40">
+            <p className="max-w-55 py-4 text-sm wrap-break-word text-black/40 md:text-start lg:mx-0 lg:text-left dark:text-zinc-300/40">
               A premium bookmark manager for people who think in links.
             </p>
             <div className="flex gap-4 pt-2">
@@ -60,7 +60,7 @@ export const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t py-4 text-sm">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto lg:max-w-7xl">
           <div className="flex flex-col items-center justify-center lg:flex-row lg:justify-between">
             <span className="text-center text-gray-500 dark:text-gray-400">
               ©{" "}

@@ -16,22 +16,22 @@ export default function PrivacyTerms(props: PrivacyTermsDTO) {
   const lastUpdate = POLICY_DATE;
 
   return (
-    <div className="my-14 flex w-full flex-col items-start gap-5 rounded-2xl border px-14 py-6 text-start shadow-sm shadow-black dark:border-zinc-400 dark:shadow-zinc-200/70">
-      <div className="w-230 py-6">
-        <div className="flex flex-col gap-10">
-          <div className="flex items-center justify-between border-b py-4">
+    <div className="my-14 flex w-full flex-col items-start gap-5 rounded-2xl border px-14 py-12 text-start shadow-sm shadow-black dark:border-zinc-400 dark:shadow-zinc-200/70">
+      <div className="lg:w-230">
+        <div className="border-y-2">
+          <div className="flex items-center justify-between py-4">
             <div>
               <h2 className="text-2xl font-semibold">{props.heading}</h2>
               <h3 className="font-medium text-zinc-500">
                 Last updated: {lastUpdate}
               </h3>
             </div>
-            <div className="flex w-1/14 items-end">
+            <div className="flex items-end md:w-1/7 lg:w-1/12">
               <ThemeHomeComp />
             </div>
           </div>
         </div>
-        <ol className="my-3 list-decimal border-b py-3 pl-5" type="1">
+        <ol className="my-3 list-decimal border-b-2 py-8 pl-5" type="1">
           {props.DataArray.map((x, idx) => {
             return (
               <li
@@ -50,8 +50,8 @@ export default function PrivacyTerms(props: PrivacyTermsDTO) {
             );
           })}
         </ol>
-        <BackToHome_MoveUpComp />
       </div>
+      <BackToHome_MoveUpComp />
     </div>
   );
 }
