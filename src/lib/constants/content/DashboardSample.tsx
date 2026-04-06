@@ -51,6 +51,11 @@ export const SideBarMenuData: SideBarMenuDataTypes[] = [
       {
         CollapsedDataButtonName: "# Design",
       },
+      { CollapsedDataButtonName: "# All2" },
+      { CollapsedDataButtonName: "# Development2" },
+      {
+        CollapsedDataButtonName: "# Design2",
+      },
     ],
   },
   /* 4th Shared */

@@ -5,7 +5,7 @@ export default function Dashboard() {
   return (
     <SidebarProvider>
       <AppSideBar />
-      <main>
+      <main className="">
         <SidebarTrigger />
       </main>
     </SidebarProvider>

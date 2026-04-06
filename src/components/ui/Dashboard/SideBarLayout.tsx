@@ -28,6 +28,8 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
   ChevronUp,
+  LogOutIcon,
+  Settings,
   User2,
 } from "lucide-react";
 import {
@@ -39,6 +41,9 @@ import {
   SideBarMenuData,
   type SideBarMenuDataTypes,
 } from "@/lib/constants/content/DashboardSample";
+import { Avatar, AvatarFallback, AvatarImage } from "../avatar";
+import BackToHomeButton from "../Buttons/BackToHomeButton";
+import { SettingsIcon } from "@/assets/icons/Settings";
 
 export function AppSideBar() {
   return (
@@ -79,6 +84,7 @@ function Header() {
 function Content() {
   return (
     <SidebarContent>
+      {/* section for library comps like- all , tags etc */}
       <SidebarGroup>
         <SidebarGroupLabel>Library</SidebarGroupLabel>
         <SidebarGroupContent>
@@ -94,7 +100,10 @@ function SideBar_Menu() {
     <SidebarMenu className="">
       {SideBarMenuData.map((menuData) => {
         return menuData.CollapsedData ? (
-          <CollapseComp menuData={menuData} />
+          <CollapseComp
+            key={menuData.SidebarMenuButtonName}
+            menuData={menuData}
+          />
         ) : (
           <SidebarMenuItem key={menuData.SidebarMenuButtonName}>
             <SidebarMenuButton className="text-xs">
@@ -110,25 +119,21 @@ function SideBar_Menu() {
 
 function CollapseComp({ menuData }: { menuData: SideBarMenuDataTypes }) {
   return (
-    <Collapsible
-      key={menuData.SidebarMenuButtonName}
-      defaultOpen
-      className="group/collapsible"
-    >
+    <Collapsible defaultOpen className="group/collapsible">
       <SidebarMenuItem>
         <CollapsibleTrigger asChild>
           {/* re creating the MenuButton to keep things simple (two buttons same work one in the SideBar_Menu and one is this-) */}
           <SidebarMenuButton className="group flex gap-1 text-xs">
             <menuData.SidebarMenuButtonIcon className="h-3! w-4! text-red-400" />{" "}
             {menuData.SidebarMenuButtonName}
-            <ChevronRightIcon className="ml-auto group-data-[state=open]:rotate-90" />
+            <ChevronRightIcon className="ml-auto h-3! group-data-[state=open]:rotate-90" />
           </SidebarMenuButton>
         </CollapsibleTrigger>
-        <CollapsibleContent className="flex flex-col items-start justify-between gap-1 pl-6">
+        <CollapsibleContent className="flex flex-col items-start justify-between gap-1 px-9 pl-6">
           {menuData.CollapsedData?.map((x) => {
             return (
               <button
-                className="flex gap-1 px-3 py-1 font-sans text-xs text-zinc-500 transition-colors duration-200 hover:text-black dark:text-zinc-400 hover:dark:text-white"
+                className="flex w-full gap-1 rounded border border-transparent px-3 py-1 font-sans text-xs text-zinc-500 transition-colors duration-200 hover:border-zinc-600 hover:text-black dark:text-zinc-400 hover:dark:text-white"
                 key={x.CollapsedDataButtonName}
               >
                 {x.CollapsedDataIcon && (
@@ -145,13 +150,32 @@ function CollapseComp({ menuData }: { menuData: SideBarMenuDataTypes }) {
 }
 
 function Footer() {
+  const AnimateRef = useRef<IconHandle>(null);
   return (
     <SidebarFooter>
       <SidebarMenu>
-        <SidebarMenuItem>
-          <SidebarMenuButton>
-            <User2 /> Username
-          </SidebarMenuButton>
+        <SidebarMenuItem className="flex flex-col items-center gap-2 rounded-none border-y">
+          {/* UserProfile_Username and settings */}
+          <SidebarGroup className="flex-row gap-5 pb-0">
+            <SidebarMenuButton className="text-xs">
+              <Avatar className="h-6 w-6 transition-all duration-200 hover:scale-110">
+                <AvatarImage src={""} alt={""} />
+                <AvatarFallback>{""}</AvatarFallback>
+              </Avatar>{" "}
+              Username
+            </SidebarMenuButton>
+            <SidebarMenuButton
+              className="flex w-fit items-center justify-center border"
+              {...animateIconUsingRef(AnimateRef)}
+            >
+              <SettingsIcon ref={AnimateRef} />
+            </SidebarMenuButton>
+          </SidebarGroup>
+          <SidebarGroup>
+            <SidebarMenuButton className="bg-transparent!">
+              <BackToHomeButton className="mx-10 w-full text-xs" />
+            </SidebarMenuButton>
+          </SidebarGroup>
         </SidebarMenuItem>
       </SidebarMenu>
     </SidebarFooter>

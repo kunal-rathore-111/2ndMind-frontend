@@ -8,7 +8,11 @@ import {
 import { useNavigate } from "react-router";
 import { ButtonsClass } from "@/lib/constants/styles";
 
-export default function BackToHomeButton() {
+export default function BackToHomeButton({
+  className,
+}: {
+  className?: string;
+}) {
   const navigate = useNavigate();
   const AnimateRef = useRef<IconHandle>(null);
   return (
@@ -16,6 +20,7 @@ export default function BackToHomeButton() {
       className={cn(
         ButtonsClass,
         "flex cursor-pointer gap-2 px-2 py-1 text-sm",
+        className,
       )}
       {...animateIconUsingRef(AnimateRef)}
       onClick={() => {
