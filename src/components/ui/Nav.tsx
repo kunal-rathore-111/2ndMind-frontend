@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { Button } from "./Buttons/shadcnButton";
+import { Button } from "./Buttons/button";
 import { GithubIcon } from "@/assets/icons/Github";
 import { BookTextIcon } from "@/assets/icons/Book";
 import { useState } from "react";
@@ -15,6 +15,8 @@ export const Nav = () => {
     { label: "Features", action: () => handleScrollTo("features") },
     { label: "Blog", action: () => {} },
     { label: "Docs", action: () => navigate("/docs") },
+    // will remove later after comletion of dashboard page
+    { label: "Dashboard", action: () => navigate("/user/dashboard") },
   ];
 
   const handleScrollTo = (id: string) => {

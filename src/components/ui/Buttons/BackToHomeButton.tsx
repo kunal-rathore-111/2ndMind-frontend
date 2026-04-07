@@ -13,7 +13,10 @@ export default function BackToHomeButton() {
   const AnimateRef = useRef<IconHandle>(null);
   return (
     <div
-      className={cn(ButtonsClass, "flex gap-2 px-2 py-1 text-sm")}
+      className={cn(
+        ButtonsClass,
+        "flex cursor-pointer gap-2 px-2 py-1 text-sm",
+      )}
       {...animateIconUsingRef(AnimateRef)}
       onClick={() => {
         navigate("/");

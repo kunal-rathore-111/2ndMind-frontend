@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="grid grid-cols-2 py-8 max-sm:mx-auto max-sm:max-w-sm md:grid-cols-5">
           <div className="col-span-full mb-10 flex w-full flex-col items-center md:col-span-3 md:mb-0 md:items-start">
             <div className="flex items-center gap-1">
-              <BookTextIcon size={22} className="mr-1 inline-block" />
+              <BookTextIcon size={22} className="inline-block" />
               <span className="font-semibold">2nd Mind</span>
             </div>
             <p className="max-w-55 py-4 text-sm wrap-break-word text-black/40 md:text-start lg:mx-0 lg:text-left dark:text-zinc-300/40">

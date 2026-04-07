@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { Button } from "./Buttons/shadcnButton";
+import { Button } from "./Buttons/button";
 import GlareHover from "./GlareHover";
 import { CardBody, CardContainer, CardItem } from "./3d-card";
 import { useEffect, useState } from "react";
@@ -9,7 +9,7 @@ export default function GetStarted2() {
 
   const [dimensions, setDimensions] = useState({
     width: "300px",
-    height: "200px",
+    height: "150px",
   });
 
   /* to give card height and width on the basis of real time width */
@@ -34,7 +34,7 @@ export default function GetStarted2() {
         <div className="flex items-center justify-center">
           <CardContainer className="inter-var rounded-4xl border-2 dark:border-zinc-400">
             <GlareHover
-              className="flex items-center justify-center"
+              className="z-0 flex items-center justify-center"
               background="transparent"
               borderColor="transparent"
               height={dimensions.height}

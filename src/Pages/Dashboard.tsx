@@ -1,3 +1,13 @@
+import { AppSideBar } from "@/components/ui/Dashboard/SideBarLayout";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+
 export default function Dashboard() {
-  return <div>Hi from Dashboard</div>;
+  return (
+    <SidebarProvider>
+      <AppSideBar />
+      <main>
+        <SidebarTrigger />
+      </main>
+    </SidebarProvider>
+  );
 }

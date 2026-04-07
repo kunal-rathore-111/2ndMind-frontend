@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef } from "react";
 import { Link } from "react-router";
-import { Button } from "../Buttons/shadcnButton";
+import { Button } from "../Buttons/button";
 import { FloatingLabelInput } from "../FloatingLabelInput";
 import ThemeHomeComp from "../ThemeHomeComp";
 

@@ -2,7 +2,7 @@ import { GithubIcon } from "@/assets/icons/Github";
 import CardOutline from "@/components/CardOutline";
 
 import BackToHome_MoveUpComp from "@/components/ui/BackToHome_MoveUpComp";
-import { Button } from "@/components/ui/Buttons/shadcnButton";
+import { Button } from "@/components/ui/Buttons/button";
 import DotComp from "@/components/ui/Dot";
 import ThemeHomeComp from "@/components/ui/ThemeHomeComp";
 import { colors } from "@/lib/constants/colors";

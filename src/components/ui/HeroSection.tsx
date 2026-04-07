@@ -1,6 +1,6 @@
 import { ClapIcon } from "@/assets/icons/Demo";
 import { SendIcon } from "@/assets/icons/Send";
-import { Button } from "@/components/ui/Buttons/shadcnButton";
+import { Button } from "@/components/ui/Buttons/button";
 import { motion } from "framer-motion";
 import { GlobeIcon } from "@/assets/icons/Globe";
 import { useNavigate } from "react-router";
