@@ -17,7 +17,7 @@ import {
 import { BookTextIcon } from "@/assets/icons/Book";
 import ThemeToggleButton from "../Buttons/ThemeButton";
 import { PlusIcon } from "@/assets/icons/Plus";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   animateIconUsingRef,
   type IconHandle,
@@ -42,8 +42,16 @@ import {
   type SideBarMenuDataTypes,
 } from "@/lib/constants/content/DashboardSample";
 import { Avatar, AvatarFallback, AvatarImage } from "../avatar";
-import BackToHomeButton from "../Buttons/BackToHomeButton";
 import { SettingsIcon } from "@/assets/icons/Settings";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "../dropdown-menu";
+import { useNavigate } from "react-router";
 
 export function AppSideBar() {
   return (
@@ -56,14 +64,20 @@ export function AppSideBar() {
 }
 
 function Header() {
+  const navigate = useNavigate();
   const AnimateRef = useRef<IconHandle>(null);
   return (
     <SidebarHeader>
       <div className="flex flex-col gap-7 p-3">
         <div className="flex w-full items-center justify-between">
-          <div className="flex items-center justify-center md:gap-1 lg:gap-2">
+          <button
+            className="flex cursor-pointer items-center justify-center md:gap-1 lg:gap-2"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             <BookTextIcon size={18} className="inline-block" /> 2nd Mind
-          </div>
+          </button>
           <ThemeToggleButton />
         </div>
         <Button
@@ -151,12 +165,26 @@ function CollapseComp({ menuData }: { menuData: SideBarMenuDataTypes }) {
 
 function Footer() {
   const AnimateRef = useRef<IconHandle>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      return window.removeEventListener("resize", handleResize);
+    };
+  }, [window.innerWidth]);
   return (
-    <SidebarFooter>
+    <SidebarFooter
+      onMouseLeave={width > 800 ? () => setIsOpen(false) : undefined}
+      /* need to fix for mobiles */
+      onClick={() => setIsOpen(!isOpen)}
+    >
       <SidebarMenu>
         <SidebarMenuItem className="flex flex-col items-center gap-2 rounded-none border-y">
           {/* UserProfile_Username and settings */}
-          <SidebarGroup className="flex-row gap-5 pb-0">
+          <SidebarGroup className="flex-row gap-5 px-1 py-2">
             <SidebarMenuButton className="text-xs">
               <Avatar className="h-6 w-6 transition-all duration-200 hover:scale-110">
                 <AvatarImage src={""} alt={""} />
@@ -164,17 +192,28 @@ function Footer() {
               </Avatar>{" "}
               Username
             </SidebarMenuButton>
-            <SidebarMenuButton
-              className="flex w-fit items-center justify-center border"
-              {...animateIconUsingRef(AnimateRef)}
-            >
-              <SettingsIcon ref={AnimateRef} />
-            </SidebarMenuButton>
-          </SidebarGroup>
-          <SidebarGroup>
-            <SidebarMenuButton className="bg-transparent!">
-              <BackToHomeButton className="mx-10 w-full text-xs" />
-            </SidebarMenuButton>
+            <DropdownMenu open={isOpen}>
+              <DropdownMenuTrigger
+                asChild
+                onMouseEnter={width > 800 ? () => setIsOpen(true) : undefined}
+              >
+                <SidebarMenuButton
+                  className="flex w-fit items-center justify-center border"
+                  {...animateIconUsingRef(AnimateRef)}
+                >
+                  <SettingsIcon ref={AnimateRef} />
+                </SidebarMenuButton>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuItem>Profile</DropdownMenuItem>
+                </DropdownMenuGroup>
+                <DropdownMenuGroup>
+                  <DropdownMenuItem>Logout</DropdownMenuItem>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </SidebarGroup>
         </SidebarMenuItem>
       </SidebarMenu>

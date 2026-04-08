@@ -20,7 +20,7 @@ interface TagsDTO {
 export default function Tags({ tags, childVariant }: TagsDTO) {
   return (
     <div className="flex flex-wrap gap-2">
-      {tags.map((tag, idx) => {
+      {tags.slice(0, 3).map((tag, idx) => {
         const color = getColor(tag);
 
         return (
@@ -29,7 +29,7 @@ export default function Tags({ tags, childVariant }: TagsDTO) {
             variants={childVariant ?? undefined}
             custom={childVariant ? idx : 0}
             className={cn(
-              "rounded-full border px-3 py-1 text-[12px]",
+              "py rounded border px-1 text-[12px]",
               color.light,
               color.dark,
             )}

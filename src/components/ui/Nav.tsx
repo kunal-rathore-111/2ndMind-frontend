@@ -17,6 +17,10 @@ export const Nav = () => {
     { label: "Docs", action: () => navigate("/docs") },
     // will remove later after comletion of dashboard page
     { label: "Dashboard", action: () => navigate("/user/dashboard") },
+    {
+      label: "SharedProfile",
+      action: () => navigate("/user/public/shared/profile"),
+    },
   ];
 
   const handleScrollTo = (id: string) => {

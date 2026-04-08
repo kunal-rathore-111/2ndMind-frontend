@@ -2,14 +2,14 @@
 
 import { LinkIcon } from "@/assets/icons/Link";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
-import { useRef } from "react";
+import { useRef, type RefObject } from "react";
 
 import Tags from "@/lib/utils/Tags";
 import { ShareIcon } from "@/assets/icons/Share";
 import { EditIcon } from "@/assets/icons/Edit";
 import { DeleteIcon } from "@/assets/icons/Delete";
 import { BrowserIcon } from "@/assets/icons/Brower";
-import type { CardDTO } from "@/lib/constants/content/SampleCardData";
+import { type CardDTO } from "@/lib/constants/content/SampleCardData";
 import { easeInOut, motion } from "framer-motion";
 import type { IconHandle } from "@/lib/utils/IconAnimateRef";
 import { ShareOffIcon } from "@/assets/icons/Shareoff";
@@ -20,17 +20,6 @@ export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
     hidden: {},
     show: {
       transition: { staggerChildren: 0.4 },
-    },
-  };
-  const child = {
-    hidden: { opacity: 0, y: 10 },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.4,
-        ease: easeInOut,
-      },
     },
   };
   const iconParent = {
@@ -57,7 +46,11 @@ export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
   return (
     <CardContainer className="inter-var">
       <motion.div variants={parent} initial={"hidden"} animate="show">
-        <CardBody className="relative h-auto w-auto rounded-xl bg-zinc-100 p-6 text-start shadow-sm shadow-zinc-900 sm:w-65 dark:bg-zinc-950/80 dark:shadow-zinc-300/90">
+        <CardBody
+          className={
+            '"relative dark:shadow-zinc-300/90" h-auto w-auto rounded-xl bg-zinc-100 p-6 text-start shadow-sm shadow-zinc-900 sm:h-65 sm:w-85 dark:bg-zinc-950/80'
+          }
+        >
           <CardItem
             className="w-full text-xs"
             onMouseEnter={() =>
@@ -105,33 +98,14 @@ export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
               </div>
             </motion.div>
 
-            <div className="flex flex-col gap-2">
-              <motion.div variants={child}>
-                <CardItem
-                  translateZ="60"
-                  className="mt-2 max-w-sm text-sm font-semibold"
-                >
-                  {cardData.contentTitle}
-                </CardItem>
-              </motion.div>
-              <motion.div variants={child}>
-                <CardItem
-                  translateZ="60"
-                  className="max-w-sm text-sm font-thin text-gray-600/90 dark:text-zinc-400/70"
-                >
-                  {cardData.contentDescription}
-                </CardItem>
-              </motion.div>
-              <motion.div variants={child}>
-                <CardItem translateZ="60" className="mt-2 max-w-sm text-sm">
-                  <Tags tags={cardData.tags} />
-                </CardItem>
-              </motion.div>
-            </div>
+            <CardContentSection cardData={cardData} />
+
             <CardItem
               translateZ={-20}
               translateY="24"
-              className="mt-4 flex w-full items-center justify-between text-xs"
+              className={
+                "mt-4 flex w-full items-center justify-between text-xs"
+              }
             >
               <motion.div variants={subchild}>{cardData.date}</motion.div>
               <motion.div className="flex gap-2" variants={iconParent}>
@@ -151,5 +125,44 @@ export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
         </CardBody>
       </motion.div>
     </CardContainer>
+  );
+}
+
+export function CardContentSection({ cardData }: { cardData: CardDTO }) {
+  const child = {
+    hidden: { opacity: 0, y: 10 },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        ease: easeInOut,
+      },
+    },
+  };
+  return (
+    <div className="flex flex-col gap-2">
+      <motion.div variants={child}>
+        <CardItem
+          translateZ="60"
+          className="mt-2 max-w-sm text-sm font-semibold"
+        >
+          {cardData.contentTitle}
+        </CardItem>
+      </motion.div>
+      <motion.div variants={child}>
+        <CardItem
+          translateZ="60"
+          className="max-w-sm text-sm font-thin text-gray-600/90 dark:text-zinc-400/70"
+        >
+          {cardData.contentDescription}
+        </CardItem>
+      </motion.div>
+      <motion.div variants={child}>
+        <CardItem translateZ="60" className="mt-2 max-w-sm text-sm">
+          <Tags tags={cardData.tags} />
+        </CardItem>
+      </motion.div>
+    </div>
   );
 }

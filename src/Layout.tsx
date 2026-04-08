@@ -24,7 +24,7 @@ export default function Layout() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/user/dashboard" element={<Dashboard />} />
           <Route
-            path="/user/public/shared/profile"
+            path="/user/public/shared/profile/:profileHash"
             element={<SharedProfile />}
           />
           <Route
