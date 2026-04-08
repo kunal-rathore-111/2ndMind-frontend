@@ -15,7 +15,7 @@ export const Nav = () => {
     { label: "Features", action: () => handleScrollTo("features") },
     { label: "Blog", action: () => {} },
     { label: "Docs", action: () => navigate("/docs") },
-    // will remove later after comletion of dashboard page
+    // will update later after comletion of dashboard page to only when authenticated
     { label: "Dashboard", action: () => navigate("/user/dashboard") },
     {
       label: "SharedProfile",
@@ -48,7 +48,7 @@ export const Nav = () => {
                 />
               </div>
               <span className="font-bold tracking-[-0.03em] text-zinc-900 dark:text-zinc-100">
-                Luci
+                Neptune
               </span>
             </div>
           </div>

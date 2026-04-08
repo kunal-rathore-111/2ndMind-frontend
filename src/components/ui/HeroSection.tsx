@@ -9,7 +9,7 @@ import { AvatarGroupComp } from "./AvatarGroup";
 
 export default function HeroWrapper() {
   return (
-    <div className="relative flex min-h-screen items-center justify-center pt-12">
+    <div className="relative flex min-h-screen items-center justify-center border-2 pt-12">
       <DotPattern
         cr={1.5}
         className="z-0 opacity-75 [-webkit-mask-image:radial-gradient(circle_at_center,transparent_45%,black_90%)]"
@@ -27,8 +27,7 @@ function HeroSection() {
       <div className="md:space-y-6 lg:space-y-4">
         <div className="flex flex-col gap-6">
           <h1 className="text-8xl leading-25 font-semibold">
-            Luci, Your Second <br />
-            Mind with AI
+            Neptune, <br /> Your Second Mind <br /> with AI
           </h1>
           <div>
             <p className="text-zinc-400 dark:text-zinc-600">
