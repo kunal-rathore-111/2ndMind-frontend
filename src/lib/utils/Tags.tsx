@@ -15,12 +15,18 @@ function getColor(tag: string) {
 interface TagsDTO {
   tags: string[];
   childVariant?: Variants;
+  shouldSlice?: boolean;
 }
 
-export default function Tags({ tags, childVariant }: TagsDTO) {
+export default function Tags({
+  tags,
+  childVariant,
+  shouldSlice = true,
+}: TagsDTO) {
+  const displayTags = shouldSlice ? tags.slice(0, 3) : tags;
   return (
     <div className="flex flex-wrap gap-2">
-      {tags.slice(0, 3).map((tag, idx) => {
+      {displayTags.map((tag, idx) => {
         const color = getColor(tag);
 
         return (

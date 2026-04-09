@@ -7,7 +7,7 @@ import { ShareOffIcon } from "@/assets/icons/Shareoff";
 import type { CardDTO } from "@/lib/constants/content/SampleCardData";
 import Tags from "@/lib/utils/Tags";
 import { LinkIcon } from "lucide-react";
-import type { Dispatch, SetStateAction } from "react";
+import { useEffect, type Dispatch, type SetStateAction } from "react";
 
 export function LongContentCard({
   selectedCard,
@@ -16,11 +16,19 @@ export function LongContentCard({
   selectedCard: CardDTO;
   setSelectedCard: Dispatch<SetStateAction<CardDTO | null>>;
 }) {
+  /* effect to toggle the scroll of main page on card open and close */
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
   return (
-    <div className="absolute inset-0 z-50 flex justify-center py-40 backdrop-blur-xs">
-      <div className="relative flex h-fit max-w-200 flex-col rounded-xl bg-zinc-100 p-7 text-start text-xs shadow-sm shadow-zinc-900 dark:bg-zinc-950/80 dark:shadow-zinc-300/90">
-        {/* using the plus as cross by rotating */}
-        <span className="absolute -top-2 -right-2 rounded-full border bg-zinc-300 p-0.5">
+    <div className="fixed inset-0 z-10 flex max-h-screen items-center justify-center bg-black/30 backdrop-blur-xs">
+      <div className="relative flex h-fit max-h-[90vh] max-w-200 flex-col rounded-xl border bg-zinc-100 p-7 text-start text-xs shadow-sm shadow-zinc-900 dark:bg-zinc-950/80 dark:shadow-zinc-300/90">
+        {/* using the plus as crossIcon by rotating */}
+        <span className="absolute -top-2 -right-2 z-20 rounded-full border bg-zinc-300 p-0.5">
           {
             <PlusIcon
               onClick={() => {
@@ -33,7 +41,7 @@ export function LongContentCard({
         </span>
 
         {/* to gap bw the entire data and the date part  */}
-        <div className="space-y-10">
+        <div className="space-y-10 overflow-y-auto px-10">
           {/*  header+content of card */}
           <div className="space-y-6">
             {/* for the header of card */}
@@ -70,7 +78,7 @@ export function LongContentCard({
                 </div>
                 <div>
                   <div className="max-w-sm text-sm">
-                    <Tags tags={selectedCard.tags} />{" "}
+                    <Tags tags={selectedCard.tags} shouldSlice={false} />{" "}
                   </div>
                 </div>
               </div>

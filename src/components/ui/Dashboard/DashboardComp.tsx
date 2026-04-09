@@ -42,8 +42,10 @@ export default function DashboardComp() {
             </motion.div>
           );
         })}
+
+        {/* render the card data on full screen */}
+        {<RenderSelectedCard />}
       </div>
-      {selectedCard && <RenderSelectedCard />}
     </div>
   );
 }
