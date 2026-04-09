@@ -9,7 +9,7 @@ import { AvatarGroupComp } from "./AvatarGroup";
 
 export default function HeroWrapper() {
   return (
-    <div className="relative flex min-h-screen items-center justify-center border-2 pt-12">
+    <div className="relative flex min-h-screen items-center justify-center pt-12">
       <DotPattern
         cr={1.5}
         className="z-0 opacity-75 [-webkit-mask-image:radial-gradient(circle_at_center,transparent_45%,black_90%)]"

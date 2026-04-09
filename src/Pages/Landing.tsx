@@ -13,7 +13,6 @@ export default function Landing() {
       <Nav />
       <main className="flex w-full flex-col space-y-32 px-4">
         <div>
-          {" "}
           <HeroWrapper />
           <Categories />
         </div>
