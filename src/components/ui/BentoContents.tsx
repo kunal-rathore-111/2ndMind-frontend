@@ -161,12 +161,18 @@ export function Col2Row1() {
           </motion.div>
           {/* tags content poping using parent child using variants */}
           <motion.div
-            className="text-sm"
+            className="flex items-center justify-center"
             variants={tagsParentVariant}
             initial={"hidden"}
             animate={"show"}
           >
-            {<Tags tags={tags} childVariant={tagsChildVariant} />}
+            {
+              <Tags
+                tags={tags}
+                childVariant={tagsChildVariant}
+                shouldSlice={false}
+              />
+            }
           </motion.div>
 
           <motion.div

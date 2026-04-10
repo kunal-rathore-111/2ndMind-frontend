@@ -1,4 +1,4 @@
-import { Link } from "lucide-react";
+import { Link, Link2, Type } from "lucide-react";
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "../field";
 import {
@@ -12,6 +12,8 @@ import { Input } from "../input";
 import { TagsInputComp } from "./TagsInput";
 import { Checkbox } from "../checkbox";
 import { Textarea } from "../textarea";
+import { LinkIcon } from "@/assets/icons/Link";
+import { KeyboardIcon } from "@/assets/icons/Keyboard";
 
 interface AddBookMarkCardDTO {
   setOpenAddCard: Dispatch<SetStateAction<boolean>>;
@@ -44,10 +46,8 @@ export default function AddBookMarkCard({
             }
           </span>
 
-          {/* to gap bw the entire data and the date part  */}
-          <div className="space-y-10 overflow-y-auto px-10">
-            {/*  header+content of card */}
-            <div className="space-y-6">
+          <div className="overflow-y-auto px-10">
+            <form className="space-y-6">
               {/* for the header of card */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -68,7 +68,7 @@ export default function AddBookMarkCard({
               >
                 Submit
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -82,26 +82,32 @@ function InputSection() {
     <FieldGroup className="max-w-sm gap-5">
       <Field className="gap-1">
         <FieldLabel htmlFor="block-start-input ">URL</FieldLabel>
-        <InputGroup className="rounded-md border-2 border-yellow-600 focus:border-2 has-[[data-slot=input-group-control]:focus-visible]:border-red-400 has-[[data-slot=input-group-control]:focus-visible]:ring-0">
-          <InputGroupInput placeholder="https://example.com" />
+        <InputGroup className="rounded-md border-2 focus:border-2 has-[[data-slot=input-group-control]:focus-visible]:border-yellow-600 has-[[data-slot=input-group-control]:focus-visible]:ring-0">
+          <InputGroupInput placeholder="https://example.com " />
+          <InputGroupAddon>
+            <LinkIcon size={18} />
+          </InputGroupAddon>
         </InputGroup>
       </Field>
       <Field className="gap-1">
         <FieldLabel htmlFor="block-start-input ">Title</FieldLabel>
-        <InputGroup className="rounded-md border-2 border-yellow-600 focus:border-2 has-[[data-slot=input-group-control]:focus-visible]:border-red-400 has-[[data-slot=input-group-control]:focus-visible]:ring-0">
+        <InputGroup className="rounded-md border-2 has-[[data-slot=input-group-control]:focus-visible]:border-yellow-600 has-[[data-slot=input-group-control]:focus-visible]:ring-0">
           <InputGroupInput placeholder="Title of content" />
+          <InputGroupAddon>
+            <KeyboardIcon size={18} />
+          </InputGroupAddon>
         </InputGroup>
       </Field>
 
       <Field className="gap-1">
         <FieldLabel htmlFor="block-start-input ">Description</FieldLabel>
-        <InputGroup className="rounded-md border-2 border-yellow-600 focus:border-2 has-[[data-slot=input-group-control]:focus-visible]:border-red-400 has-[[data-slot=input-group-control]:focus-visible]:ring-0">
+        <InputGroup className="rounded-md border-2 focus:border-2 has-[[data-slot=input-group-control]:focus-visible]:border-yellow-600 has-[[data-slot=input-group-control]:focus-visible]:ring-0">
           <Textarea
             id="message"
             value={description}
             placeholder="How can we help?"
             onChange={(e) => setDescription(e.target.value)}
-          />
+          ></Textarea>
         </InputGroup>
       </Field>
       <Field className="gap-1">
@@ -110,8 +116,8 @@ function InputSection() {
       </Field>
 
       <div className="flex items-center gap-3 py-2">
-        Make shareable{" "}
-        <Checkbox className="inline-block border-black transition-all duration-300" />
+        Make shareable
+        <Checkbox className="inline-block border-black transition-all duration-200 ease-in" />
       </div>
     </FieldGroup>
   );

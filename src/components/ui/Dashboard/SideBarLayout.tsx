@@ -55,7 +55,7 @@ import { useNavigate } from "react-router";
 
 export function AppSideBar() {
   return (
-    <Sidebar>
+    <Sidebar className="dark:bg-stone-950">
       <Header />
       <Content />
       <Footer />

@@ -46,11 +46,7 @@ export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
   return (
     <CardContainer className="inter-var">
       <motion.div variants={parent} initial={"hidden"} animate="show">
-        <CardBody
-          className={
-            '"relative dark:shadow-zinc-300/90" h-auto w-auto rounded-xl bg-zinc-100 p-6 text-start shadow-sm shadow-zinc-900 sm:h-65 sm:w-85 dark:bg-zinc-950/80'
-          }
-        >
+        <CardBody className="relative flex flex-col justify-evenly rounded-xl bg-zinc-100 p-3 text-start text-xs shadow-sm shadow-zinc-900 sm:h-65 dark:bg-zinc-950/80 dark:shadow-zinc-300/90">
           <CardItem
             className="w-full text-xs"
             onMouseEnter={() =>
@@ -62,65 +58,63 @@ export function ThreeDCardDemo({ cardData }: { cardData: CardDTO }) {
             translateZ="90"
             translateY={-15}
           >
-            <motion.div className="mb-2 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <cardData.categoryIcon
-                  size={18}
-                  className="rounded-sm border-2 border-black/50 p-1 dark:border-white/50"
-                  ref={(el) => {
-                    IconRef.current[0] = el;
-                  }}
-                />
-                <h5>{cardData.category}</h5>
-              </div>
-              <div className="flex items-center gap-1">
-                {cardData.isShared ? (
-                  <>
-                    <LinkIcon
-                      ref={(el) => {
-                        IconRef.current[1] = el;
-                      }}
-                      size={18}
-                    />
-                    <span>Shared</span>
-                  </>
-                ) : (
-                  <>
-                    <LinkOffIcon
-                      ref={(el) => {
-                        IconRef.current[1] = el;
-                      }}
-                      size={18}
-                    />
-                    <span>Not Shared</span>
-                  </>
-                )}
-              </div>
-            </motion.div>
-
-            <CardContentSection cardData={cardData} />
-
-            <CardItem
-              translateZ={-20}
-              translateY="24"
-              className={
-                "mt-4 flex w-full items-center justify-between text-xs"
-              }
-            >
-              <motion.div variants={subchild}>{cardData.date}</motion.div>
-              <motion.div className="flex gap-2" variants={iconParent}>
-                {[
-                  EditIcon,
-                  cardData.isShared ? ShareIcon : ShareOffIcon,
-                  DeleteIcon,
-                  BrowserIcon,
-                ].map((Icon, idx) => (
-                  <motion.div key={idx} variants={subchild}>
-                    <Icon size={18} />
-                  </motion.div>
-                ))}
+            <div>
+              <motion.div className="mb-2 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <cardData.categoryIcon
+                    size={18}
+                    className="rounded-sm border-2 border-black/50 p-1 dark:border-white/50"
+                    ref={(el) => {
+                      IconRef.current[0] = el;
+                    }}
+                  />
+                  <h5>{cardData.category}</h5>
+                </div>
+                <div className="flex items-center gap-1">
+                  {cardData.isShared ? (
+                    <>
+                      <LinkIcon
+                        ref={(el) => {
+                          IconRef.current[1] = el;
+                        }}
+                        size={18}
+                      />
+                      <span>Shared</span>
+                    </>
+                  ) : (
+                    <>
+                      <LinkOffIcon
+                        ref={(el) => {
+                          IconRef.current[1] = el;
+                        }}
+                        size={18}
+                      />
+                      <span>Not Shared</span>
+                    </>
+                  )}
+                </div>
               </motion.div>
-            </CardItem>
+            </div>{" "}
+          </CardItem>
+          <CardContentSection cardData={cardData} />
+          <CardItem
+            translateZ={-20}
+            translateY="24"
+            className={"mt-4 flex w-full items-center justify-between text-xs"}
+          >
+            <motion.div variants={subchild}>{cardData.date}</motion.div>
+            <motion.div className="flex gap-2" variants={iconParent}>
+              {[
+                EditIcon,
+                cardData.isShared ? ShareIcon : ShareOffIcon,
+                DeleteIcon,
+                BrowserIcon,
+              ].map((Icon, idx) => (
+                <motion.div key={idx} variants={subchild}>
+                  <Icon size={18} />
+                </motion.div>
+              ))}
+            </motion.div>
           </CardItem>
         </CardBody>
       </motion.div>

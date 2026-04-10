@@ -25,7 +25,7 @@ export default function Tags({
 }: TagsDTO) {
   const displayTags = shouldSlice ? tags.slice(0, 3) : tags;
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-4">
       {displayTags.map((tag, idx) => {
         const color = getColor(tag);
 
@@ -35,7 +35,7 @@ export default function Tags({
             variants={childVariant ?? undefined}
             custom={childVariant ? idx : 0}
             className={cn(
-              "py rounded border px-1 text-[12px]",
+              "py mx-2 rounded border px-1 text-[12px]",
               color.light,
               color.dark,
             )}
