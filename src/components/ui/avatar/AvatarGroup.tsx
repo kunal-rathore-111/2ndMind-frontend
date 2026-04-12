@@ -1,13 +1,7 @@
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarImage,
-} from "@/components/ui/avatar";
-
 import Person1 from "@/assets/images/avatar/landing/person1.png";
 import Person2 from "@/assets/images/avatar/landing/person2.png";
 import Person3 from "@/assets/images/avatar/landing/person3.png";
+import { Avatar, AvatarFallback, AvatarGroup, AvatarImage } from "./avatar";
 
 export function AvatarGroupComp() {
   const AvatarDataArray = [
