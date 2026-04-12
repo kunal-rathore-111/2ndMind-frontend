@@ -1,4 +1,4 @@
-import PrivacyTerms from "@/components/ui/PrivacyTerms";
+import PrivacyTerms from "@/components/legal/PrivacyTerms";
 
 export default function TermsofServicePage() {
   const TermsofServiceDataArray = [

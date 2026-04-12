@@ -1,156 +1,27 @@
 import { GithubIcon } from "@/assets/icons/Github";
-import CardOutline from "@/components/CardOutline";
 
-import BackToHome_MoveUpComp from "@/components/ui/BackToHome_MoveUpComp";
-import { Button } from "@/components/ui/Buttons/button";
-import DotComp from "@/components/ui/Dot";
-import ThemeHomeComp from "@/components/ui/ThemeHomeComp";
-import { colors } from "@/lib/constants/colors";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/sharedComps/custom_buttons/button";
+import DotComp from "@/components/sharedComps/Dot";
+import ThemeHomeComp from "@/components/sharedComps/ThemeHomeComp";
+
 import { EmailLink, GithubRepo } from "@/lib/utils/SocialLinks_PolicyDate";
+import { HelpCircle, MailIcon } from "lucide-react";
 import {
-  FolderKanban,
-  HelpCircle,
-  MailIcon,
-  Puzzle,
-  Search,
-  Share2,
-  ShieldCheck,
-  Tags,
-  Zap,
-} from "lucide-react";
-import { Link } from "react-router";
+  FeaturesArray,
+  StepsArray,
+  TipsArray,
+} from "@/lib/constants/content/docs";
+import BackToHome_MoveUpComp from "@/components/sharedComps/BackToHome_MoveUpComp";
+import { FeaturesCard } from "@/components/Docs/FeaturesCard";
+import { StepsCard } from "@/components/Docs/StepsCard";
 
 export default function Docs() {
-  const StepsArray = [
-    {
-      title: "Step 1 - Sign up",
-      description:
-        "Create a free account in under 30 seconds. No credit card required.",
-    },
-    {
-      title: "Step 2 - Save",
-      description:
-        "Add your first bookmark using the dashboard or browser extension.",
-    },
-    {
-      title: "Step 3 - Organize",
-      description:
-        "Add tags and assign categories to keep everything structured.",
-    },
-    {
-      title: "Step 4 - Search",
-      description:
-        "Use instant search to find anything — titles, URLs, or tags.",
-    },
-  ];
-  const FeaturesArray = [
-    {
-      icon: Search,
-      title: "Instant Search",
-      description:
-        "Search across all your bookmarks by title, URL, tag, or description. Results appear as you type — no loading, no waiting.",
-    },
-    {
-      icon: Tags,
-      title: "Tags",
-      description:
-        "Add any number of tags to each bookmark. Tags are colour-coded and searchable. Expand the Tags section in the sidebar to filter by any tag.",
-    },
-    {
-      icon: FolderKanban,
-      title: "Categories",
-      description:
-        "Every bookmark belongs to a category — Development, Design, Productivity, DevOps, AI & Research, or Finance. Categories group your library automatically.",
-    },
-    {
-      icon: Share2,
-      title: "Sharing",
-      description:
-        "Toggle sharing on any bookmark to get a permanent public link. The public page shows the title, URL, tags, and description. You can turn sharing off at any time.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Privacy",
-      description:
-        "Bookmarks are private by default. Nothing is visible to anyone unless you explicitly share it. No ads, no data selling.",
-    },
-    {
-      icon: Puzzle,
-      title: "Browser Extension",
-      description:
-        "Install the extension for Chrome, Firefox, or Safari. Click the icon on any page to save instantly without leaving your current tab.",
-    },
-    {
-      icon: Zap,
-      title: "Performance",
-      description:
-        "2nd Mind is built for speed. The dashboard loads instantly, search is real-time, and bookmarks sync immediately across devices.",
-    },
-  ];
-
-  const TipsArray = [
-    {
-      text: (
-        <>
-          Create a free account on the{" "}
-          <Link
-            className="font-bold text-zinc-600 underline dark:text-zinc-400"
-            to={"/signup"}
-          >
-            Sign Up page
-          </Link>
-          .
-        </>
-      ),
-    },
-
-    {
-      text: (
-        <>
-          You'll land on the Dashboard. Click{" "}
-          <span className="font-bold text-zinc-600 dark:text-zinc-400">
-            + Add
-          </span>{" "}
-          to save your first bookmark.
-        </>
-      ),
-    },
-    {
-      text: "Assign a category and tags. Categories live in the sidebar; tags let you cross-reference across categories.",
-    },
-    {
-      text: (
-        <>
-          Use the{" "}
-          <span className="font-bold text-zinc-600 dark:text-zinc-400">
-            search bar
-          </span>{" "}
-          to find bookmarks instantly. You can search by title, URL, or tag.
-        </>
-      ),
-    },
-    {
-      text: (
-        <>
-          Click the
-          <span className="font-bold text-zinc-600 dark:text-zinc-400">
-            {" "}
-            share toggle{" "}
-          </span>{" "}
-          on any bookmark to generate a public link. Share it anywhere — it's
-          permanent until you turn sharing off.
-        </>
-      ),
-    },
-  ];
-
   return (
-    <div className="my-14 flex w-full flex-col items-start gap-5 rounded-2xl border px-14 py-10 text-start shadow-sm shadow-black dark:border-zinc-400 dark:shadow-zinc-200/70">
+    <main className="my-14 flex w-full flex-col items-start gap-5 rounded-2xl border px-14 py-10 text-start shadow-sm shadow-black dark:border-zinc-400 dark:shadow-zinc-200/70">
       <div className="border-b-2 py-8 lg:w-230">
         <div className="flex flex-col gap-10">
           {/*What is 2nd Mind?  */}
-          <div className="space-y-5">
+          <section className="space-y-5">
             <div className="flex w-full justify-between">
               <div className="flex w-fit items-center gap-1 rounded-sm border border-zinc-500 bg-zinc-200 px-2 text-xs text-zinc-600">
                 <DotComp /> Documentation
@@ -168,72 +39,30 @@ export default function Docs() {
                 track of what matters.
               </p>
             </div>
-          </div>
+          </section>
 
-          {/* Getting Started           */}
-          <div className="w-full">
+          {/* Getting Started */}
+          <section className="w-full">
             <div className="space-y-2">
               <h2 className="font-semibold"> Getting Started </h2>
               <p>Follow these steps to start building your bookmark library:</p>
             </div>
             <div className="my-6 grid grid-cols-2 gap-4">
-              {StepsArray.map((x, idx) => {
-                return (
-                  <CardOutline key={idx}>
-                    <h2
-                      className={cn(
-                        colors[idx % colors.length].light,
-                        colors[idx % colors.length].dark,
-                        "bg-transparent font-medium dark:bg-transparent",
-                      )}
-                    >
-                      {x.title}
-                    </h2>
-                    <p>{x.description}</p>
-                  </CardOutline>
-                );
+              {StepsArray.map((data, idx) => {
+                return <StepsCard idx={idx} data={data} />;
               })}
             </div>
-          </div>
+          </section>
 
-          {/* features */}
-          <div className="w-full">
+          {/* core features */}
+          <section className="w-full">
             <h2 className="font-semibold"> Core Features</h2>
             <div className="my-6 flex w-full flex-col gap-6">
-              {FeaturesArray.map((x, idx) => {
-                return (
-                  <div
-                    key={idx}
-                    className="flex h-auto w-full flex-col rounded-xl bg-zinc-100 p-6 px-5 py-3 text-start text-sm shadow-lg shadow-zinc-900/20 dark:bg-zinc-950/80 dark:shadow-zinc-800/50"
-                  >
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center gap-2">
-                        <span
-                          className={cn(
-                            colors[idx % colors.length].light,
-                            colors[idx % colors.length].dark,
-                            "rounded border p-1",
-                          )}
-                        >
-                          <x.icon size={14} />
-                        </span>
-                        <h2
-                          className={cn(
-                            colors[idx % colors.length].light,
-                            colors[idx % colors.length].dark,
-                            "bg-transparent font-medium dark:bg-transparent",
-                          )}
-                        >
-                          {x.title}
-                        </h2>
-                      </div>
-                      <p>{x.description}</p>
-                    </div>
-                  </div>
-                );
+              {FeaturesArray.map((data, idx) => {
+                return <FeaturesCard data={data} idx={idx} />;
               })}
             </div>
-          </div>
+          </section>
           {/* Tips */}
           <div className="flex flex-col gap-2">
             <h2 className="font-medium">Quick Tips</h2>
@@ -284,6 +113,6 @@ export default function Docs() {
         </div>
       </div>
       <BackToHome_MoveUpComp />
-    </div>
+    </main>
   );
 }

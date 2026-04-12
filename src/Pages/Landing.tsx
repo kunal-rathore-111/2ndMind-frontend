@@ -1,11 +1,11 @@
-import Audience from "@/components/ui/Audience";
-import Categories from "@/components/ui/Categories";
-import Features from "@/components/ui/Features";
-import Footer from "@/components/ui/Footer";
-import GetStarted2 from "@/components/ui/GetStarted2";
-import HeroWrapper from "@/components/ui/HeroSection";
-import { Nav } from "@/components/ui/Nav";
-import SampleCards from "@/components/ui/SampleCard";
+import Audience from "@/components/landing/audience/Audience";
+import Categories from "@/components/landing/categroies/Categories";
+import Features from "@/components/landing/features/Features";
+import GetStarted2 from "@/components/landing/getStarted2/GetStarted2";
+import HeroWrapper from "@/components/landing/herosection/HeroSection";
+import Footer from "@/components/landing/layout/Footer";
+import { Nav } from "@/components/landing/layout/Nav";
+import SampleCards from "@/components/landing/sampleCards/SampleCard";
 
 export default function Landing() {
   return (

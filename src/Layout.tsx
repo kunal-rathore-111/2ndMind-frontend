@@ -8,7 +8,7 @@ import SharedContent from "./Pages/SharedContent";
 import Docs from "./Pages/Docs";
 import ErrorPage from "./Pages/ErrorPage";
 import PrivacyPolicyPage from "./Pages/PrivacyPolicy";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/sharedComps/ScrollToTop";
 import TermsofServicePage from "./Pages/Terms";
 import ContactPage from "./Pages/Contact";
 

@@ -1,4 +1,4 @@
-import SignComp from "@/components/ui/Sign/Sign";
+import SignComp from "@/components/sign/Sign";
 
 export default function Signin() {
   return <SignComp mode="signin" />;

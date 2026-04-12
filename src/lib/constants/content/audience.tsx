@@ -1,7 +1,8 @@
 import Person1 from "@/assets/images/avatar/landing/person1.png";
 import Person2 from "@/assets/images/avatar/landing/person2.png";
 import Person3 from "@/assets/images/avatar/landing/person3.png";
-interface AudienceCommentArrayDTO {
+
+export interface AudienceCommentArrayDTO {
   comment: string;
   image: string;
   name: string;
