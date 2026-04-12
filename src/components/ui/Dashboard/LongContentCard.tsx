@@ -1,4 +1,5 @@
 import { BrowserIcon } from "@/assets/icons/Brower";
+import { XIcon } from "@/assets/icons/CloseIcon";
 import { DeleteIcon } from "@/assets/icons/Delete";
 import { EditIcon } from "@/assets/icons/Edit";
 import { PlusIcon } from "@/assets/icons/Plus";
@@ -27,14 +28,13 @@ export function LongContentCard({
   return (
     <div className="fixed inset-0 z-10 flex max-h-screen items-center justify-center bg-black/30 backdrop-blur-xs">
       <div className="relative flex h-fit max-h-[90vh] max-w-200 flex-col rounded-xl border bg-zinc-100 p-7 text-start text-xs shadow-sm shadow-zinc-900 dark:bg-zinc-950/80 dark:shadow-zinc-300/90">
-        {/* using the plus as crossIcon by rotating */}
         <span className="absolute -top-2 -right-2 z-20 rounded-full border bg-zinc-300 p-0.5">
           {
-            <PlusIcon
+            <XIcon
               onClick={() => {
                 setSelectedCard(null);
               }}
-              className="rotate-70 text-zinc-500"
+              className="text-zinc-500"
               size={20}
             />
           }

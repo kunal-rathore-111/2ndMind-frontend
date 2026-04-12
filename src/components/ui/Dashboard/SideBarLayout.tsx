@@ -3,13 +3,10 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
-  SidebarGroupAction,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuAction,
-  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "../sidebar";
@@ -23,15 +20,7 @@ import {
   type IconHandle,
 } from "@/lib/utils/IconAnimateRef";
 import { Button } from "../Buttons/button";
-import {
-  ChevronDown,
-  ChevronDownIcon,
-  ChevronRightIcon,
-  ChevronUp,
-  LogOutIcon,
-  Settings,
-  User2,
-} from "lucide-react";
+import { ChevronRightIcon } from "lucide-react";
 import {
   Collapsible,
   CollapsibleContent,
@@ -207,10 +196,14 @@ function Footer() {
               <DropdownMenuContent>
                 <DropdownMenuGroup>
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                  <DropdownMenuItem>Profile</DropdownMenuItem>
+                  <DropdownMenuItem className="focus:bg-black focus:text-white dark:focus:bg-white dark:focus:text-black">
+                    Profile
+                  </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuGroup>
-                  <DropdownMenuItem>Logout</DropdownMenuItem>
+                  <DropdownMenuItem className="focus:bg-black focus:text-white dark:focus:bg-white dark:focus:text-black">
+                    Logout
+                  </DropdownMenuItem>
                 </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>

@@ -14,6 +14,7 @@ import { Checkbox } from "../checkbox";
 import { Textarea } from "../textarea";
 import { LinkIcon } from "@/assets/icons/Link";
 import { KeyboardIcon } from "@/assets/icons/Keyboard";
+import { XIcon } from "@/assets/icons/CloseIcon";
 
 interface AddBookMarkCardDTO {
   setOpenAddCard: Dispatch<SetStateAction<boolean>>;
@@ -33,14 +34,13 @@ export default function AddBookMarkCard({
     <>
       <div className="fixed inset-0 z-10 flex max-h-screen items-center justify-center bg-black/30 backdrop-blur-xs">
         <div className="relative flex h-full max-h-[90vh] w-150 flex-col rounded-xl border bg-zinc-100 p-7 text-start text-xs shadow-sm shadow-zinc-900 dark:bg-zinc-950/80 dark:shadow-zinc-300/90">
-          {/* using the plus as crossIcon by rotating */}
           <span className="absolute -top-2 -right-2 z-20 rounded-full border bg-zinc-300 p-0.5">
             {
-              <PlusIcon
+              <XIcon
                 onClick={() => {
                   setOpenAddCard(false);
                 }}
-                className="rotate-70 text-zinc-500"
+                className="text-zinc-500"
                 size={20}
               />
             }
@@ -105,7 +105,7 @@ function InputSection() {
           <Textarea
             id="message"
             value={description}
-            placeholder="How can we help?"
+            placeholder="Optional notes..."
             onChange={(e) => setDescription(e.target.value)}
           ></Textarea>
         </InputGroup>
@@ -117,7 +117,7 @@ function InputSection() {
 
       <div className="flex items-center gap-3 py-2">
         Make shareable
-        <Checkbox className="inline-block border-black transition-all duration-200 ease-in" />
+        <Checkbox className="inline-block border-black transition-all duration-200 ease-in dark:border-white" />
       </div>
     </FieldGroup>
   );

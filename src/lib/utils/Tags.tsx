@@ -25,7 +25,7 @@ export default function Tags({
 }: TagsDTO) {
   const displayTags = shouldSlice ? tags.slice(0, 3) : tags;
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="flex flex-wrap gap-3">
       {displayTags.map((tag, idx) => {
         const color = getColor(tag);
 

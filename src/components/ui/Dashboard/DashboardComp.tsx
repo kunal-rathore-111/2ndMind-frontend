@@ -34,11 +34,12 @@ export default function DashboardComp() {
       <div className="my-4 grid grid-cols-2 gap-8 lg:grid-cols-3">
         {cards.map((cardData, idx) => {
           return (
-            <motion.div
-              layoutId={cardData.contentTitle}
-              onClick={() => setSelectedCard(cardData)}
-            >
-              <ContentCard key={idx} cardData={cardData} />
+            <motion.div layoutId={cardData.contentTitle}>
+              <ContentCard
+                key={idx}
+                cardData={cardData}
+                setSelectedCard={setSelectedCard}
+              />
             </motion.div>
           );
         })}
