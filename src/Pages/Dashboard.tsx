@@ -1,5 +1,5 @@
-import { DashboardComp } from "@/components/dashboard/Dashboard";
+import { FullDashboardPage } from "@/components/dashboard/Dashboard";
 
 export default function Dashboard() {
-  return <DashboardComp />;
+  return <FullDashboardPage />;
 }

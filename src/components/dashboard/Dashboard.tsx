@@ -10,8 +10,9 @@ import { Search } from "lucide-react";
 import { useState } from "react";
 import AddBookMarkCard from "./DashboardComps/AddBookmark";
 import { AppSideBar } from "./DashboardComps/SideBarLayout";
+import DashboardComp from "./DashboardComps/DashboardComp";
 
-export function DashboardComp() {
+export function FullDashboardPage() {
   const [addCardState, setOpenAddCard] = useState(false);
 
   return (
